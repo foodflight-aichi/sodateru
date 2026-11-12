@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  ============================================================
+  編集ガイド（公開前に差し替える場所）
+  ・【仮】と書かれた文言・数字はすべて仮置きです。ページ内検索で「仮」を探してください。
+  ・CROWDFUNDING_URL … クラウドファンディングのページURL（決まったら差し替え）
+  ・CONTACT_FORM_URL … 協賛・物品提供・ボランティアの申込フォーム（Googleフォーム等）
+  ・CONTACT_EMAIL     … 問い合わせ用メールアドレス
+  ・上記3つは下の <script> 冒頭の設定欄だけ書き換えれば全ボタンに反映されます。
+  ・SITE_URL（OGP用）は <head> 内の og:url を書き換えてください。
+  ============================================================
+-->
+<title>そだてる食堂</title>
+<meta name="description" content="愛知の倉庫に水耕栽培プラントをつくり、育てた野菜でこどもたちにごはんを届ける子ども食堂プロジェクト。クラウドファンディングと協賛を募集しています。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="そだてる食堂｜倉庫で野菜を育てて、こどもと食べる">
+<meta property="og:description" content="水耕栽培プラントを備えた子ども食堂をつくります。クラウドファンディング・協賛・物品提供・ボランティアを募集中。">
+<meta property="og:url" content="https://foodflight-aichi.github.io/sodateru/">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#1C2B22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Project",
+  "name": "そだてる食堂",
+  "description": "倉庫内の水耕栽培プラントで育てた野菜を使う子ども食堂プロジェクト",
+  "parentOrganization": {
+    "@type": "NGO",
+    "name": "フードフライト愛知",
+    "areaServed": "愛知県"
+  }
+}
+</script>
+<style>
+:root{
+  --bg:#EDEFEA;
+  --surface:#F7F8F4;
+  --ink:#1C2B22;
+  --ink-soft:#4A5A50;
+  --leaf:#2F7D3A;
+  --sprout:#9FD162;
+  --glow:#D23A97;
+  --steel:#8C9692;
+  --line:#CDD3CC;
+  --on-dark:#EEF3EA;
+  --dark:#1C2B22;
+  --radius-s:6px;
+  --radius-l:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121A15;
+    --surface:#1A241E;
+    --ink:#E6EDE4;
+    --ink-soft:#A9B6AC;
+    --leaf:#6CC07A;
+    --sprout:#A8DB6C;
+    --glow:#EE5CB4;
+    --steel:#6E7A74;
+    --line:#2C3A31;
+    --on-dark:#EEF3EA;
+    --dark:#0C120E;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121A15;--surface:#1A241E;--ink:#E6EDE4;--ink-soft:#A9B6AC;--leaf:#6CC07A;
+  --sprout:#A8DB6C;--glow:#EE5CB4;--steel:#6E7A74;--line:#2C3A31;--on-dark:#EEF3EA;--dark:#0C120E;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans JP",system-ui,sans-serif;font-size:16px;line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+a{color:var(--leaf)}
+:focus-visible{outline:3px solid var(--glow);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:"Zen Maru Gothic",sans-serif;line-height:1.35;margin:0;letter-spacing:.02em}
+h2{font-size:clamp(1.6rem,4.2vw,2.4rem);font-weight:900}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+.tmp{background:color-mix(in srgb,var(--glow) 14%,transparent);color:inherit;border-radius:3px;padding:0 .2em;font-size:.9em}
+
+/* header */
+.site-head{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{display:flex;align-items:center;gap:8px;font-family:"Zen Maru Gothic";font-weight:900;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.logo svg{width:26px;height:26px}
+.head-nav{display:flex;gap:20px;font-size:.92rem}
+.head-nav a{color:var(--ink-soft);text-decoration:none}
+.head-nav a:hover{color:var(--ink)}
+@media (max-width:760px){.head-nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:1rem;border:2px solid transparent;cursor:pointer}
+.btn-main{background:var(--glow);color:#fff}
+.btn-main:hover{filter:brightness(1.08)}
+.btn-sub{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-sub:hover{background:var(--ink);color:var(--bg)}
+.btn-s{min-height:40px;padding:0 16px;font-size:.9rem}
+
+/* hero */
+.hero{padding:48px 0 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:28px}
+.hero h1{font-size:clamp(1.9rem,7.4vw,3.5rem);font-weight:900;line-height:1.25}
+.hero h1 span{display:block;white-space:nowrap}
+@media (min-width:900px) and (max-width:1100px){.hero h1{font-size:3rem}}
+.hero-lead{margin-top:20px;font-size:1.05rem;color:var(--ink-soft);max-width:34em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-note{margin-top:12px;font-size:.85rem;color:var(--ink-soft)}
+.hero-art{margin-top:8px}
+@media (min-width:900px){
+  .hero{padding-top:72px}
+  .hero-grid{grid-template-columns:1fr 1.05fr;align-items:end}
+  .hero-text{padding-bottom:64px}
+}
+.glow-bar{animation:pulse 4.5s ease-in-out infinite}
+.glow-bar:nth-of-type(2){animation-delay:.6s}
+.glow-bar:nth-of-type(3){animation-delay:1.2s}
+@keyframes pulse{0%,100%{opacity:.95}50%{opacity:.6}}
+@media (prefers-reduced-motion:reduce){.glow-bar{animation:none}html{scroll-behavior:auto}}
+
+/* sections */
+section{padding:88px 0}
+.sec-head{max-width:40em;margin-bottom:40px}
+.sec-head p{margin-top:14px;color:var(--ink-soft)}
+
+/* cycle */
+.cycle{display:grid;gap:16px;grid-template-columns:1fr;counter-reset:c}
+.cycle li{list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:24px;position:relative}
+.cycle li::before{counter-increment:c;content:counter(c);font-family:"Zen Maru Gothic";font-weight:900;font-size:2.4rem;color:var(--sprout);line-height:1;display:block;margin-bottom:10px}
+.cycle li p{margin-top:8px;color:var(--ink-soft);font-size:.95rem}
+.cycle{padding:0;margin:0}
+@media (min-width:760px){.cycle{grid-template-columns:repeat(4,1fr)}}
+
+.why{display:grid;gap:40px;margin-top:64px}
+@media (min-width:860px){.why{grid-template-columns:1fr 1fr}}
+.why dl{margin:0;display:grid;gap:22px}
+.why dt{font-family:"Zen Maru Gothic";font-weight:700;font-size:1.1rem}
+.why dd{margin:4px 0 0;color:var(--ink-soft)}
+
+/* goal (dark band) */
+.band{background:var(--dark);color:var(--on-dark)}
+.band .sec-head p{color:color-mix(in srgb,var(--on-dark) 75%,transparent)}
+.goal-num{font-family:"Zen Maru Gothic";font-weight:900;font-size:clamp(2.6rem,9vw,5rem);line-height:1}
+.goal-num small{font-size:.38em;margin-left:.2em}
+.meter{margin-top:20px;height:16px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden}
+.meter span{display:block;height:100%;width:var(--p,0%);background:linear-gradient(90deg,var(--sprout),var(--glow));border-radius:999px}
+.goal-meta{margin-top:10px;font-size:.9rem;color:color-mix(in srgb,var(--on-dark) 75%,transparent)}
+.uses{margin-top:48px}
+.stack{display:flex;height:44px;border-radius:var(--radius-s);overflow:hidden}
+.stack div{height:100%}
+.uses-list{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px}
+@media (min-width:760px){.uses-list{grid-template-columns:repeat(2,1fr);column-gap:40px}}
+.uses-list li{display:grid;grid-template-columns:14px 1fr auto;gap:12px;align-items:baseline;border-bottom:1px solid rgba(255,255,255,.14);padding-bottom:10px}
+.uses-list i{width:14px;height:14px;border-radius:3px;display:block;transform:translateY(2px)}
+.uses-list b{font-family:"Zen Maru Gothic";font-weight:700}
+.uses-list small{display:block;font-size:.85rem;color:color-mix(in srgb,var(--on-dark) 70%,transparent)}
+.band .btn-sub{border-color:var(--on-dark);color:var(--on-dark)}
+.band .btn-sub:hover{background:var(--on-dark);color:var(--dark)}
+
+/* ways */
+.ways{display:grid;gap:20px}
+@media (min-width:860px){.ways{grid-template-columns:repeat(3,1fr)}}
+.way{border-top:4px solid var(--leaf);padding-top:18px}
+.way p{margin-top:8px;color:var(--ink-soft);font-size:.95rem}
+.way ul{margin:12px 0 16px;padding-left:1.2em;font-size:.95rem}
+.way > p + .btn{margin-top:16px}
+
+/* tiers */
+.tiers-wrap{margin-top:72px}
+.tiers{display:grid;gap:16px;grid-template-columns:1fr;margin-top:28px}
+@media (min-width:640px){.tiers{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.tiers{grid-template-columns:repeat(4,1fr)}}
+.tier{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:22px 22px 24px;display:flex;flex-direction:column}
+.tier svg{width:56px;height:56px;margin-bottom:10px}
+.tier .price{font-family:"Zen Maru Gothic";font-weight:900;font-size:1.6rem;margin-top:4px}
+.tier .price small{font-size:.55em;font-weight:700;color:var(--ink-soft)}
+.tier ul{margin:12px 0 0;padding-left:1.1em;font-size:.92rem;color:var(--ink-soft)}
+.tier.top{border:2px solid var(--glow)}
+.tiers-note{margin-top:16px;font-size:.88rem;color:var(--ink-soft)}
+
+/* org */
+.org{display:grid;gap:32px}
+@media (min-width:860px){.org{grid-template-columns:1.2fr 1fr;align-items:start}}
+.org-facts{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:24px}
+.org-facts dl{margin:0;display:grid;grid-template-columns:7em 1fr;gap:10px 14px;font-size:.95rem}
+.org-facts dt{color:var(--ink-soft)}
+.org-facts dd{margin:0}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:"Zen Maru Gothic";font-size:1.4rem;line-height:1;color:var(--leaf)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin-top:10px;color:var(--ink-soft)}
+
+/* contact */
+.contact{background:var(--surface);border-top:1px solid var(--line);text-align:center}
+.contact .sec-head{margin-inline:auto}
+.contact .hero-cta{justify-content:center}
+
+footer{padding:32px 0 48px;font-size:.85rem;color:var(--ink-soft)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="そだてる食堂 トップへ">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V15" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M16 16c0-6 4-9 10-9 0 6-4 9-10 9z" fill="#2F7D3A"/><path d="M16 19c0-5-3-8-9-8 0 5 3 8 9 8z" fill="#9FD162"/></svg>
+      そだてる食堂
+    </a>
+    <nav class="head-nav" aria-label="ページ内">
+      <a href="#about">しくみ</a>
+      <a href="#goal">目標と使いみち</a>
+      <a href="#support">支援の方法</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+    <a class="btn btn-main btn-s js-cf" href="#">支援する</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <h1 id="hero-title"><span>倉庫で野菜を育てて、</span><span>こどもと食べる。</span></h1>
+      <p class="hero-lead">愛知の倉庫に水耕栽培プラントをつくり、そこで採れた野菜でこども食堂をひらきます。育てるところから食べるところまで、ひとつの場所で。その立ち上げを一緒に支えてください。</p>
+      <div class="hero-cta">
+        <a class="btn btn-main js-cf" href="#">クラウドファンディングで支援する</a>
+        <a class="btn btn-sub" href="#support">協賛・物品提供について</a>
+      </div>
+      <p class="hero-note js-cf-note">クラウドファンディングは現在準備中です。開始時期は<span class="tmp">【仮】2027年春</span>を予定しています。</p>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 560 420">
+        <!-- warehouse sawtooth roof -->
+        <path d="M20 140 L20 120 L120 70 L120 120 L220 70 L220 120 L320 70 L320 120 L420 70 L420 120 L540 70 L540 140 Z" fill="var(--steel)" opacity=".35"/>
+        <rect x="20" y="140" width="520" height="280" fill="var(--surface)" stroke="var(--line)"/>
+        <!-- racks -->
+        <g>
+          <rect x="60" y="160" width="300" height="10" rx="2" class="glow-bar" fill="var(--glow)"/>
+          <rect x="60" y="230" width="300" height="10" rx="2" class="glow-bar" fill="var(--glow)"/>
+          <rect x="60" y="300" width="300" height="10" rx="2" class="glow-bar" fill="var(--glow)"/>
+          <rect x="60" y="160" width="300" height="70" fill="var(--glow)" opacity=".08"/>
+          <rect x="60" y="230" width="300" height="70" fill="var(--glow)" opacity=".08"/>
+          <rect x="60" y="300" width="300" height="70" fill="var(--glow)" opacity=".08"/>
+          <rect x="54" y="150" width="6" height="270" fill="var(--steel)"/>
+          <rect x="360" y="150" width="6" height="270" fill="var(--steel)"/>
+          <rect x="60" y="216" width="300" height="12" rx="3" fill="var(--steel)"/>
+          <rect x="60" y="286" width="300" height="12" rx="3" fill="var(--steel)"/>
+          <rect x="60" y="356" width="300" height="12" rx="3" fill="var(--steel)"/>
+        </g>
+        <!-- lettuces -->
+        <g id="row">
+          <g transform="translate(84 216)"><ellipse cx="0" cy="-8" rx="14" ry="10" fill="var(--leaf)"/><ellipse cx="-6" cy="-12" rx="8" ry="9" fill="var(--sprout)"/><ellipse cx="7" cy="-13" rx="7" ry="8" fill="var(--sprout)"/></g>
+          <g transform="translate(132 216)"><ellipse cx="0" cy="-8" rx="14" ry="10" fill="var(--leaf)"/><ellipse cx="-6" cy="-12" rx="8" ry="9" fill="var(--sprout)"/><ellipse cx="7" cy="-13" rx="7" ry="8" fill="var(--sprout)"/></g>
+          <g transform="translate(180 216)"><ellipse cx="0" cy="-8" rx="14" ry="10" fill="var(--leaf)"/><ellipse cx="-6" cy="-12" rx="8" ry="9" fill="var(--sprout)"/><ellipse cx="7" cy="-13" rx="7" ry="8" fill="var(--sprout)"/></g>
+          <g transform="translate(228 216)"><ellipse cx="0" cy="-8" rx="14" ry="10" fill="var(--leaf)"/><ellipse cx="-6" cy="-12" rx="8" ry="9" fill="var(--sprout)"/><ellipse cx="7" cy="-13" rx="7" ry="8" fill="var(--sprout)"/></g>
+          <g transform="translate(276 216)"><ellipse cx="0" cy="-8" rx="14" ry="10" fill="var(--leaf)"/><ellipse cx="-6" cy="-12" rx="8" ry="9" fill="var(--sprout)"/><ellipse cx="7" cy="-13" rx="7" ry="8" fill="var(--sprout)"/></g>
+          <g transform="translate(324 216)"><ellipse cx="0" cy="-8" rx="14" ry="10" fill="var(--leaf)"/><ellipse cx="-6" cy="-12" rx="8" ry="9" fill="var(--sprout)"/><ellipse cx="7" cy="-13" rx="7" ry="8" fill="var(--sprout)"/></g>
+        </g>
+        <use href="#row" transform="translate(0 70)"/>
+        <!-- young sprouts bottom row -->
+        <g fill="var(--sprout)">
+          <g transform="translate(84 356)"><path d="M0 0v-12" stroke="var(--leaf)" stroke-width="2"/><ellipse cx="-5" cy="-14" rx="5" ry="3"/><ellipse cx="5" cy="-14" rx="5" ry="3"/></g>
+          <g transform="translate(132 356)"><path d="M0 0v-12" stroke="var(--leaf)" stroke-width="2"/><ellipse cx="-5" cy="-14" rx="5" ry="3"/><ellipse cx="5" cy="-14" rx="5" ry="3"/></g>
+          <g transform="translate(180 356)"><path d="M0 0v-12" stroke="var(--leaf)" stroke-width="2"/><ellipse cx="-5" cy="-14" rx="5" ry="3"/><ellipse cx="5" cy="-14" rx="5" ry="3"/></g>
+          <g transform="translate(228 356)"><path d="M0 0v-12" stroke="var(--leaf)" stroke-width="2"/><ellipse cx="-5" cy="-14" rx="5" ry="3"/><ellipse cx="5" cy="-14" rx="5" ry="3"/></g>
+          <g transform="translate(276 356)"><path d="M0 0v-12" stroke="var(--leaf)" stroke-width="2"/><ellipse cx="-5" cy="-14" rx="5" ry="3"/><ellipse cx="5" cy="-14" rx="5" ry="3"/></g>
+          <g transform="translate(324 356)"><path d="M0 0v-12" stroke="var(--leaf)" stroke-width="2"/><ellipse cx="-5" cy="-14" rx="5" ry="3"/><ellipse cx="5" cy="-14" rx="5" ry="3"/></g>
+        </g>
+        <!-- dining table -->
+        <rect x="390" y="330" width="130" height="10" rx="3" fill="var(--ink)"/>
+        <rect x="400" y="340" width="6" height="80" fill="var(--ink)"/>
+        <rect x="504" y="340" width="6" height="80" fill="var(--ink)"/>
+        <g>
+          <ellipse cx="420" cy="326" rx="16" ry="5" fill="var(--bg)" stroke="var(--ink)" stroke-width="2"/>
+          <ellipse cx="420" cy="322" rx="9" ry="4" fill="var(--sprout)"/>
+          <ellipse cx="470" cy="326" rx="16" ry="5" fill="var(--bg)" stroke="var(--ink)" stroke-width="2"/>
+          <ellipse cx="470" cy="322" rx="9" ry="4" fill="var(--leaf)"/>
+        </g>
+        <!-- small chairs -->
+        <rect x="386" y="370" width="26" height="6" rx="2" fill="var(--glow)"/>
+        <rect x="386" y="350" width="5" height="70" rx="2" fill="var(--glow)"/>
+        <rect x="498" y="370" width="26" height="6" rx="2" fill="var(--sprout)"/>
+        <rect x="519" y="350" width="5" height="70" rx="2" fill="var(--sprout)"/>
+        <!-- pendant light -->
+        <path d="M455 140 V250" stroke="var(--ink)" stroke-width="2"/>
+        <path d="M438 262 Q455 240 472 262 Z" fill="var(--ink)"/>
+        <ellipse cx="455" cy="300" rx="70" ry="38" fill="#FFD66B" opacity=".18"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="about-title">育てる、つくる、食べる、また育てる。</h2>
+      <p>天候に左右されない倉庫の中で、レタスやハーブを一年中育てます。収穫した野菜はその日の食堂のごはんに。こどもたちも種まきや収穫に参加できます。</p>
+    </div>
+    <ol class="cycle">
+      <li><h3>倉庫で育てる</h3><p>LEDと養液で野菜を栽培。土を使わないので清潔で、季節を問わず収穫できます。</p></li>
+      <li><h3>こどもと収穫する</h3><p>食堂に来たこどもたちが、自分の手で野菜を収穫。食べ物がどこから来るのかを体験します。</p></li>
+      <li><h3>みんなで食べる</h3><p>採れたての野菜と、フードバンクに寄せられた食材を組み合わせて、温かいごはんを無料または低額で提供します。</p></li>
+      <li><h3>種をまく</h3><p>収穫したあとのスペースに、次の苗を植えます。ボランティアと一緒に、栽培のサイクルを回し続けます。</p></li>
+    </ol>
+
+    <div class="why">
+      <div>
+        <h2 style="font-size:clamp(1.35rem,3.4vw,1.8rem)">なぜ倉庫で、なぜ水耕栽培なのか</h2>
+      </div>
+      <dl>
+        <div><dt>野菜はいちばん届きにくい食材だから</dt><dd>フードバンクに集まる寄付は、お米や缶詰など日持ちするものが中心です。新鮮な野菜は不足しがちで、自分たちで育てることで補えます。</dd></div>
+        <div><dt>広い場所を、安定して使えるから</dt><dd>倉庫なら栽培ラックと厨房・食事スペースを同じ屋根の下に置けます。雨の日も暑い日も、こどもが安心して集まれます。</dd></div>
+        <div><dt>水耕栽培の経験があるから</dt><dd>運営するフードフライト愛知は、家庭向けの水耕栽培キットの貸し出しを行ってきました。そのノウハウを食堂の規模に広げます。</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- GOAL -->
+<section id="goal" class="band" aria-labelledby="goal-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="goal-title">立ち上げに必要な金額</h2>
+      <p>倉庫の改修と栽培設備、厨房の準備、そして最初の一年の運営費です。集まったご支援の使いみちは、開設後に報告します。</p>
+    </div>
+
+    <p class="goal-num"><span class="js-goal">3,000,000</span><small>円</small> <span class="tmp" style="font-size:.3em;vertical-align:middle">【仮】</span></p>
+    <div class="meter" role="progressbar" aria-label="達成状況" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="js-meter" style="--p:0%"></span></div>
+    <p class="goal-meta"><span class="js-raised">0</span>円 集まっています（クラウドファンディング開始前）</p>
+
+    <div class="uses">
+      <h3 style="color:var(--on-dark)">使いみち <span class="tmp">【仮】</span></h3>
+      <div class="stack" style="margin-top:16px" aria-hidden="true">
+        <div style="flex:120;background:#9FD162"></div>
+        <div style="flex:80;background:#D23A97"></div>
+        <div style="flex:60;background:#8C9692"></div>
+        <div style="flex:40;background:#EEF3EA"></div>
+      </div>
+      <ul class="uses-list">
+        <li><i style="background:#9FD162"></i><span><b>水耕栽培プラント</b><small>栽培ラック、LED照明、ポンプ、養液タンク</small></span><span>120万円</span></li>
+        <li><i style="background:#D23A97"></i><span><b>厨房と食事スペース</b><small>調理器具、冷蔵庫、テーブル、食器</small></span><span>80万円</span></li>
+        <li><i style="background:#8C9692"></i><span><b>倉庫の改修</b><small>断熱、換気、手洗い場、安全対策</small></span><span>60万円</span></li>
+        <li><i style="background:#EEF3EA"></i><span><b>初年度の運営</b><small>光熱費、種・苗・養液、保険</small></span><span>40万円</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-cta" style="margin-top:40px">
+      <a class="btn btn-main js-cf" href="#">クラウドファンディングで支援する</a>
+      <a class="btn btn-sub" href="#tiers">企業・団体として協賛する</a>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section id="support" aria-labelledby="support-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="support-title">支援の方法</h2>
+      <p>お金だけでなく、モノや時間での参加も歓迎しています。できるかたちで関わってください。</p>
+    </div>
+
+    <div class="ways">
+      <div class="way">
+        <h3>クラウドファンディング</h3>
+        <p>個人の方は、こちらからのご支援がいちばん手軽です。金額に応じて、収穫野菜のお届けや活動報告などのお礼を用意します。</p>
+        <a class="btn btn-main btn-s js-cf" href="#">支援ページを開く</a>
+      </div>
+      <div class="way">
+        <h3>物品・苗の提供</h3>
+        <p>次のようなものを募集しています。新品・中古は問いません。</p>
+        <ul>
+          <li>野菜の種・苗、液体肥料</li>
+          <li>業務用冷蔵庫、調理器具、食器</li>
+          <li>長机、椅子、収納棚</li>
+          <li>食材（米・調味料・乾物など）</li>
+        </ul>
+        <a class="btn btn-sub btn-s js-form" href="#">提供を申し出る</a>
+      </div>
+      <div class="way">
+        <h3>ボランティア</h3>
+        <p>経験は問いません。月1回からでも参加できます。</p>
+        <ul>
+          <li>栽培：種まき、収穫、ラックの管理</li>
+          <li>調理：献立づくり、調理、配膳</li>
+          <li>運営：受付、こどもの見守り、広報</li>
+          <li>設営：倉庫の改修やDIY</li>
+        </ul>
+        <a class="btn btn-sub btn-s js-form" href="#">ボランティアに申し込む</a>
+      </div>
+    </div>
+
+    <div class="tiers-wrap" id="tiers">
+      <h2 style="font-size:clamp(1.35rem,3.4vw,1.8rem)">企業・団体の協賛プラン</h2>
+      <p style="margin-top:10px;color:var(--ink-soft);max-width:40em">栽培ラックや食堂に御社名を掲示し、地域のこどもを支える取り組みとして発信できます。社員の方のボランティア参加も歓迎します。</p>
+      <div class="tiers">
+        <div class="tier">
+          <svg viewBox="0 0 56 56" aria-hidden="true"><ellipse cx="28" cy="38" rx="9" ry="6" fill="#8C9692"/><ellipse cx="28" cy="36" rx="4" ry="3" fill="#9FD162"/></svg>
+          <h3>たね</h3>
+          <p class="price">3万円<small>／年</small></p>
+          <ul><li>このサイトに御社名を掲載</li><li>年次活動報告書の送付</li></ul>
+        </div>
+        <div class="tier">
+          <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M28 44V28" stroke="#2F7D3A" stroke-width="3" stroke-linecap="round"/><ellipse cx="21" cy="26" rx="8" ry="5" fill="#9FD162"/><ellipse cx="35" cy="26" rx="8" ry="5" fill="#9FD162"/></svg>
+          <h3>ふたば</h3>
+          <p class="price">10万円<small>／年</small></p>
+          <ul><li>サイトにロゴを掲載</li><li>食堂内に御社名を掲示</li><li>活動報告書の送付</li></ul>
+        </div>
+        <div class="tier">
+          <svg viewBox="0 0 56 56" aria-hidden="true"><path d="M28 48V22" stroke="#2F7D3A" stroke-width="3" stroke-linecap="round"/><path d="M28 30c0-9 6-14 15-14 0 9-6 14-15 14z" fill="#2F7D3A"/><path d="M28 36c0-8-5-12-13-12 0 8 5 12 13 12z" fill="#9FD162"/></svg>
+          <h3>ほんば</h3>
+          <p class="price">30万円<small>／年</small></p>
+          <ul><li>栽培ラック1台に御社名プレート</li><li>サイト・食堂にロゴ掲示</li><li>社員向け収穫体験会</li></ul>
+        </div>
+        <div class="tier top">
+          <svg viewBox="0 0 56 56" aria-hidden="true"><ellipse cx="28" cy="34" rx="18" ry="13" fill="#2F7D3A"/><ellipse cx="20" cy="28" rx="10" ry="10" fill="#9FD162"/><ellipse cx="36" cy="27" rx="9" ry="9" fill="#9FD162"/><ellipse cx="28" cy="24" rx="7" ry="7" fill="#C5E89A"/></svg>
+          <h3>しゅうかく</h3>
+          <p class="price">50万円〜<small>／年</small></p>
+          <ul><li>栽培エリアのネーミング</li><li>ほんばプランの特典すべて</li><li>共同での広報・取材対応</li></ul>
+        </div>
+      </div>
+      <p class="tiers-note"><span class="tmp">【仮】</span>金額と特典は仮のものです。単発のご寄付や、設備・物品での協賛もご相談ください。</p>
+      <div class="hero-cta" style="margin-top:20px">
+        <a class="btn btn-main js-form" href="#">協賛について相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ORG -->
+<section id="org" aria-labelledby="org-title" style="padding-top:0">
+  <div class="wrap org">
+    <div>
+      <h2 id="org-title">運営するのは、フードフライト愛知です</h2>
+      <p style="margin-top:16px;color:var(--ink-soft)">愛知県でフードバンク活動と、家庭向け水耕栽培キットの貸し出しを行っている非営利の団体です。県内のこども食堂やフードバンクの場所をまとめた「地域たすけあいマップ」も運営しています。食べ物を届けてきた経験と、野菜を育ててきた経験を、ひとつの場所に集めるのがこのプロジェクトです。</p>
+      <p style="margin-top:16px"><a href="https://foodflight-aichi.github.io/map/">地域たすけあいマップを見る</a></p>
+    </div>
+    <div class="org-facts">
+      <dl>
+        <dt>プロジェクト名</dt><dd>そだてる食堂 <span class="tmp">【仮】</span></dd>
+        <dt>運営</dt><dd>フードフライト愛知</dd>
+        <dt>場所</dt><dd>愛知県内の倉庫 <span class="tmp">【仮】未定</span></dd>
+        <dt>開設予定</dt><dd><span class="tmp">【仮】2027年秋</span></dd>
+        <dt>開催頻度</dt><dd><span class="tmp">【仮】週1回から開始</span></dd>
+        <dt>対象</dt><dd>地域のこどもと保護者</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq" aria-labelledby="faq-title" style="padding-top:0">
+  <div class="wrap" style="max-width:780px">
+    <h2 id="faq-title" style="margin-bottom:16px">よくある質問</h2>
+    <details><summary>支援金はいつ、どのように使われますか？</summary><p>倉庫の改修と設備購入にまず使い、残りを初年度の運営費にあてます。開設後に、このサイトで収支を報告します。</p></details>
+    <details><summary>寄付金控除の対象になりますか？</summary><p><span class="tmp">【仮】</span>団体の法人格や認定状況によって異なります。詳しくはお問い合わせください。</p></details>
+    <details><summary>水耕栽培の野菜は安全ですか？</summary><p>土を使わず、管理された室内で育てるため、農薬を使わずに栽培できます。食品衛生のルールに沿って調理・提供します。</p></details>
+    <details><summary>食堂は誰でも利用できますか？</summary><p>地域のこどもと保護者が対象です。利用に条件や審査はありません。料金や予約方法は開設が近づいたらお知らせします。</p></details>
+    <details><summary>ボランティアに資格は必要ですか？</summary><p>必要ありません。調理を担当する場合は、衛生に関する簡単な説明を受けてから参加していただきます。</p></details>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="contact-title">一緒に、最初の種をまいてください</h2>
+      <p>協賛・物品提供・ボランティア・取材のご相談は、フォームまたはメールでどうぞ。</p>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-main js-cf" href="#">クラウドファンディングで支援する</a>
+      <a class="btn btn-sub js-form" href="#">お問い合わせフォーム</a>
+      <a class="btn btn-sub js-mail" href="#">メールで連絡する</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© フードフライト愛知</span>
+    <span><a href="https://foodflight-aichi.github.io/map/">地域たすけあいマップ</a></span>
+  </div>
+</footer>
+
+<script>
+/* ===== 設定欄：ここだけ書き換えればOK ===== */
+const CROWDFUNDING_URL = "";   // 例: "https://camp-fire.jp/projects/xxxxx" （空欄なら「準備中」表示）
+const CONTACT_FORM_URL = "";   // 例: "https://forms.gle/xxxxx"
+const CONTACT_EMAIL    = "info@example.com"; // 【仮】
+const GOAL_AMOUNT      = 3000000; // 目標金額（円）【仮】
+const RAISED_AMOUNT    = 0;       // 集まった金額（円）。手動で更新
+/* ======================================== */
+
+(function(){
+  const yen = n => n.toLocaleString("ja-JP");
+  document.querySelectorAll(".js-goal").forEach(el => el.textContent = yen(GOAL_AMOUNT));
+  document.querySelectorAll(".js-raised").forEach(el => el.textContent = yen(RAISED_AMOUNT));
+  const pct = Math.min(100, Math.round(RAISED_AMOUNT / GOAL_AMOUNT * 100));
+  document.querySelectorAll(".js-meter").forEach(el => el.style.setProperty("--p", pct + "%"));
+  document.querySelectorAll('[role="progressbar"]').forEach(el => el.setAttribute("aria-valuenow", pct));
+
+  const formFallback = CONTACT_EMAIL ? "mailto:" + CONTACT_EMAIL : "#";
+  document.querySelectorAll(".js-cf").forEach(a => {
+    if (CROWDFUNDING_URL) { a.href = CROWDFUNDING_URL; a.target = "_blank"; a.rel = "noopener"; }
+    else {
+      a.href = "#goal";
+      a.title = "クラウドファンディングは準備中です";
+    }
+  });
+  if (CROWDFUNDING_URL) document.querySelectorAll(".js-cf-note").forEach(el => el.hidden = true);
+  document.querySelectorAll(".js-form").forEach(a => {
+    a.href = CONTACT_FORM_URL || formFallback;
+    if (CONTACT_FORM_URL) { a.target = "_blank"; a.rel = "noopener"; }
+  });
+  document.querySelectorAll(".js-mail").forEach(a => a.href = formFallback);
+})();
+</script>
+</body>
+</html>
