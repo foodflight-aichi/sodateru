@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  ============================================================
+  編集ガイド
+  ・このページに載せる内容は sponsors.json だけで管理します。
+    このHTMLは基本的に触らなくてOKです。
+  ・sponsors.json の書き方は、同じリポジトリの sponsors.json 内の例を参考にしてください。
+  ・"sample": true が付いた項目が1つでも残っていると、ページ上部に「表示見本」の案内が出ます。
+    本番の情報に置き換えたら、サンプルの項目は削除してください。
+  ============================================================
+-->
+<title>協賛者のみなさま｜そだてる食堂</title>
+<meta name="description" content="そだてる食堂を支えてくださっている企業・団体・個人のみなさまのご紹介です。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="協賛者のみなさま｜そだてる食堂">
+<meta property="og:description" content="倉庫の水耕栽培プラントと子ども食堂を支えてくださっている方々をご紹介します。">
+<meta property="og:url" content="https://foodflight-aichi.github.io/sodateru/sponsors.html">
+<meta property="og:locale" content="ja_JP">
+<meta name="theme-color" content="#1C2B22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDEFEA;--surface:#F7F8F4;--ink:#1C2B22;--ink-soft:#4A5A50;--leaf:#2F7D3A;
+  --sprout:#9FD162;--glow:#D23A97;--steel:#8C9692;--line:#CDD3CC;--on-dark:#EEF3EA;--dark:#1C2B22;
+  --radius-s:6px;--radius-l:18px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121A15;--surface:#1A241E;--ink:#E6EDE4;--ink-soft:#A9B6AC;--leaf:#6CC07A;
+    --sprout:#A8DB6C;--glow:#EE5CB4;--steel:#6E7A74;--line:#2C3A31;--on-dark:#EEF3EA;--dark:#0C120E;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121A15;--surface:#1A241E;--ink:#E6EDE4;--ink-soft:#A9B6AC;--leaf:#6CC07A;
+  --sprout:#A8DB6C;--glow:#EE5CB4;--steel:#6E7A74;--line:#2C3A31;--on-dark:#EEF3EA;--dark:#0C120E;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans JP",system-ui,sans-serif;font-size:16px;line-height:1.85;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:var(--leaf)}
+:focus-visible{outline:3px solid var(--glow);outline-offset:3px;border-radius:4px}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:"Zen Maru Gothic",sans-serif;line-height:1.35;margin:0;letter-spacing:.02em}
+p{margin:0}
+
+.site-head{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{display:flex;align-items:center;gap:8px;font-family:"Zen Maru Gothic";font-weight:900;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.logo svg{width:26px;height:26px}
+.head-nav{display:flex;gap:20px;font-size:.92rem}
+.head-nav a{color:var(--ink-soft);text-decoration:none}
+.head-nav a:hover,.head-nav a[aria-current]{color:var(--ink)}
+@media (max-width:760px){.head-nav{display:none}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;font-size:1rem;border:2px solid transparent}
+.btn-main{background:var(--glow);color:#fff}
+.btn-main:hover{filter:brightness(1.08)}
+.btn-sub{border-color:var(--ink);color:var(--ink)}
+.btn-sub:hover{background:var(--ink);color:var(--bg)}
+.btn-s{min-height:40px;padding:0 16px;font-size:.9rem}
+
+.page-head{padding:56px 0 40px}
+.page-head h1{font-size:clamp(1.9rem,6vw,3rem);font-weight:900}
+.page-head p{margin-top:16px;color:var(--ink-soft);max-width:38em}
+.updated{margin-top:10px;font-size:.85rem;color:var(--ink-soft)}
+
+.notice{margin-top:20px;padding:12px 16px;border-radius:var(--radius-s);background:color-mix(in srgb,var(--glow) 12%,transparent);font-size:.9rem}
+
+section.block{padding:40px 0}
+.block-head{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.block-head svg{width:44px;height:44px;flex:none}
+.block-head h2{font-size:clamp(1.3rem,3.6vw,1.7rem);font-weight:900}
+.block-head small{display:block;font-family:"Noto Sans JP";font-weight:500;font-size:.85rem;color:var(--ink-soft);letter-spacing:0}
+
+/* しゅうかく: 大きなカード */
+.grid-xl{display:grid;gap:16px;grid-template-columns:1fr}
+@media (min-width:760px){.grid-xl{grid-template-columns:repeat(2,1fr)}}
+.card-xl{background:var(--surface);border:2px solid var(--glow);border-radius:var(--radius-l);padding:28px;display:grid;gap:16px}
+.card-xl .mark{height:72px;display:flex;align-items:center}
+.card-xl .mark img{max-height:72px;max-width:240px;object-fit:contain}
+.card-xl .mark span{font-family:"Zen Maru Gothic";font-weight:900;font-size:1.6rem}
+.card-xl blockquote{margin:0;padding-left:14px;border-left:3px solid var(--sprout);color:var(--ink-soft);font-size:.95rem}
+
+/* ほんば: 中カード */
+.grid-l{display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:640px){.grid-l{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1000px){.grid-l{grid-template-columns:repeat(3,1fr)}}
+.card-l{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-l);padding:22px;display:grid;gap:12px}
+.card-l .mark{height:52px;display:flex;align-items:center}
+.card-l .mark img{max-height:52px;max-width:180px;object-fit:contain}
+.card-l .mark span{font-family:"Zen Maru Gothic";font-weight:700;font-size:1.25rem}
+.card-l p{font-size:.92rem;color:var(--ink-soft)}
+
+/* ふたば: ロゴ並び */
+.grid-m{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+@media (min-width:760px){.grid-m{grid-template-columns:repeat(4,1fr)}}
+.card-m{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-s);min-height:88px;padding:14px;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:700;color:var(--ink);text-decoration:none}
+.card-m img{max-height:48px;max-width:100%;object-fit:contain}
+
+/* たね・個人: 名前の列 */
+.names{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px 28px}
+.names li{font-size:.98rem}
+.names a{color:inherit}
+.names-note{margin-top:14px;font-size:.88rem;color:var(--ink-soft)}
+
+/* 物品 */
+.inkind{list-style:none;padding:0;margin:0;display:grid;gap:0}
+.inkind li{display:grid;grid-template-columns:1fr;gap:2px;padding:12px 0;border-bottom:1px solid var(--line)}
+@media (min-width:640px){.inkind li{grid-template-columns:16em 1fr;gap:20px}}
+.inkind b{font-weight:700}
+.inkind span{color:var(--ink-soft)}
+
+.empty{color:var(--ink-soft);font-size:.95rem}
+a.card-xl,a.card-l{color:inherit;text-decoration:none}
+a.card-xl:hover,a.card-l:hover,a.card-m:hover{border-color:var(--leaf)}
+
+.cta{margin-top:56px;background:var(--dark);color:var(--on-dark);padding:64px 0;text-align:center}
+.cta h2{font-size:clamp(1.4rem,4vw,2rem);font-weight:900}
+.cta p{margin:14px auto 0;max-width:34em;color:color-mix(in srgb,var(--on-dark) 78%,transparent)}
+.cta .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px}
+.cta .btn-sub{border-color:var(--on-dark);color:var(--on-dark)}
+.cta .btn-sub:hover{background:var(--on-dark);color:var(--dark)}
+
+footer{padding:32px 0 48px;font-size:.85rem;color:var(--ink-soft)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="logo" href="./" aria-label="そだてる食堂 トップへ">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28V15" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M16 16c0-6 4-9 10-9 0 6-4 9-10 9z" fill="#2F7D3A"/><path d="M16 19c0-5-3-8-9-8 0 5 3 8 9 8z" fill="#9FD162"/></svg>
+      そだてる食堂
+    </a>
+    <nav class="head-nav" aria-label="サイト内">
+      <a href="./#about">しくみ</a>
+      <a href="./#goal">目標と使いみち</a>
+      <a href="./#support">支援の方法</a>
+      <a href="sponsors.html" aria-current="page">協賛者</a>
+    </nav>
+    <a class="btn btn-main btn-s" href="./#support">支援する</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap page-head">
+    <h1>協賛者のみなさま</h1>
+    <p>そだてる食堂は、ここに紹介する企業・団体・個人のみなさまのご支援でつくられています。栽培ラックの一段、食卓の一皿が、みなさまからの贈りものです。</p>
+    <p class="updated" id="updated"></p>
+    <p class="notice" id="sample-notice" hidden>このページは表示見本です。掲載している名前はサンプルで、実際の協賛者ではありません。</p>
+  </div>
+
+  <div class="wrap" id="content">
+    <p class="empty" id="loading">読み込み中です…</p>
+  </div>
+
+  <div class="cta">
+    <div class="wrap">
+      <h2>あなたの名前も、ここに</h2>
+      <p>企業・団体の協賛、物品のご提供、クラウドファンディングでのご支援をお待ちしています。</p>
+      <div class="row">
+        <a class="btn btn-main" href="./#tiers">協賛プランを見る</a>
+        <a class="btn btn-sub" href="./#support">ほかの支援の方法</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© フードフライト愛知</span>
+    <span><a href="./">そだてる食堂 トップ</a>　<a href="https://foodflight-aichi.github.io/map/">地域たすけあいマップ</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const TIERS = [
+    { key:"shukaku", name:"しゅうかく", sub:"年50万円以上のご協賛",
+      icon:'<svg viewBox="0 0 56 56" aria-hidden="true"><ellipse cx="28" cy="34" rx="18" ry="13" fill="#2F7D3A"/><ellipse cx="20" cy="28" rx="10" ry="10" fill="#9FD162"/><ellipse cx="36" cy="27" rx="9" ry="9" fill="#9FD162"/><ellipse cx="28" cy="24" rx="7" ry="7" fill="#C5E89A"/></svg>' },
+    { key:"honba", name:"ほんば", sub:"年30万円のご協賛",
+      icon:'<svg viewBox="0 0 56 56" aria-hidden="true"><path d="M28 48V22" stroke="#2F7D3A" stroke-width="3" stroke-linecap="round"/><path d="M28 30c0-9 6-14 15-14 0 9-6 14-15 14z" fill="#2F7D3A"/><path d="M28 36c0-8-5-12-13-12 0 8 5 12 13 12z" fill="#9FD162"/></svg>' },
+    { key:"futaba", name:"ふたば", sub:"年10万円のご協賛",
+      icon:'<svg viewBox="0 0 56 56" aria-hidden="true"><path d="M28 44V28" stroke="#2F7D3A" stroke-width="3" stroke-linecap="round"/><ellipse cx="21" cy="26" rx="8" ry="5" fill="#9FD162"/><ellipse cx="35" cy="26" rx="8" ry="5" fill="#9FD162"/></svg>' },
+    { key:"tane", name:"たね", sub:"年3万円のご協賛",
+      icon:'<svg viewBox="0 0 56 56" aria-hidden="true"><ellipse cx="28" cy="38" rx="9" ry="6" fill="#8C9692"/><ellipse cx="28" cy="36" rx="4" ry="3" fill="#9FD162"/></svg>' }
+  ];
+  const ICON_GIFT = '<svg viewBox="0 0 56 56" aria-hidden="true"><rect x="12" y="24" width="32" height="22" rx="3" fill="#8C9692"/><rect x="10" y="18" width="36" height="8" rx="2" fill="#2F7D3A"/><rect x="26" y="18" width="4" height="28" fill="#D23A97"/></svg>';
+  const ICON_HAND = '<svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="20" cy="22" r="7" fill="#9FD162"/><circle cx="36" cy="22" r="7" fill="#2F7D3A"/><path d="M8 46c0-8 5-13 12-13s12 5 12 13z" fill="#9FD162"/><path d="M24 46c0-8 5-13 12-13s12 5 12 13z" fill="#2F7D3A"/></svg>';
+
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const safeUrl = u => /^https?:\/\//.test(u || "") ? u : "";
+  const mark = s => s.logo
+    ? `<img src="${esc(s.logo)}" alt="${esc(s.name)}" loading="lazy">`
+    : `<span>${esc(s.name)}</span>`;
+  const wrapLink = (s, cls, inner) => {
+    const u = safeUrl(s.url);
+    return u ? `<a class="${cls}" href="${esc(u)}" target="_blank" rel="noopener">${inner}</a>`
+             : `<div class="${cls}">${inner}</div>`;
+  };
+  const head = (icon, title, sub) =>
+    `<div class="block-head">${icon}<h2>${esc(title)}<small>${esc(sub)}</small></h2></div>`;
+
+  function renderTier(t, list){
+    if (!list.length) return "";
+    let body = "";
+    if (t.key === "shukaku"){
+      body = `<div class="grid-xl">${list.map(s => wrapLink(s,"card-xl",
+        `<div class="mark">${mark(s)}</div>${s.logo ? `<h3>${esc(s.name)}</h3>` : ""}${s.message ? `<blockquote>${esc(s.message)}</blockquote>` : ""}`)).join("")}</div>`;
+    } else if (t.key === "honba"){
+      body = `<div class="grid-l">${list.map(s => wrapLink(s,"card-l",
+        `<div class="mark">${mark(s)}</div>${s.message ? `<p>${esc(s.message)}</p>` : ""}`)).join("")}</div>`;
+    } else if (t.key === "futaba"){
+      body = `<div class="grid-m">${list.map(s => wrapLink(s,"card-m", mark(s))).join("")}</div>`;
+    } else {
+      body = `<ul class="names">${list.map(s => {
+        const u = safeUrl(s.url);
+        return `<li>${u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(s.name)}</a>` : esc(s.name)}</li>`;
+      }).join("")}</ul>`;
+    }
+    return `<section class="block" aria-label="${esc(t.name)}">${head(t.icon, t.name, t.sub)}${body}</section>`;
+  }
+
+  function render(d){
+    const sponsors = Array.isArray(d.sponsors) ? d.sponsors : [];
+    const inkind = Array.isArray(d.inkind) ? d.inkind : [];
+    const supporters = Array.isArray(d.supporters) ? d.supporters : [];
+    let html = "";
+
+    TIERS.forEach(t => { html += renderTier(t, sponsors.filter(s => s.tier === t.key)); });
+
+    if (inkind.length){
+      html += `<section class="block" aria-label="物品のご提供">${head(ICON_GIFT,"物品のご提供","設備・食材・苗などをお寄せいただきました")}
+        <ul class="inkind">${inkind.map(i => `<li><b>${esc(i.name)}</b><span>${esc(i.item)}</span></li>`).join("")}</ul></section>`;
+    }
+    if (supporters.length || d.supporters_note){
+      html += `<section class="block" aria-label="個人のご支援">${head(ICON_HAND,"個人のご支援","クラウドファンディング・ご寄付")}
+        ${supporters.length ? `<ul class="names">${supporters.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}
+        ${d.supporters_note ? `<p class="names-note">${esc(d.supporters_note)}</p>` : ""}</section>`;
+    }
+    if (!html){
+      html = `<p class="empty">ご紹介できる協賛者は、まだいません。最初の協賛者として、一緒に立ち上げを支えていただけませんか。</p>`;
+    }
+    document.getElementById("content").innerHTML = html;
+
+    if (d.updated) document.getElementById("updated").textContent = `${d.updated} 更新`;
+    const hasSample = [...sponsors, ...inkind].some(x => x && x.sample) ||
+                      supporters.some(n => String(n).includes("サンプル"));
+    document.getElementById("sample-notice").hidden = !hasSample;
+  }
+
+  fetch("sponsors.json", { cache: "no-cache" })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(() => {
+      document.getElementById("content").innerHTML =
+        '<p class="empty">協賛者の一覧を読み込めませんでした。sponsors.json が同じ場所にあるか、書き方に誤り（カンマの付け忘れなど）がないか確認してください。</p>';
+    });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "updated": "2026-11-12",
+
+  "sponsors": [
+    {
+      "name": "サンプル企業A",
+      "tier": "shukaku",
+      "url": "",
+      "logo": "",
+      "message": "地域のこどもたちが野菜を育てて食べる場所を、一緒に育てていきます。（ここは協賛企業からのひとことです）",
+      "sample": true
+    },
+    {
+      "name": "サンプル企業B",
+      "tier": "honba",
+      "url": "",
+      "logo": "",
+      "message": "",
+      "sample": true
+    },
+    {
+      "name": "サンプル企業C",
+      "tier": "futaba",
+      "url": "",
+      "logo": "",
+      "sample": true
+    },
+    {
+      "name": "サンプル商店D",
+      "tier": "tane",
+      "url": "",
+      "sample": true
+    }
+  ],
+
+  "inkind": [
+    { "name": "サンプル企業E", "item": "業務用冷蔵庫 1台", "sample": true },
+    { "name": "サンプル農園F", "item": "レタスの苗 200株", "sample": true }
+  ],
+
+  "supporters": [
+    "サンプル 太郎 様",
+    "サンプル 花子 様"
+  ],
+  "supporters_note": "ほか、お名前の掲載を希望されなかった方々にもご支援いただいています。"
+}
