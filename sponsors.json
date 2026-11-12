@@ -1,13 +1,14 @@
 {
   "updated": "2026-11-12",
 
-  "sponsors": [
+  "partners": [
     {
       "name": "サンプル企業A",
       "tier": "shukaku",
       "url": "",
       "logo": "",
-      "message": "地域のこどもたちが野菜を育てて食べる場所を、一緒に育てていきます。（ここは協賛企業からのひとことです）",
+      "rack": "サンプル企業A ファーム（栽培エリア）",
+      "message": "地域のこどもたちが野菜を育てて食べる場所を、一緒に育てていきます。（協賛企業からのひとこと）",
       "sample": true
     },
     {
@@ -15,32 +16,25 @@
       "tier": "honba",
       "url": "",
       "logo": "",
+      "rack": "Bラック（レタス）",
       "message": "",
       "sample": true
     },
-    {
-      "name": "サンプル企業C",
-      "tier": "futaba",
-      "url": "",
-      "logo": "",
-      "sample": true
-    },
-    {
-      "name": "サンプル商店D",
-      "tier": "tane",
-      "url": "",
-      "sample": true
-    }
+    { "name": "サンプル企業C", "tier": "futaba", "url": "", "logo": "", "sample": true },
+    { "name": "サンプル商店D", "tier": "tane", "url": "", "sample": true }
   ],
+
+  "monthly": [
+    { "name": "サンプル たろう", "plan": "lane", "lane": "たろうのバジル畑", "sample": true },
+    { "name": "さんぷる はなこ", "plan": "sodateru", "sample": true },
+    { "name": "サンプルさん", "plan": "sodateru", "sample": true }
+  ],
+  "oyasai_count": 0,
+  "monthly_note": "お名前の掲載を希望されなかったサポーターのみなさまにも、毎月支えていただいています。",
 
   "inkind": [
-    { "name": "サンプル企業E", "item": "業務用冷蔵庫 1台", "sample": true },
-    { "name": "サンプル農園F", "item": "レタスの苗 200株", "sample": true }
-  ],
-
-  "supporters": [
-    "サンプル 太郎 様",
-    "サンプル 花子 様"
-  ],
-  "supporters_note": "ほか、お名前の掲載を希望されなかった方々にもご支援いただいています。"
+    { "name": "サンプル農園E", "item": "レタス・バジルの苗 200株", "type": "seed", "sample": true },
+    { "name": "サンプル企業F", "item": "業務用冷蔵庫 1台", "type": "equipment", "sample": true },
+    { "name": "サンプル米店G", "item": "お米 30kg", "type": "food", "sample": true }
+  ]
 }
