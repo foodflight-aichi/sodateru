@@ -12,15 +12,15 @@
       oyasai_count … おやさいサポーター（月1,000円・名前掲示なし）の人数
       inkind       … 物品・設備・食材（type: seed / equipment / food / other）
   ・"sample": true の項目が残っていると、ページ上部に「表示見本」の案内が出ます。本番前に削除してください。
-  ・下の <script> の MONTHLY_URL は index.html と同じ値にしてください。
+  ・下の <script> の設定欄（MONTHLY_URL など）は index.html と同じ値にしてください。
   ・ヘッダー・フッター・色・ボタンのスタイルは index.html と共通です。片方を変えたら、もう片方も合わせてください。
   ============================================================
 -->
-<title>支援者のみなさま｜そだてる食堂</title>
-<meta name="description" content="そだてる食堂を支える法人パートナー、マンスリーサポーター、物品をご提供いただいたみなさまのご紹介です。">
+<title>投資家・パートナーのみなさま｜そだてる食堂</title>
+<meta name="description" content="そだてる食堂を共につくる、未来への投資家・パートナーのみなさま。法人パートナー、マンスリーサポーター、物品をご提供いただいた方々をご紹介します。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="支援者のみなさま｜そだてる食堂">
-<meta property="og:description" content="倉庫の水耕栽培プラントとこども食堂を、毎月支えてくださっている方々をご紹介します。">
+<meta property="og:title" content="未来への投資家・パートナーのみなさま｜そだてる食堂">
+<meta property="og:description" content="倉庫×水耕栽培×こども食堂。この場所を最初につくった人たちの名前が、ここに刻まれています。">
 <meta property="og:url" content="https://foodflight-aichi.github.io/sodateru/sponsors.html">
 <meta property="og:locale" content="ja_JP">
 <meta name="theme-color" content="#FAF9F6">
@@ -86,6 +86,14 @@ h1,h2,h3{margin:0;line-height:1.4;font-weight:700;letter-spacing:.03em}
 @media (max-width:900px){.nav{display:none}}
 @media (max-width:480px){.site-head .btn-sm{padding:0 14px;font-size:.82rem}}
 
+/* ---------- tags ---------- */
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:4px 14px;border-radius:999px;font-size:.82rem;font-weight:700;letter-spacing:.02em;line-height:1.4}
+.tag-green{background:var(--green-900);color:#fff}
+.tag-sun{background:var(--mustard-100);color:#7A5610;border:1px solid #F1DFAF}
+.tag-line{background:var(--paper);border:1px solid var(--line);color:var(--ink-soft);font-weight:500;padding-left:5px}
+.tag-line b{display:inline-grid;place-items:center;height:24px;padding:0 10px;border-radius:999px;background:var(--terracotta);color:#fff;font-size:.75rem}
+
 /* ---------- section scaffold ---------- */
 .sec{padding:112px 0}
 .sec-alt{background:var(--paper);border-block:1px solid var(--line)}
@@ -99,7 +107,7 @@ h1,h2,h3{margin:0;line-height:1.4;font-weight:700;letter-spacing:.03em}
 .sp-hero{padding:64px 0 40px}
 .sp-hero-grid{display:grid;gap:40px;grid-template-columns:1fr}
 @media (min-width:960px){.sp-hero-grid{grid-template-columns:1.1fr 1fr;align-items:end}}
-.sp-hero h1{font-size:clamp(2rem,5.6vw,3.4rem);font-weight:900;line-height:1.32;color:var(--green-900);letter-spacing:.04em}
+.sp-hero h1{font-size:clamp(1.5rem,6.4vw,2.5rem);font-weight:900;line-height:1.32;color:var(--green-900);letter-spacing:.04em}
 .sp-lead{margin-top:24px;color:var(--ink-soft);max-width:32em;line-height:2}
 .sp-updated{margin-top:14px;font-size:.85rem;color:var(--ink-soft)}
 .sp-stats{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
@@ -242,11 +250,11 @@ footer a{color:var(--ink-soft)}
     </a>
     <nav class="nav" aria-label="サイト内">
       <a href="./#about">コンセプト</a>
-      <a href="./#goal">100人のサポーター</a>
+      <a href="./#reasons">投資する理由</a>
       <a href="./#support">月額プラン</a>
-      <a href="./#tiers">法人スポンサー</a>
-      <a href="sponsors.html" aria-current="page">支援者</a>
-      <a href="./#faq">よくある質問</a>
+      <a href="./#tiers">法人パートナー</a>
+      <a href="./#media">取材・視察</a>
+      <a href="sponsors.html" aria-current="page">パートナー一覧</a>
     </nav>
     <a class="btn btn-primary btn-sm js-monthly" href="./#support">サポーターになる</a>
   </div>
@@ -256,12 +264,12 @@ footer a{color:var(--ink-soft)}
   <section class="sp-hero">
     <div class="wrap sp-hero-grid">
       <div>
-        <h1>そだてる食堂を、<br>支えてくれる人たち。</h1>
-        <p class="sp-lead">栽培ラックの一段も、食卓の一皿も、ここに名前のあるみなさまからの贈りものです。法人パートナー、毎月のサポーター、物品を届けてくださった方をご紹介します。</p>
+        <h1><span class="ib">そだてる食堂を共につくる、</span><br><span class="ib">未来への投資家・</span><span class="ib">パートナーのみなさま</span></h1>
+        <p class="sp-lead">倉庫に畑を、こどもに食卓を。まだ誰も見たことのない地域の拠点に、最初に名乗りを上げてくださった方々です。ここに刻まれた名前のひとつひとつが、この場所の礎になっています。</p>
         <p class="sp-updated" id="updated"></p>
       </div>
       <div class="sp-stats" aria-label="支援者の人数">
-        <div class="stat stat-dark"><span class="stat-num num" id="stat-monthly">–</span><span class="stat-lbl">マンスリーサポーター</span></div>
+        <div class="stat stat-dark"><span class="stat-num num" id="stat-monthly">–</span><span class="stat-lbl">マンスリーサポーター（共同オーナー）</span></div>
         <div class="stat"><span class="stat-num num" id="stat-partners">–</span><span class="stat-lbl">法人・団体パートナー</span></div>
         <div class="stat stat-sun"><span class="stat-num num" id="stat-inkind">–</span><span class="stat-lbl">物品・設備・食材のご提供</span></div>
       </div>
@@ -284,11 +292,11 @@ footer a{color:var(--ink-soft)}
       <div class="final-card">
         <svg class="leaf l1" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 95C50 45 70 10 98 5c0 50-20 85-48 90z" fill="#52B788"/></svg>
         <svg class="leaf l2" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 95C50 45 70 10 98 5c0 50-20 85-48 90z" fill="#E3A92B"/></svg>
-        <h2 id="join-title">あなたの名前も、<br>このウォールに。</h2>
-        <p>月1,000円のおやさいサポーターから、毎月のこども食堂を支えられます。月3,000円のそだてるサポーターになると、このページと会場のサポーターボードにお名前が並びます。</p>
+        <h2 id="join-title"><span class="ib">あなたの名前も、</span><br><span class="ib">ここに刻みませんか？</span></h2>
+        <p>個人の方は月1,000円のおやさいサポーターから、このプロジェクトの共同オーナーに。月3,000円からは、このページと会場のボードにお名前が刻まれます。企業・団体の方は、ラックやエリアに社名を掲げる年間パートナーとして加わってください。</p>
         <div class="row">
-          <a class="btn btn-primary js-monthly" href="./#support">月額サポーターになる</a>
-          <a class="btn btn-ghost" href="./#tiers">法人パートナーについて</a>
+          <a class="btn btn-primary js-monthly" href="./#support">月1,000円からサポーターになる</a>
+          <a class="btn btn-ghost js-form" href="./#tiers">法人スポンサーについて相談する</a>
         </div>
       </div>
     </div>
@@ -300,8 +308,10 @@ footer a{color:var(--ink-soft)}
     <span>© フードフライト愛知</span>
     <nav aria-label="フッター">
       <a href="./#support">月額プラン</a>
-      <a href="./#tiers">法人スポンサー</a>
-      <a href="sponsors.html">支援者のみなさま</a>
+      <a href="./#tiers">法人パートナー</a>
+      <a href="./#media">取材・視察</a>
+      <a href="sponsors.html">パートナー一覧</a>
+      <a href="./#faq">よくある質問</a>
       <a href="https://foodflight-aichi.github.io/map/">地域たすけあいマップ</a>
     </nav>
   </div>
@@ -309,13 +319,15 @@ footer a{color:var(--ink-soft)}
 
 <!-- 追従CTA -->
 <div class="float" id="float" aria-hidden="true">
-  <p>月<b>¥1,000</b>から、こども食堂の毎月を支える</p>
+  <p>月<b>¥1,000</b>から、未来の農場の共同オーナーに</p>
   <a class="btn btn-primary js-monthly" href="./#support" tabindex="-1">月額サポーターになる</a>
 </div>
 
 <script>
 /* ===== 設定欄：index.html と同じ値にしてください ===== */
-const MONTHLY_URL = "";  // 月額寄付の申込ページ。空欄ならトップページの「月額プラン」欄へ移動
+const MONTHLY_URL      = "";  // 月額寄付の申込ページ。空欄ならトップページの「月額プラン」欄へ移動
+const CONTACT_FORM_URL = "";  // 申込・相談フォーム。空欄ならメール、メールも空欄ならトップの法人欄へ
+const CONTACT_EMAIL    = "info@example.com"; // 【仮】
 /* =================================================== */
 
 (function(){
@@ -323,6 +335,10 @@ const MONTHLY_URL = "";  // 月額寄付の申込ページ。空欄ならトッ�
   document.querySelectorAll(".js-monthly").forEach(a => {
     if (MONTHLY_URL){ a.href = MONTHLY_URL; a.target = "_blank"; a.rel = "noopener"; }
     else a.href = "./#support";
+  });
+  document.querySelectorAll(".js-form").forEach(a => {
+    if (CONTACT_FORM_URL){ a.href = CONTACT_FORM_URL; a.target = "_blank"; a.rel = "noopener"; }
+    else if (CONTACT_EMAIL) a.href = "mailto:" + CONTACT_EMAIL;
   });
   const head = document.getElementById("head");
   const float = document.getElementById("float");
@@ -389,7 +405,7 @@ const MONTHLY_URL = "";  // 月額寄付の申込ページ。空欄ならトッ�
         }).join("")}</ul>`;
       }
     });
-    return h || `<p class="empty">法人・団体パートナーは、まだいません。最初のパートナーとして、ラックやエリアに社名を掲げませんか。<a href="./#tiers">年間協賛プランを見る</a></p>`;
+    return h || `<p class="empty">最初の法人パートナーの席が、まだ空いています。ラックやエリアに、御社の名前を刻みませんか。<a href="./#tiers">法人パートナープランを見る</a></p>`;
   }
 
   function wallHTML(monthly, oyasai, note){
@@ -408,7 +424,7 @@ const MONTHLY_URL = "";  // 月額寄付の申込ページ。空欄ならトッ�
       h += `<div class="oyasai"><b>${oyasai}</b><span>名のおやさいサポーター（月1,000円〜）が、毎月の食数チケットを支えています。</span></div>`;
     }
     if (!h){
-      return `<p class="empty">サポーターズウォールは、まだ空いています。月3,000円のそだてるサポーターになると、ここに最初のお名前が並びます。<a class="js-monthly" href="./#support">月額プランを見る</a></p>`;
+      return `<p class="empty">サポーターズウォールの一番目は、まだ空いています。月3,000円のそだてるサポーターになると、ここに最初のお名前が刻まれます。<a class="js-monthly" href="./#support">月額プランを見る</a></p>`;
     }
     return `<div class="wall-wrap">${h}${note ? `<p class="wall-note">${esc(note)}</p>` : ""}</div>`;
   }
@@ -437,11 +453,11 @@ const MONTHLY_URL = "";  // 月額寄付の申込ページ。空欄ならトッ�
     const note = d.monthly_note || d.supporters_note || "";
 
     document.getElementById("content").innerHTML =
-      section("partners", "法人・団体パートナー", "年間協賛で、栽培ラックやエリアに名前を掲げて支えてくださっている企業・団体のみなさまです。",
-        `<a class="cta-link" href="./#tiers">年間協賛プランを見る</a>`, partnersHTML(partners)) +
-      section("wall", "サポーターズウォール", "毎月の継続寄付で、食堂の運営と家賃を支えてくださっているみなさまです。",
+      section("partners", "法人・団体パートナー", "年間スポンサーとして栽培ラックやエリアに名を刻み、この場所を共につくっている企業・団体のみなさまです。",
+        `<a class="cta-link" href="./#tiers">法人パートナープランを見る</a>`, partnersHTML(partners)) +
+      section("wall", "サポーターズウォール", "毎月のサポートで食堂の土台を支える、共同オーナーのみなさまです。",
         `<a class="cta-link js-monthly" href="./#support">月額サポーターになる</a>`, wallHTML(monthly, oyasai, note)) +
-      section("inkind", "物品・設備・食材サポーター", "種や苗、厨房機器、食材などを届けてくださったみなさまです。",
+      section("inkind", "物品・設備・食材サポーター", "種や苗、厨房機器、食材。この場所のかたちそのものを届けてくださったみなさまです。",
         `<a class="cta-link" href="./#others">物品提供について</a>`, inkindHTML(inkind));
 
     document.querySelectorAll("#content .js-monthly").forEach(a => {

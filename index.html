@@ -17,11 +17,11 @@
     枠いっぱいに写真が表示されます（data-label の文字は自動で消えます）。
   ============================================================
 -->
-<title>そだてる食堂｜倉庫で野菜を育てて、こどもと食べる</title>
-<meta name="description" content="愛知の倉庫に水耕栽培プラントをつくり、育てた野菜でこども食堂をひらきます。毎月の運営を支えるマンスリーサポーター100名を募集しています。">
+<title>そだてる食堂｜愛知発・インドアファーム型こども食堂</title>
+<meta name="description" content="倉庫×水耕栽培×こども食堂。愛知の倉庫に、光と水で野菜が育つインドアファームと、こどもたちの食卓をつくります。月1,000円から、はじまりの100人のサポーターを募集中。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="そだてる食堂｜マンスリーサポーター募集">
-<meta property="og:description" content="水耕栽培プラントを備えた子ども食堂。月1,000円から、毎月の運営を一緒に支えてください。">
+<meta property="og:title" content="そだてる食堂｜未来の農場の、はじまりの100人へ">
+<meta property="og:description" content="愛知発・インドアファーム型こども食堂。月1,000円から、このプロジェクトの共同オーナーに。">
 <meta property="og:url" content="https://foodflight-aichi.github.io/sodateru/">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
@@ -140,6 +140,78 @@ h1,h2,h3{margin:0;line-height:1.4;font-weight:700;letter-spacing:.03em}
 .ph svg.ph-icon{position:absolute;inset:0;margin:auto;width:44%;max-width:180px;opacity:.9}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ph:has(img)::after,.ph:has(img) .ph-icon{display:none}
+
+/* ---------- tags ---------- */
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:4px 14px;border-radius:999px;font-size:.82rem;font-weight:700;letter-spacing:.02em;line-height:1.4}
+.tag-green{background:var(--green-900);color:#fff}
+.tag-sun{background:var(--mustard-100);color:#7A5610;border:1px solid #F1DFAF}
+.tag-line{background:var(--paper);border:1px solid var(--line);color:var(--ink-soft);font-weight:500;padding-left:5px}
+.tag-line b{display:inline-grid;place-items:center;height:24px;padding:0 10px;border-radius:999px;background:var(--terracotta);color:#fff;font-size:.75rem}
+
+/* ---------- reasons ---------- */
+.reasons{list-style:none;margin:0;padding:0;display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
+.reason{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.reason-body{padding:32px;display:flex;flex-direction:column;gap:14px;flex:1}
+.reason-no{font-weight:800;font-size:.95rem;color:var(--terracotta);letter-spacing:.04em}
+.reason h3{font-size:clamp(1.2rem,2.6vw,1.45rem);font-weight:900;color:var(--green-900);line-height:1.5}
+.reason p{color:var(--ink-soft);font-size:.98rem;line-height:2}
+.r1{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1.1fr}
+.r1 .ph{border-radius:0;box-shadow:none;min-height:320px}
+.r1 .reason-body{padding:44px;justify-content:center}
+.r1 h3{font-size:clamp(1.4rem,3vw,1.9rem)}
+.reason-tags{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.reason-tags li{font-size:.82rem;font-weight:500;padding:4px 12px;border-radius:999px;background:var(--green-100);color:var(--green-900)}
+.r2{background:var(--green-900);border-color:var(--green-900)}
+.r2 h3{color:#fff}.r2 p{color:#CFE3D6}.r2 .reason-no{color:var(--mustard)}
+.loop{margin-top:auto;padding-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.loop span{padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;font-size:.85rem;font-weight:700}
+.loop i{width:22px;height:2px;background:var(--mustard);position:relative}
+.loop i::after{content:"";position:absolute;right:-1px;top:-3px;border:4px solid transparent;border-left:6px solid var(--mustard);border-right:0}
+.r3{background:var(--mustard-100);border-color:#F1DFAF}
+.r3 .reason-no{color:var(--green-700)}
+.equation{margin-top:auto!important;padding-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.equation span{padding:6px 14px;border-radius:var(--r-s);background:var(--paper);color:var(--green-900);font-weight:700;font-size:.9rem}
+.equation b{color:var(--terracotta);font-family:var(--en);font-size:1.1rem}
+@media (max-width:860px){
+  .reasons{grid-template-columns:1fr}
+  .r1{grid-template-columns:1fr}
+  .r1 .ph{min-height:220px}
+  .r1 .reason-body,.reason-body{padding:26px}
+}
+
+/* ---------- founder story ---------- */
+.story{display:grid;gap:40px;grid-template-columns:1fr;align-items:center}
+@media (min-width:900px){.story{grid-template-columns:.85fr 1.15fr;gap:72px}}
+.story-photo{aspect-ratio:4/5;max-height:560px}
+@media (max-width:899px){.story-photo{aspect-ratio:16/11}}
+.story-body h2{font-size:clamp(1.7rem,4.2vw,2.6rem);font-weight:900;color:var(--green-900);line-height:1.45}
+.story-body blockquote{margin:28px 0 0;padding:0 0 0 22px;border-left:3px solid var(--terracotta);display:grid;gap:16px}
+.story-body blockquote p{font-size:1.06rem;line-height:2.1;color:var(--ink)}
+.sign{margin-top:32px;display:flex;align-items:center;gap:14px}
+.sign-mark{width:46px;height:46px;border-radius:50%;background:var(--green-900);display:grid;place-items:center;flex:none}
+.sign-mark svg{width:22px;height:22px}
+.sign b{display:block;font-size:1rem}
+.sign > div > span{display:block;font-size:.85rem;color:var(--ink-soft)}
+
+/* ---------- media ---------- */
+.media-sec{padding-top:0}
+.media{background:var(--green-900);color:#fff;border-radius:32px;padding:56px;display:grid;gap:40px;grid-template-columns:1fr;position:relative;overflow:hidden}
+@media (min-width:960px){.media{grid-template-columns:1fr 1fr;align-items:center}}
+@media (max-width:640px){.media{padding:32px 24px;border-radius:24px}}
+.media::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.07) 1px,transparent 1.5px) 0 0/22px 22px;pointer-events:none}
+.media > *{position:relative}
+.media h2{margin-top:18px;font-size:clamp(1.5rem,3.6vw,2.2rem);font-weight:900;line-height:1.5}
+.media-head > p{margin-top:16px;color:#CFE3D6}
+.media-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.media .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
+.media .btn-ghost:hover{border-color:#fff;color:#fff}
+.media-note{margin-top:14px;font-size:.82rem;color:#A9C7B4}
+.angles{list-style:none;margin:0;padding:0;display:grid;gap:12px;grid-template-columns:1fr}
+@media (min-width:560px){.angles{grid-template-columns:1fr 1fr}}
+.angles li{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-m);padding:20px}
+.angles b{display:block;font-size:1rem;margin-bottom:6px}
+.angles span{display:block;font-size:.88rem;color:#CFE3D6;line-height:1.8}
 
 /* ---------- section scaffold ---------- */
 .sec{padding:112px 0}
@@ -341,11 +413,11 @@ footer a{color:var(--ink-soft)}
     </a>
     <nav class="nav" aria-label="ページ内">
       <a href="#about">コンセプト</a>
-      <a href="#goal">100人のサポーター</a>
+      <a href="#reasons">投資する理由</a>
       <a href="#support">月額プラン</a>
-      <a href="#tiers">法人スポンサー</a>
-      <a href="sponsors.html">支援者</a>
-      <a href="#faq">よくある質問</a>
+      <a href="#tiers">法人パートナー</a>
+      <a href="#media">取材・視察</a>
+      <a href="sponsors.html">パートナー一覧</a>
     </nav>
     <a class="btn btn-primary btn-sm js-monthly" href="#support">サポーターになる</a>
   </div>
@@ -357,12 +429,16 @@ footer a{color:var(--ink-soft)}
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
     <div>
-      <span class="hero-badge"><b>募集中</b>マンスリーサポーター <span class="num js-goal-text">100</span>名</span>
+      <div class="hero-tags">
+        <span class="tag tag-green">愛知発・インドアファーム型こども食堂</span>
+        <span class="tag tag-sun">メディア取材・視察歓迎</span>
+        <span class="tag tag-line"><b>募集中</b>はじまりの<span class="num js-goal-text">100</span>人</span>
+      </div>
       <h1 id="hero-title"><span class="line">倉庫で野菜を育てて、</span><span class="line">こどもと食べる。</span></h1>
-      <p class="hero-lead">愛知の倉庫に水耕栽培のインドアファームをつくり、採れたての野菜でこども食堂をひらきます。家賃と光熱費、毎月かかる運営費を、月1,000円からのサポーターで支えてください。</p>
+      <p class="hero-lead">愛知の倉庫に、光と水で野菜が育つインドアファームと、こどもたちの食卓を。種をまくところから「いただきます」まで、ひとつの屋根の下でつくる新しい地域の拠点です。月1,000円から、このプロジェクトの初期メンバーになってください。</p>
       <div class="hero-actions">
         <a class="btn btn-primary js-monthly" href="#support">月額サポーターになる</a>
-        <a class="btn btn-ghost" href="#tiers">法人として協賛する</a>
+        <a class="btn btn-ghost" href="#tiers">法人スポンサー・投資家向け案内</a>
       </div>
       <p class="hero-meta">開設予定 <span class="tmp">仮</span> 2027年秋　｜　運営：フードフライト愛知</p>
     </div>
@@ -375,7 +451,7 @@ footer a{color:var(--ink-soft)}
         <svg class="ph-icon" viewBox="0 0 120 120" aria-hidden="true"><ellipse cx="60" cy="74" rx="40" ry="12" fill="#fff" opacity=".9"/><ellipse cx="60" cy="70" rx="22" ry="7" fill="#C8643B" opacity=".7"/><circle cx="52" cy="66" r="6" fill="#52B788"/><circle cx="64" cy="64" r="6" fill="#2D6A4F"/></svg>
       </div>
       <div class="count-card" aria-label="サポーターの人数">
-        <span class="lbl">いまのサポーター</span>
+        <span class="lbl">いまの初期メンバー</span>
         <span class="big"><span class="js-count">0</span><small>/ <span class="js-goal-text">100</span>名</small></span>
         <div class="mini-dots js-mini" aria-hidden="true"></div>
       </div>
@@ -388,7 +464,7 @@ footer a{color:var(--ink-soft)}
   <div class="wrap">
     <div class="sec-head">
       <h2 id="concept-title"><span class="ib">育てる場所と、</span><span class="ib">食べる場所を、</span><br><span class="ib">ひとつの屋根の下に。</span></h2>
-      <p>天候に左右されない倉庫の中で、レタスやハーブを一年中育てます。収穫した野菜はその日の食卓へ。こどもたちは種まきから参加できます。</p>
+      <p>天候に左右されない倉庫の中で、レタスやハーブを一年中育てます。採れたての野菜はその日の食卓へ。こどもたちは食べる人であり、育てる人でもあります。</p>
     </div>
 
     <div class="bento">
@@ -421,21 +497,67 @@ footer a{color:var(--ink-soft)}
         <h3>また種をまく</h3>
         <p>収穫したあとのレーンに次の苗を植えて、栽培のサイクルを回し続けます。毎月の支えが、このサイクルを止めない力になります。</p>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="tile t-why">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#1B4332" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M12 11c0-4 2.5-6 6.5-6 0 4-2.5 6-6.5 6z"/><path d="M12 14c0-3.4-2-5-5.5-5 0 3.4 2 5 5.5 5z"/></svg></span>
-        <h3>野菜は、いちばん届きにくい食材</h3>
-        <p>フードバンクに集まる寄付は、お米や缶詰など日持ちするものが中心。新鮮な野菜は、自分たちで育てて補います。</p>
-      </div>
-      <div class="tile t-why">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#1B4332" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6v10H3z"/><path d="M9 20v-6h6v6"/></svg></span>
-        <h3>広い場所を、安定して使える</h3>
-        <p>雨の日も暑い日も、こどもが安心して集まれる大きな屋内空間。栽培も調理も、同じ屋根の下でできます。</p>
-      </div>
-      <div class="tile t-why">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#1B4332" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M8.5 12.5l2.3 2.3 4.7-5"/></svg></span>
-        <h3>水耕栽培の経験がある</h3>
-        <p>フードフライト愛知は、家庭向け水耕栽培キットの貸し出しを続けてきました。そのノウハウを食堂の規模へ広げます。</p>
+<!-- ================= REASONS ================= -->
+<section class="sec" id="reasons" aria-labelledby="reasons-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="reasons-title"><span class="ib">このプロジェクトに</span><span class="ib">投資したくなる、</span><span class="ib">3つの理由。</span></h2>
+      <p>ただの食堂でも、ただの農場でもない。こどもの体験、地域の循環、まちの話題。3つの価値が、ひとつの倉庫で同時に育ちます。</p>
+    </div>
+
+    <ol class="reasons">
+      <li class="reason r1">
+        <div class="ph" data-label="写真：レタスを収穫するこどもの手元">
+          <svg class="ph-icon" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 92V58" stroke="#2D6A4F" stroke-width="5" stroke-linecap="round"/><path d="M60 64c0-18 12-28 30-28 0 18-12 28-30 28z" fill="#52B788"/><path d="M60 74c0-15-10-24-26-24 0 15 10 24 26 24z" fill="#2D6A4F"/><ellipse cx="60" cy="96" rx="30" ry="7" fill="#fff" opacity=".85"/></svg>
+        </div>
+        <div class="reason-body">
+          <span class="reason-no num">01</span>
+          <h3>子どもたちに「育てる体験」を贈る</h3>
+          <p>スーパーに並ぶ野菜しか知らない子どもたちに、種をまき、光と水で命が育つ感動を。食べるだけの食堂じゃない、自分の手で収穫して食べる、地域で一番小さな「未来の農場」。</p>
+          <ul class="reason-tags"><li>食育</li><li>農業体験</li><li>自分で収穫して食べる</li></ul>
+        </div>
+      </li>
+      <li class="reason r2">
+        <div class="reason-body">
+          <span class="reason-no num">02</span>
+          <h3>「ただ配る」から「自ら生み出す」へ。次世代の地域循環モデル</h3>
+          <p>一過性の施しで終わらせない。フードバンクに最も足りない「新鮮な生野菜」を、倉庫内の自給自足プラントで一年中つくり出す。持続可能な仕組みそのものへの投資です。</p>
+          <div class="loop" aria-hidden="true">
+            <span>育てる</span><i></i><span>食べる</span><i></i><span>また育てる</span>
+          </div>
+        </div>
+      </li>
+      <li class="reason r3">
+        <div class="reason-body">
+          <span class="reason-no num">03</span>
+          <h3>メディア・地域企業が注目する「絵になる・語れる」実験場</h3>
+          <p>倉庫 × 水耕栽培 × こども食堂。地域の企業や大人が関わること自体が誇りになり、社会的なPRにもつながる、新しいコミュニティ拠点です。</p>
+          <p class="equation"><span>倉庫</span><b>×</b><span>水耕栽培</span><b>×</b><span>こども食堂</span></p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= FOUNDER STORY ================= -->
+<section class="sec sec-alt" id="story" aria-labelledby="story-title">
+  <div class="wrap story">
+    <div class="ph warm story-photo" data-label="写真：倉庫で作業する発起人">
+      <svg class="ph-icon" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="44" r="16" fill="#fff" opacity=".9"/><path d="M28 100c0-20 14-32 32-32s32 12 32 32z" fill="#fff" opacity=".9"/><rect x="70" y="74" width="26" height="6" rx="3" fill="#C8643B" transform="rotate(-30 83 77)"/></svg>
+    </div>
+    <div class="story-body">
+      <h2 id="story-title"><span class="ib">図面の上じゃなく、</span><span class="ib">現場から。</span></h2>
+      <blockquote>
+        <p>普段は内装や設備の現場で、自分の手を動かして空間をつくっています。だからこそ、机上の空論で終わらせたくなかった。</p>
+        <p>倉庫を自分たちの手で改装して、光と水で本当に野菜が育ち、こどもたちが笑って食べる。そんな「本当に機能する、野菜が育つ食堂」を、この手でつくります。</p>
+      </blockquote>
+      <div class="sign">
+        <span class="sign-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span>
+        <div><b>発起人　〇〇 〇〇 <span class="tmp">仮</span></b><span>内装・設備の現場で働く、そだてる食堂の言い出しっぺ</span></div>
       </div>
     </div>
   </div>
@@ -445,21 +567,21 @@ footer a{color:var(--ink-soft)}
 <section class="sec" id="goal" aria-labelledby="goal-title">
   <div class="wrap">
     <div class="sec-head">
-      <h2 id="goal-title">まずは100人の<br>マンスリーサポーターを。</h2>
-      <p>こども食堂を続けるために一番大切なのは、毎月決まってかかる費用を安定してまかなえること。家賃と光熱費をはじめとした運営の土台を、100人の月々の支えでつくります。</p>
+      <h2 id="goal-title"><span class="ib">まずは100人の、</span><span class="ib">初期メンバーを。</span></h2>
+      <p>一度きりで終わらない、続く仕組みこそが最高の支援です。家賃と光熱費という食堂の土台を、100人の月々のサポートで固めます。この100席に名を連ねる人たちが、プロジェクトのはじまりの仲間です。</p>
     </div>
 
     <div class="goal">
       <div class="goal-card">
         <div class="goal-top">
           <div>
-            <p class="lbl">いまのサポーター</p>
+            <p class="lbl">いまの初期メンバー</p>
             <p class="goal-count"><span class="js-count">0</span><small>/ <span class="js-goal-text">100</span>名</small></p>
           </div>
           <p class="goal-rest">目標まで あと <b class="js-rest">100</b> 名</p>
         </div>
         <div class="seats js-seats" role="img" aria-label="100席のうち埋まっている席の数"></div>
-        <p class="goal-note">ひとつの丸が、ひとりのサポーターです。席が埋まるたびに、このページで更新します。</p>
+        <p class="goal-note">ひとつの丸が、ひとりの初期メンバーです。席が埋まるたびに、このページで更新します。</p>
       </div>
 
       <div class="budget">
@@ -482,8 +604,8 @@ footer a{color:var(--ink-soft)}
 <section class="sec sec-alt" id="support" aria-labelledby="plans-title">
   <div class="wrap">
     <div class="sec-head center">
-      <h2 id="plans-title">月額サポータープラン</h2>
-      <p>お礼は、モノではなく「体験」と「つながり」で。食堂の一員として、育つ様子を一緒に見守ってください。<br>いつでも金額の変更・休止ができます。</p>
+      <h2 id="plans-title"><span class="ib">このプロジェクトの、</span><span class="ib">共同オーナーになりませんか？</span></h2>
+      <p>毎月のサポートは、こどもたちの食卓と倉庫の畑への継続的な投資。リターンはモノではなく、食数チケット・名前・体験です。育っていく様子を、いちばん近い場所で見届けてください。<br>いつでも金額の変更・休止ができます。</p>
     </div>
 
     <div class="plans">
@@ -491,12 +613,12 @@ footer a{color:var(--ink-soft)}
         <svg class="plan-art" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="26" fill="#E4EFE7"/><ellipse cx="26" cy="31" rx="13" ry="5" fill="#fff" stroke="#1B4332" stroke-width="1.6"/><circle cx="22" cy="28" r="4" fill="#52B788"/><circle cx="29" cy="27" r="4" fill="#2D6A4F"/></svg>
         <h3 class="plan-name">おやさいサポーター</h3>
         <p class="plan-price"><span class="yen">¥1,000</span><span class="per">／月〜</span></p>
-        <p class="plan-lead">毎月1食分の「あしなが枠」食数チケットを、こどもに届けます。いちばん気軽な関わり方です。</p>
+        <p class="plan-lead">毎月1食分の「あしなが枠」食数チケットを、こどもに贈る。最初の一歩にちょうどいいプランです。</p>
         <ul>
           <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#E4EFE7"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>こども食堂「毎月1食分」の食数チケットを支援</li>
           <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#E4EFE7"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>写真つきの月次活動レポートを配信</li>
         </ul>
-        <a class="btn btn-ghost btn-block js-monthly" href="#support">月1,000円で支援する</a>
+        <a class="btn btn-ghost btn-block js-monthly" href="#support">おやさいサポーターになる</a>
       </article>
 
       <article class="plan featured">
@@ -504,26 +626,26 @@ footer a{color:var(--ink-soft)}
         <svg class="plan-art" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="26" fill="rgba(255,255,255,.12)"/><rect x="13" y="15" width="26" height="20" rx="3" fill="#FAF9F6"/><rect x="17" y="20" width="12" height="2.4" rx="1.2" fill="#2D6A4F"/><rect x="17" y="25" width="18" height="2.4" rx="1.2" fill="#E3A92B"/><path d="M26 35v7" stroke="#FAF9F6" stroke-width="2"/></svg>
         <h3 class="plan-name">そだてるサポーター</h3>
         <p class="plan-price"><span class="yen">¥3,000</span><span class="per">／月〜</span></p>
-        <p class="plan-lead">サイトと会場のサポーターボードに、あなたの名前が並びます。</p>
+        <p class="plan-lead">サイトと会場のボードに名前が並び、毎月の収穫の現場に立ち会える。いちばん「関わってる」を実感できるプランです。</p>
         <ul>
           <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#E3A92B"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>サイト＆会場のサポーターボードにお名前を掲示</li>
           <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#E3A92B"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>月1回の収穫体験・試食会にご招待</li>
           <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#E3A92B"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>おやさいサポーターの特典すべて</li>
         </ul>
-        <a class="btn btn-primary btn-block js-monthly" href="#support">月3,000円で支援する</a>
+        <a class="btn btn-primary btn-block js-monthly" href="#support">そだてるサポーターになる</a>
       </article>
 
       <article class="plan">
         <svg class="plan-art" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="26" fill="#FBF0D6"/><rect x="10" y="30" width="32" height="4" rx="2" fill="#1B4332"/><circle cx="17" cy="26" r="4.5" fill="#52B788"/><circle cx="26" cy="26" r="4.5" fill="#52B788"/><circle cx="35" cy="26" r="4.5" fill="#52B788"/><rect x="19" y="36" width="14" height="6" rx="1.5" fill="#C8643B"/></svg>
         <h3 class="plan-name">マイ・レーン オーナー</h3>
         <p class="plan-price"><span class="yen">¥10,000</span><span class="per">／月〜</span></p>
-        <p class="plan-lead">栽培ラックの1段が、あなたの名前のついた「マイ・レーン」になります。</p>
+        <p class="plan-lead">栽培ラックの1段が、あなたの名前を冠した「マイ・レーン」に。プロジェクトの顔となるオーナー枠です。</p>
         <ul>
           <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#FBF0D6"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>栽培ラック1段のオーナー権（ネームプレートを掲示）</li>
           <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#FBF0D6"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>支援者限定のナイト交流会にご招待</li>
           <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#FBF0D6"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>そだてるサポーターの特典すべて</li>
         </ul>
-        <a class="btn btn-dark btn-block js-monthly" href="#support">月10,000円で支援する</a>
+        <a class="btn btn-dark btn-block js-monthly" href="#support">マイ・レーンを持つ</a>
       </article>
     </div>
     <p class="plans-note">プランの金額は最低額です。上乗せや、単発でのご寄付も受け付けています。 <span class="tmp">仮</span></p>
@@ -537,53 +659,77 @@ footer a{color:var(--ink-soft)}
       <div class="role me">
         <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#fff"/><circle cx="24" cy="19" r="6" fill="#2D6A4F"/><path d="M13 36c0-6 5-10 11-10s11 4 11 10z" fill="#52B788"/></svg>
         <h3><span class="ib">個人の方は</span>　<span class="ib">月額サポーター</span></h3>
-        <p>月1,000円から、毎月の食堂運営を支える継続寄付。お礼は食数チケット・名前の掲示・体験への参加です。<a href="#support">プランを見る</a></p>
+        <p>月1,000円からの継続サポートで、共同オーナーに。リターンは食数チケット・名前の掲示・体験への参加です。<a href="#support">プランを見る</a></p>
       </div>
       <div class="role co">
         <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#fff"/><rect x="14" y="14" width="20" height="22" rx="2" fill="#1B4332"/><g fill="#E3A92B"><rect x="18" y="18" width="4" height="4"/><rect x="26" y="18" width="4" height="4"/><rect x="18" y="25" width="4" height="4"/><rect x="26" y="25" width="4" height="4"/></g></svg>
-        <h3><span class="ib">企業・団体は</span>　<span class="ib">年間スポンサー</span></h3>
-        <p>年3万円からの年間協賛。ラックやエリアへの社名掲示と、広報での発信がセットです。</p>
+        <h3><span class="ib">企業・団体は</span>　<span class="ib">年間パートナー</span></h3>
+        <p>年3万円からの年間スポンサー。ラックやエリアに社名を刻み、地域の未来に投資する企業として発信できます。</p>
       </div>
     </div>
 
     <div class="sec-head">
-      <h2 id="corp-title">法人スポンサー（年間）</h2>
-      <p>栽培ラックや食堂空間に御社名を掲げ、地域のこどもと食を支える取り組みとして発信できます。社員の方の収穫体験やボランティア参加も歓迎します。</p>
+      <h2 id="corp-title"><span class="ib">地域の未来に、</span><span class="ib">社名を刻む。</span></h2>
+      <p>法人・団体パートナー（年間スポンサー）。倉庫×水耕栽培×こども食堂という「語れる」取り組みに、ラックやエリアの名前として御社が加わります。CSR・ESG報告にも、採用や広報にも使える発信材料になります。</p>
     </div>
 
     <div class="corp">
       <div class="tier">
         <div class="tier-head"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#F1EEE6"/><ellipse cx="20" cy="24" rx="7" ry="4.5" fill="#8C9692"/><ellipse cx="20" cy="22.5" rx="3" ry="2" fill="#52B788"/></svg><h3>たね</h3></div>
         <p class="price">¥30,000<small>／年</small></p>
-        <ul><li>Webサイトの協賛者ページに社名掲載</li><li>年次活動報告書の送付</li></ul>
+        <ul><li>パートナー一覧ページに社名掲載</li><li>年次インパクトレポートの送付</li></ul>
       </div>
       <div class="tier">
         <div class="tier-head"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#E4EFE7"/><path d="M20 30V20" stroke="#2D6A4F" stroke-width="2.4" stroke-linecap="round"/><ellipse cx="15" cy="19" rx="5.5" ry="3.5" fill="#52B788"/><ellipse cx="25" cy="19" rx="5.5" ry="3.5" fill="#52B788"/></svg><h3>ふたば</h3></div>
         <p class="price">¥100,000<small>／年</small></p>
-        <ul><li>協賛者ページにロゴ掲載</li><li>食堂内のスポンサーウォールに社名掲示</li><li>活動写真の広報利用</li></ul>
+        <ul><li>パートナー一覧ページにロゴ掲載</li><li>会場のスポンサーウォールに社名掲示</li><li>活動写真を自社の広報・SNSで利用可</li></ul>
       </div>
       <div class="tier">
         <div class="tier-head"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#E4EFE7"/><path d="M20 32V16" stroke="#1B4332" stroke-width="2.4" stroke-linecap="round"/><path d="M20 21c0-6 4-9 10-9 0 6-4 9-10 9z" fill="#2D6A4F"/><path d="M20 25c0-5-3-8-8.5-8 0 5 3 8 8.5 8z" fill="#52B788"/></svg><h3>ほんば</h3></div>
         <p class="price">¥300,000<small>／年</small></p>
-        <ul><li>栽培ラック1台に社名プレート</li><li>サイト・食堂でロゴ掲示</li><li>社員向け収穫体験会（年1回）</li></ul>
+        <ul><li>栽培ラック1台に社名プレート（例：〇〇ラック）</li><li>サイト・会場でロゴ掲示</li><li>社員向け収穫体験・チームビルディング（年1回）</li></ul>
       </div>
       <div class="tier top">
         <div class="tier-head"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#1B4332"/><ellipse cx="20" cy="24" rx="12" ry="8" fill="#2D6A4F"/><circle cx="15" cy="20" r="6" fill="#52B788"/><circle cx="25" cy="19.5" r="5.5" fill="#52B788"/><circle cx="20" cy="17" r="4.5" fill="#B7E4C7"/></svg><h3>しゅうかく</h3></div>
         <p class="price">¥500,000〜<small>／年</small></p>
-        <ul><li>栽培エリアのネーミングライツ</li><li>共同でのプレスリリース・取材対応</li><li>ほんばの特典すべて</li></ul>
+        <ul><li>栽培エリアのネーミングライツ</li><li>共同プレスリリース・メディア取材への同席</li><li>ほんばの特典すべて</li></ul>
       </div>
     </div>
 
     <div class="corp-why">
-      <div><b>地域貢献を、目に見えるかたちで</b>社名入りのラックやエリアが、食堂に来る家族やメディアの目に触れます。</div>
-      <div><b>社員の体験の場に</b>収穫体験や調理ボランティアを、社内研修やチームの活動に使えます。</div>
-      <div><b>SDGs・ESGの発信に</b>食品ロス削減、こどもの貧困対策、都市農業の取り組みとして報告できます。</div>
+      <div><b>「見える」地域貢献</b>社名入りのラックやエリアが、食堂に集まる家族、視察に来る企業、取材のカメラに映ります。</div>
+      <div><b>社員が誇れる体験</b>収穫や調理のボランティアを、研修やチームビルディング、採用広報のストーリーに。</div>
+      <div><b>語れるESGの実例</b>食品ロス、こどもの食と体験、都市農業。報告書に載せたくなる取り組みです。</div>
     </div>
     <p style="margin-top:16px;font-size:.88rem;color:var(--ink-soft)"><span class="tmp">仮</span> 金額と特典は仮のものです。設備・物品での協賛もご相談ください。</p>
 
     <div class="corp-actions">
-      <a class="btn btn-dark js-form" href="#">スポンサーについて相談する</a>
-      <a class="btn btn-ghost" href="sponsors.html">支援者のみなさまを見る</a>
+      <a class="btn btn-dark js-form" href="#">法人パートナーについて相談する</a>
+      <a class="btn btn-ghost" href="sponsors.html">パートナー一覧を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEDIA ================= -->
+<section class="sec media-sec" id="media" aria-labelledby="media-title">
+  <div class="wrap">
+    <div class="media">
+      <div class="media-head">
+        <span class="tag tag-sun">For Media &amp; Partners</span>
+        <h2 id="media-title"><span class="ib">取材・視察・タイアップを</span><span class="ib">ご希望のメディア・企業様へ</span></h2>
+        <p>倉庫が畑になり、畑が食卓になる。開設前の改装から、こどもたちの収穫の瞬間まで、撮れる・語れるシーンがたくさんあります。取材・視察・共同企画のご相談を歓迎します。</p>
+        <div class="media-actions">
+          <a class="btn btn-primary js-form" href="#">取材・視察を申し込む</a>
+          <a class="btn btn-ghost js-mail" href="#">メールで問い合わせる</a>
+        </div>
+        <p class="media-note">プレスキット（写真・ロゴ・事業概要）は準備中です。 <span class="tmp">仮</span></p>
+      </div>
+      <ul class="angles">
+        <li><b>倉庫が畑になる、ビフォーアフター</b><span>何もない倉庫に栽培ラックが並び、緑が育つまでの改装ドキュメント。</span></li>
+        <li><b>こどもが収穫して、食べる瞬間</b><span>自分で育てたレタスを摘んで、その日の夕食に。表情が撮れる現場です。</span></li>
+        <li><b>現場職人が立ち上げた食堂</b><span>内装・設備の現場で働く発起人が、自らの手で倉庫を改装するストーリー。</span></li>
+        <li><b>企業 × 地域のタイアップ</b><span>栽培エリアのネーミング、社員の収穫体験など、共同企画のご提案も。</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -592,8 +738,8 @@ footer a{color:var(--ink-soft)}
 <section class="sec sec-alt" id="others" aria-labelledby="others-title">
   <div class="wrap">
     <div class="sec-head">
-      <h2 id="others-title">モノや時間で、参加する</h2>
-      <p>お金以外のかたちでの関わりも、大きな力になります。</p>
+      <h2 id="others-title"><span class="ib">モノや時間で、</span><span class="ib">プロジェクトに加わる</span></h2>
+      <p>種や設備、そしてあなたの得意なこと。お金以外のかたちでも、この場所を一緒につくれます。</p>
     </div>
     <div class="ways">
       <div class="way">
@@ -644,12 +790,14 @@ footer a{color:var(--ink-soft)}
   <div class="wrap">
     <div class="sec-head center"><h2 id="faq-title">よくある質問</h2></div>
     <div class="faq">
+      <details><summary>「投資」とありますが、配当や金銭的なリターンはありますか？</summary><p>ありません。このサイトでいう「投資」は、地域の未来とこどもたちの体験に向けた投資という意味です。いただいたお金は寄付として食堂の運営にあて、リターンは食数チケット・お名前の掲示・体験へのご招待です。</p></details>
       <details><summary>月額サポーターは、いつでもやめられますか？</summary><p>はい。金額の変更・休止・解約はいつでもできます。手続きは申込ページのマイページ、またはお問い合わせから行えます。</p></details>
       <details><summary>収穫した野菜は届きますか？</summary><p>野菜の発送は行っていません。鮮度と送料の負担を考え、その分をこどもたちの食事にあてています。代わりに、収穫体験や試食会、名前の掲示といった「食堂に関わる体験」をお礼としてご用意しています。</p></details>
       <details><summary>支援金は何に使われますか？</summary><p>倉庫の家賃、LEDやポンプの電気代、食材、種や養液など、毎月の運営費にあてます。使いみちは毎月の活動レポートと年1回の報告書で公開します。</p></details>
       <details><summary>寄付金控除の対象になりますか？</summary><p><span class="tmp">仮</span> 団体の法人格や認定状況によって異なります。詳しくはお問い合わせください。</p></details>
       <details><summary>食堂は誰でも利用できますか？</summary><p>地域のこどもと保護者が対象です。利用に条件や審査はありません。料金や予約方法は、開設が近づいたらお知らせします。</p></details>
       <details><summary>体験会や交流会はどこで開かれますか？</summary><p>食堂のある倉庫で開催します。日程はサポーター向けの活動レポートでお知らせします。</p></details>
+      <details><summary>取材や視察は、開設前でも受け付けていますか？</summary><p>はい。倉庫の改装や栽培ラックの立ち上げなど、開設前の過程こそ見どころです。取材・視察の欄から、お気軽にご連絡ください。</p></details>
     </div>
   </div>
 </section>
@@ -660,12 +808,12 @@ footer a{color:var(--ink-soft)}
     <div class="final-card">
       <svg class="leaf l1" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 95C50 45 70 10 98 5c0 50-20 85-48 90z" fill="#52B788"/></svg>
       <svg class="leaf l2" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 95C50 45 70 10 98 5c0 50-20 85-48 90z" fill="#E3A92B"/></svg>
-      <h2 id="join-title">100人目の席は、<br>まだ空いています。</h2>
-      <p>月1,000円から、こどもたちの食卓と、倉庫の畑を一緒に育ててください。法人スポンサー・取材のご相談もお待ちしています。</p>
+      <h2 id="join-title"><span class="ib">未来の農場の、</span><br><span class="ib">はじまりの100人へ。</span></h2>
+      <p>月1,000円から、このプロジェクトの共同オーナーに。数年後「あの食堂、最初から関わってるんだ」と言える側へ。法人パートナー・取材のご相談もお待ちしています。</p>
       <div class="row">
         <a class="btn btn-primary js-monthly" href="#support">月額サポーターになる</a>
-        <a class="btn btn-ghost js-form" href="#">お問い合わせフォーム</a>
-        <a class="btn btn-ghost js-mail" href="#">メールで連絡する</a>
+        <a class="btn btn-ghost" href="#tiers">法人スポンサー・投資家向け案内</a>
+        <a class="btn btn-ghost js-form" href="#">お問い合わせ</a>
       </div>
     </div>
   </div>
@@ -678,8 +826,10 @@ footer a{color:var(--ink-soft)}
     <span>© フードフライト愛知</span>
     <nav aria-label="フッター">
       <a href="#support">月額プラン</a>
-      <a href="#tiers">法人スポンサー</a>
-      <a href="sponsors.html">支援者のみなさま</a>
+      <a href="#tiers">法人パートナー</a>
+      <a href="#media">取材・視察</a>
+      <a href="sponsors.html">パートナー一覧</a>
+      <a href="#faq">よくある質問</a>
       <a href="https://foodflight-aichi.github.io/map/">地域たすけあいマップ</a>
     </nav>
   </div>
@@ -687,7 +837,7 @@ footer a{color:var(--ink-soft)}
 
 <!-- 追従CTA -->
 <div class="float" id="float" aria-hidden="true">
-  <p>月<b>¥1,000</b>から、こども食堂の毎月を支える</p>
+  <p>月<b>¥1,000</b>から、未来の農場の共同オーナーに</p>
   <a class="btn btn-primary js-monthly" href="#support" tabindex="-1">月額サポーターになる</a>
 </div>
 
