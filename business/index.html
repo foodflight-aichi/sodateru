@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>そだてるファーム for Business｜法人・店舗向け水耕栽培インドアファーム レンタル</title>
+<meta name="description" content="建築・内装・給排水設備のプロが設計・製作する国産インドアファームを月額レンタル。飲食店・オフィス・クリニック・福祉施設・教育機関へ。収益の一部は地域のこども食堂「そだてる食堂」に還元されます。愛知県小牧市・名古屋市など東海エリア対応。">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', '"Noto Sans JP"', 'sans-serif'],
+        },
+        colors: {
+          forest: { 50:'#f2f7f4', 100:'#e0ede5', 200:'#c2dacb', 400:'#5f9a77', 500:'#3d7d58', 600:'#2c6345', 700:'#214d36', 800:'#18392a', 900:'#0f261c', 950:'#09170f' },
+          charcoal: { 400:'#8a8f8c', 500:'#5f6462', 600:'#454a48', 700:'#333735', 800:'#232624', 900:'#171918' },
+          leaf: '#9fd36a',
+        },
+        letterSpacing: { wider2: '.18em' },
+      }
+    }
+  }
+</script>
+<style>
+  body { font-feature-settings: "palt"; -webkit-font-smoothing: antialiased; }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  .ph {
+    background-color: #e7eee9;
+    background-image: repeating-linear-gradient(135deg, rgba(33,77,54,.06) 0 1px, transparent 1px 14px);
+  }
+  .ph-dark {
+    background-color: #18392a;
+    background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 1px, transparent 1px 14px);
+  }
+  .faq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+  .faq-item.open .faq-panel { grid-template-rows: 1fr; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .plan-card.selected { outline: 2px solid #9fd36a; outline-offset: 4px; }
+  .grow-bar { transform-origin: bottom; animation: grow 3.2s ease-in-out infinite alternate; }
+  @keyframes grow { from { transform: scaleY(.75); } to { transform: scaleY(1); } }
+  .pulse-dot { animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .35; } }
+  .field-flash { animation: flash 1.2s ease; }
+  @keyframes flash { 0% { box-shadow: 0 0 0 0 rgba(159,211,106,.9); } 100% { box-shadow: 0 0 0 14px rgba(159,211,106,0); } }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .grow-bar, .pulse-dot { animation: none; }
+  }
+</style>
+</head>
+<body class="bg-white text-charcoal-800 font-sans">
+
+<!-- ============ HEADER ============ -->
+<header id="siteHeader" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+    <a href="#top" class="flex items-center gap-3">
+      <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-forest-800 text-leaf">
+        <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21V11"/><path d="M12 11c0-4 3-7 8-7 0 5-3 8-8 7Z"/><path d="M12 14c0-3-2.5-5.5-7-5.5 0 4 2.5 6.5 7 5.5Z"/></svg>
+      </span>
+      <span class="leading-tight">
+        <span class="block text-[15px] font-bold tracking-wide text-forest-900">SODATERU FARM <span class="font-medium text-forest-500">for Business</span></span>
+        <span class="block text-[10px] text-charcoal-500">こども食堂「そだてる食堂」プロジェクト</span>
+      </span>
+    </a>
+    <nav class="hidden items-center gap-8 text-sm font-medium text-charcoal-700 lg:flex">
+      <a href="#scenes" class="hover:text-forest-600">導入シーン</a>
+      <a href="#reasons" class="hover:text-forest-600">選ばれる理由</a>
+      <a href="#plans" class="hover:text-forest-600">プラン</a>
+      <a href="#flow" class="hover:text-forest-600">導入の流れ</a>
+      <a href="#faq" class="hover:text-forest-600">FAQ</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#contact" class="hidden rounded-full bg-forest-800 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-forest-700 sm:inline-block">無料相談・設置お見積り</a>
+      <button id="menuBtn" class="flex h-10 w-10 items-center justify-center rounded-lg border border-charcoal-400/30 lg:hidden" aria-label="メニューを開く" aria-expanded="false">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden border-t border-forest-100 bg-white/95 backdrop-blur lg:hidden">
+    <nav class="flex flex-col px-5 py-4 text-base font-medium text-charcoal-700">
+      <a href="#scenes" class="py-3">導入シーン</a>
+      <a href="#reasons" class="py-3">選ばれる理由</a>
+      <a href="#plans" class="py-3">プラン</a>
+      <a href="#flow" class="py-3">導入の流れ</a>
+      <a href="#faq" class="py-3">FAQ</a>
+      <a href="#contact" class="mt-3 rounded-full bg-forest-800 py-3 text-center font-semibold text-white">無料相談・設置お見積り</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="relative overflow-hidden bg-gradient-to-b from-forest-50 to-white pt-28 lg:pt-36">
+  <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-20 lg:grid-cols-12 lg:px-8 lg:pb-28">
+    <div class="lg:col-span-6 reveal">
+      <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-forest-200 bg-white px-4 py-1.5 text-xs font-semibold tracking-wider2 text-forest-600">
+        <span class="h-1.5 w-1.5 rounded-full bg-leaf pulse-dot"></span> INDOOR FARM RENTAL / 東海エリア
+      </p>
+      <h1 class="text-[2.1rem] font-bold leading-[1.35] tracking-tight text-forest-950 sm:text-5xl lg:text-[3.3rem]">
+        ただの観葉植物では<br class="hidden sm:block">ない。<br>
+        <span class="text-forest-500">採れたての緑</span>と<br class="sm:hidden">ストーリーを、<br>空間に実装する。
+      </h1>
+      <p class="mt-6 max-w-xl text-[15px] leading-8 text-charcoal-600 sm:text-base">
+        建築・内装・給排水設備のプロが設計・製作する国産インドアファームを、初期費用ゼロの月額レンタルで。
+        空間価値を高めるバイオフィリックデザインとして、そして地域のこどもたちを支える仕組みとして。
+      </p>
+      <ul class="mt-8 grid max-w-xl grid-cols-1 gap-3 text-sm text-charcoal-700 sm:grid-cols-3">
+        <li class="flex items-center gap-2 rounded-xl bg-white px-4 py-3 shadow-sm ring-1 ring-forest-100"><span class="text-forest-500">●</span>初期費用 0円</li>
+        <li class="flex items-center gap-2 rounded-xl bg-white px-4 py-3 shadow-sm ring-1 ring-forest-100"><span class="text-forest-500">●</span>ミリ単位で特注</li>
+        <li class="flex items-center gap-2 rounded-xl bg-white px-4 py-3 shadow-sm ring-1 ring-forest-100"><span class="text-forest-500">●</span>こども食堂に還元</li>
+      </ul>
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <a href="#contact" class="rounded-full bg-forest-800 px-8 py-4 text-center font-semibold text-white shadow-lg shadow-forest-900/10 transition hover:-translate-y-0.5 hover:bg-forest-700">無料相談・設置お見積り</a>
+        <a href="#plans" class="rounded-full border border-forest-800/20 bg-white px-8 py-4 text-center font-semibold text-forest-800 transition hover:border-forest-800">プランと料金を見る</a>
+      </div>
+    </div>
+
+    <!-- Hero photo placeholder -->
+    <div class="relative lg:col-span-6 reveal">
+      <div class="ph-dark relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] shadow-2xl sm:aspect-[4/3] lg:aspect-[4/5]">
+        <!-- 差し替え用：<img src="hero.jpg" alt="店舗に設置されたインドアファームの稼働イメージ" class="absolute inset-0 h-full w-full object-cover"> -->
+        <div class="absolute inset-0 flex items-end justify-center gap-4 px-10 pb-24 opacity-80" aria-hidden="true">
+          <div class="grow-bar h-[46%] w-10 rounded-t-full bg-gradient-to-t from-forest-600 to-leaf"></div>
+          <div class="grow-bar h-[62%] w-10 rounded-t-full bg-gradient-to-t from-forest-600 to-leaf" style="animation-delay:.4s"></div>
+          <div class="grow-bar h-[54%] w-10 rounded-t-full bg-gradient-to-t from-forest-600 to-leaf" style="animation-delay:.8s"></div>
+          <div class="grow-bar h-[70%] w-10 rounded-t-full bg-gradient-to-t from-forest-600 to-leaf" style="animation-delay:1.2s"></div>
+        </div>
+        <div class="absolute left-5 top-5 rounded-lg bg-black/40 px-3 py-1.5 text-[11px] font-medium text-white/90 backdrop-blur">
+          PHOTO｜実機稼働イメージ（推奨 4:5・1600×2000px）
+        </div>
+        <!-- Spec badges -->
+        <div class="absolute bottom-5 left-5 right-5 grid grid-cols-3 gap-2 text-white">
+          <div class="rounded-xl bg-white/10 p-3 backdrop-blur-md ring-1 ring-white/15">
+            <p class="text-[10px] tracking-wider text-white/60">SOIL</p>
+            <p class="mt-0.5 text-sm font-semibold">土・農薬不使用</p>
+          </div>
+          <div class="rounded-xl bg-white/10 p-3 backdrop-blur-md ring-1 ring-white/15">
+            <p class="text-[10px] tracking-wider text-white/60">POWER</p>
+            <p class="mt-0.5 text-sm font-semibold">電源ひとつ</p>
+          </div>
+          <div class="rounded-xl bg-white/10 p-3 backdrop-blur-md ring-1 ring-white/15">
+            <p class="text-[10px] tracking-wider text-white/60">HARVEST</p>
+            <p class="mt-0.5 text-sm font-semibold">約3〜4週間</p>
+          </div>
+        </div>
+      </div>
+      <div class="absolute -left-4 top-10 hidden rounded-2xl bg-white p-4 shadow-xl ring-1 ring-forest-100 sm:block">
+        <p class="text-[10px] font-semibold tracking-wider2 text-forest-500">MADE IN KOMAKI</p>
+        <p class="mt-1 text-sm font-bold text-forest-900">自社工房で設計・製作</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT BAND ============ -->
+<section class="bg-forest-900 text-white">
+  <div class="mx-auto flex max-w-7xl flex-col items-start gap-6 px-5 py-10 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+    <div class="flex items-center gap-4">
+      <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-leaf/15 text-leaf">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg>
+      </span>
+      <p class="text-sm leading-7 sm:text-base">
+        レンタル収益の一部は、小牧市の都市型インドアファーム×こども食堂<strong class="text-leaf">「そだてる食堂」</strong>の運営に還元されます。<br class="hidden md:block">
+        導入そのものが、御社のSDGs・地域貢献の取り組みになります。
+      </p>
+    </div>
+    <a href="#impact" class="shrink-0 text-sm font-semibold text-leaf underline-offset-4 hover:underline">還元の仕組みを見る →</a>
+  </div>
+</section>
+
+<!-- ============ SCENES ============ -->
+<section id="scenes" class="py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="reveal max-w-2xl">
+      <p class="text-xs font-semibold tracking-wider2 text-forest-500">USE CASES</p>
+      <h2 class="mt-3 text-3xl font-bold leading-snug text-forest-950 sm:text-4xl">導入シーン別のメリット</h2>
+      <p class="mt-4 text-charcoal-600 leading-8">空間の目的に合わせて、サイズ・段数・仕上げを設計します。</p>
+    </div>
+
+    <div class="mt-14 grid gap-6 md:grid-cols-3">
+      <!-- Scene 1 -->
+      <article class="reveal group overflow-hidden rounded-3xl bg-white ring-1 ring-forest-100 transition hover:-translate-y-1 hover:shadow-xl">
+        <div class="ph relative aspect-[4/3]">
+          <!-- 差し替え用：<img src="scene-cafe.jpg" alt="カフェ店内のインドアファーム" class="absolute inset-0 h-full w-full object-cover"> -->
+          <span class="absolute left-4 top-4 rounded-md bg-white/85 px-2.5 py-1 text-[11px] text-charcoal-600">PHOTO｜カフェ店内設置例（4:3）</span>
+          <span class="absolute bottom-4 left-4 text-5xl font-bold text-forest-800/15">01</span>
+        </div>
+        <div class="p-7">
+          <p class="text-xs font-semibold tracking-wider text-forest-500">RESTAURANT / CAFE</p>
+          <h3 class="mt-2 text-xl font-bold text-forest-950">飲食店・カフェ</h3>
+          <ul class="mt-5 space-y-3 text-sm leading-7 text-charcoal-600">
+            <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest-500"></span>店内に“育つ厨房”をつくるファーム演出。店舗の世界観そのものに。</li>
+            <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest-500"></span>その場で収穫してサラダやドリンクの彩りに。「採れたて」を体験として提供。</li>
+            <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest-500"></span>SNS映えと地域貢献の発信を同時に。</li>
+          </ul>
+        </div>
+      </article>
+      <!-- Scene 2 -->
+      <article class="reveal group overflow-hidden rounded-3xl bg-white ring-1 ring-forest-100 transition hover:-translate-y-1 hover:shadow-xl" style="transition-delay:.1s">
+        <div class="ph relative aspect-[4/3]">
+          <!-- 差し替え用：<img src="scene-office.jpg" alt="オフィスのエントランスに設置したファーム" class="absolute inset-0 h-full w-full object-cover"> -->
+          <span class="absolute left-4 top-4 rounded-md bg-white/85 px-2.5 py-1 text-[11px] text-charcoal-600">PHOTO｜オフィス・待合室設置例（4:3）</span>
+          <span class="absolute bottom-4 left-4 text-5xl font-bold text-forest-800/15">02</span>
+        </div>
+        <div class="p-7">
+          <p class="text-xs font-semibold tracking-wider text-forest-500">OFFICE / CLINIC</p>
+          <h3 class="mt-2 text-xl font-bold text-forest-950">オフィス・クリニック</h3>
+          <ul class="mt-5 space-y-3 text-sm leading-7 text-charcoal-600">
+            <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest-500"></span>エントランスや待合室を、生きた緑で印象的な空間に。</li>
+            <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest-500"></span>「今日は何cm伸びた？」が部署を越えた会話のきっかけに。</li>
+            <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest-500"></span>収穫した野菜を持ち帰れる、ちょっと嬉しい福利厚生。</li>
+          </ul>
+        </div>
+      </article>
+      <!-- Scene 3 -->
+      <article class="reveal group overflow-hidden rounded-3xl bg-white ring-1 ring-forest-100 transition hover:-translate-y-1 hover:shadow-xl" style="transition-delay:.2s">
+        <div class="ph relative aspect-[4/3]">
+          <!-- 差し替え用：<img src="scene-welfare.jpg" alt="福祉施設で利用者が収穫する様子" class="absolute inset-0 h-full w-full object-cover"> -->
+          <span class="absolute left-4 top-4 rounded-md bg-white/85 px-2.5 py-1 text-[11px] text-charcoal-600">PHOTO｜福祉施設・学校での作業風景（4:3）</span>
+          <span class="absolute bottom-4 left-4 text-5xl font-bold text-forest-800/15">03</span>
+        </div>
+        <div class="p-7">
+          <p class="text-xs font-semibold tracking-wider text-forest-500">WELFARE / EDUCATION</p>
+          <h3 class="mt-2 text-xl font-bold text-forest-950">福祉施設・教育機関</h3>
+          <ul class="mt-5 space-y-3 text-sm leading-7 text-charcoal-600">
+            <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest-500"></span>かがまずに作業できる高さ設計。車いすの方も無理なく参加。</li>
+            <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest-500"></span>種まき〜収穫を軽作業として、農福連携のプログラムに。</li>
+            <li class="flex gap-3"><span class="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-forest-500"></span>天候に左右されず、一年中「育てて食べる」食育ができる。</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REASONS ============ -->
+<section id="reasons" class="bg-charcoal-900 py-24 text-white lg:py-32">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="reveal lg:col-span-5">
+        <p class="text-xs font-semibold tracking-wider2 text-leaf">WHY SODATERU FARM</p>
+        <h2 class="mt-3 text-3xl font-bold leading-snug sm:text-4xl">簡易キットではなく、<br>“設備”としてつくる。</h2>
+        <p class="mt-6 leading-8 text-white/70">
+          設計・製作するのは、建築・内装・給排水設備の現場を知るプロ。
+          市販の簡易キットとは前提が違う、店舗・施設に据え付けるための国産インドアファームです。
+        </p>
+        <div class="ph-dark relative mt-10 aspect-[3/2] overflow-hidden rounded-2xl ring-1 ring-white/10">
+          <!-- 差し替え用：<img src="detail-piping.jpg" alt="循環配管のディテール" class="absolute inset-0 h-full w-full object-cover"> -->
+          <span class="absolute left-4 top-4 rounded-md bg-black/40 px-2.5 py-1 text-[11px] text-white/80">PHOTO｜配管・接続部のディテール（3:2）</span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7">
+        <!-- Tabs -->
+        <div class="reveal flex flex-wrap gap-2" role="tablist" aria-label="選ばれる理由">
+          <button class="reason-tab rounded-full px-5 py-2.5 text-sm font-semibold transition" role="tab" data-tab="0">耐久性</button>
+          <button class="reason-tab rounded-full px-5 py-2.5 text-sm font-semibold transition" role="tab" data-tab="1">特注対応</button>
+          <button class="reason-tab rounded-full px-5 py-2.5 text-sm font-semibold transition" role="tab" data-tab="2">月額制</button>
+          <button class="reason-tab rounded-full px-5 py-2.5 text-sm font-semibold transition" role="tab" data-tab="3">定期サポート</button>
+        </div>
+
+        <div class="reveal relative mt-8 min-h-[380px]">
+          <!-- Panel 0 -->
+          <div class="reason-panel rounded-3xl bg-white/[.04] p-8 ring-1 ring-white/10 sm:p-10" role="tabpanel">
+            <p class="text-5xl font-bold text-leaf/30">01</p>
+            <h3 class="mt-4 text-2xl font-bold">建築設備グレードの耐久性</h3>
+            <p class="mt-4 leading-8 text-white/70">実際の給排水設備資材をベースにした循環構造。接続部・勾配・オーバーフローまで現場の施工基準で設計しているから、「壊れない・水漏れしない」を前提に長く使えます。</p>
+            <dl class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div class="rounded-xl bg-white/5 p-4"><dt class="text-xs text-white/50">配管</dt><dd class="mt-1 font-semibold">設備用資材を採用</dd></div>
+              <div class="rounded-xl bg-white/5 p-4"><dt class="text-xs text-white/50">循環方式</dt><dd class="mt-1 font-semibold">オーバーフロー設計</dd></div>
+              <div class="rounded-xl bg-white/5 p-4"><dt class="text-xs text-white/50">衛生</dt><dd class="mt-1 font-semibold">土・農薬不使用</dd></div>
+            </dl>
+          </div>
+          <!-- Panel 1 -->
+          <div class="reason-panel hidden rounded-3xl bg-white/[.04] p-8 ring-1 ring-white/10 sm:p-10" role="tabpanel">
+            <p class="text-5xl font-bold text-leaf/30">02</p>
+            <h3 class="mt-4 text-2xl font-bold">空間に合わせた特注対応</h3>
+            <p class="mt-4 leading-8 text-white/70">内装業者ならではの強み。壁と柱のあいだ、カウンター下、窓際——設置スペースに合わせてミリ単位でサイズを調整し、木目・金属・塗装色など既存の内装デザインに馴染む仕上げで製作します。</p>
+            <dl class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div class="rounded-xl bg-white/5 p-4"><dt class="text-xs text-white/50">サイズ</dt><dd class="mt-1 font-semibold">ミリ単位で調整</dd></div>
+              <div class="rounded-xl bg-white/5 p-4"><dt class="text-xs text-white/50">仕上げ</dt><dd class="mt-1 font-semibold">内装に合わせて選択</dd></div>
+              <div class="rounded-xl bg-white/5 p-4"><dt class="text-xs text-white/50">製作</dt><dd class="mt-1 font-semibold">小牧市の自社工房</dd></div>
+            </dl>
+          </div>
+          <!-- Panel 2 -->
+          <div class="reason-panel hidden rounded-3xl bg-white/[.04] p-8 ring-1 ring-white/10 sm:p-10" role="tabpanel">
+            <p class="text-5xl font-bold text-leaf/30">03</p>
+            <h3 class="mt-4 text-2xl font-bold">初期費用ゼロの月額制</h3>
+            <p class="mt-4 leading-8 text-white/70">本体・設置工事の初期費用はかかりません。月額のレンタル料として経費処理しやすく、まずは小さく始めて、効果を見ながらサイズアップや台数追加も可能です。</p>
+            <dl class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div class="rounded-xl bg-white/5 p-4"><dt class="text-xs text-white/50">初期費用</dt><dd class="mt-1 font-semibold">0円</dd></div>
+              <div class="rounded-xl bg-white/5 p-4"><dt class="text-xs text-white/50">会計処理</dt><dd class="mt-1 font-semibold">月額で経費計上しやすい</dd></div>
+              <div class="rounded-xl bg-white/5 p-4"><dt class="text-xs text-white/50">買い切り</dt><dd class="mt-1 font-semibold">ご相談可</dd></div>
+            </dl>
+            <p class="mt-4 text-xs text-white/40">※会計・税務上の取扱いは御社の顧問税理士等にご確認ください。</p>
+          </div>
+          <!-- Panel 3 -->
+          <div class="reason-panel hidden rounded-3xl bg-white/[.04] p-8 ring-1 ring-white/10 sm:p-10" role="tabpanel">
+            <p class="text-5xl font-bold text-leaf/30">04</p>
+            <h3 class="mt-4 text-2xl font-bold">苗・液体肥料の定期サポート</h3>
+            <p class="mt-4 leading-8 text-white/70">苗と液体肥料を定期的にお届け。季節に合わせた品種提案や、育ち方の相談にも対応します。フルメンテナンスプランなら、清掃と苗の植え替えまでスタッフが伺います。</p>
+            <dl class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div class="rounded-xl bg-white/5 p-4"><dt class="text-xs text-white/50">消耗品</dt><dd class="mt-1 font-semibold">苗・液肥を定期配送</dd></div>
+              <div class="rounded-xl bg-white/5 p-4"><dt class="text-xs text-white/50">相談</dt><dd class="mt-1 font-semibold">栽培サポート</dd></div>
+              <div class="rounded-xl bg-white/5 p-4"><dt class="text-xs text-white/50">訪問</dt><dd class="mt-1 font-semibold">清掃・苗交換（上位プラン）</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT ============ -->
+<section id="impact" class="py-24 lg:py-28">
+  <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
+    <div class="ph reveal relative aspect-[16/10] overflow-hidden rounded-3xl">
+      <!-- 差し替え用：<img src="sodateru-shokudo.jpg" alt="そだてる食堂のファームとこどもたち" class="absolute inset-0 h-full w-full object-cover"> -->
+      <span class="absolute left-4 top-4 rounded-md bg-white/85 px-2.5 py-1 text-[11px] text-charcoal-600">PHOTO｜そだてる食堂のファーム・食堂の様子（16:10）</span>
+    </div>
+    <div class="reveal">
+      <p class="text-xs font-semibold tracking-wider2 text-forest-500">SOCIAL IMPACT</p>
+      <h2 class="mt-3 text-3xl font-bold leading-snug text-forest-950 sm:text-4xl">緑を置くことが、<br>地域のこどもの食卓につながる。</h2>
+      <p class="mt-6 leading-8 text-charcoal-600">
+        本サービスは、愛知県小牧市で都市型インドアファームとこども食堂を運営する「そだてる食堂」プロジェクトの関連事業です。
+        レンタル収益の一部が食堂の運営に還元され、こどもたちが自分で育てた野菜を食べる場づくりを支えます。
+      </p>
+      <ol class="mt-8 space-y-4">
+        <li class="flex items-start gap-4"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-800 text-sm font-bold text-white">1</span><p class="pt-1 text-charcoal-700">御社の空間にファームを導入</p></li>
+        <li class="flex items-start gap-4"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-800 text-sm font-bold text-white">2</span><p class="pt-1 text-charcoal-700">レンタル収益の一部を「そだてる食堂」へ</p></li>
+        <li class="flex items-start gap-4"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-800 text-sm font-bold text-white">3</span><p class="pt-1 text-charcoal-700">店頭POP・Web掲載用の「地域貢献パートナー」表記をご提供</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLANS ============ -->
+<section id="plans" class="bg-forest-50 py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <p class="text-xs font-semibold tracking-wider2 text-forest-500">RENTAL PLANS</p>
+      <h2 class="mt-3 text-3xl font-bold text-forest-950 sm:text-4xl">レンタルプラン</h2>
+      <p class="mt-4 leading-8 text-charcoal-600">すべてのプランで初期費用0円。設置スペースとご要望に合わせてお見積りします。</p>
+    </div>
+
+    <!-- Mobile plan switcher -->
+    <div class="reveal mx-auto mt-10 flex max-w-md rounded-full bg-white p-1.5 shadow-sm ring-1 ring-forest-100 md:hidden" role="tablist" aria-label="プラン切り替え">
+      <button class="plan-switch flex-1 rounded-full py-2.5 text-sm font-semibold transition" data-plan-index="0">ライト</button>
+      <button class="plan-switch flex-1 rounded-full py-2.5 text-sm font-semibold transition" data-plan-index="1">スタンダード</button>
+      <button class="plan-switch flex-1 rounded-full py-2.5 text-sm font-semibold transition" data-plan-index="2">フル・特注</button>
+    </div>
+
+    <div class="mt-8 grid items-stretch gap-6 md:mt-14 md:grid-cols-3">
+      <!-- Light -->
+      <div class="plan-card reveal flex flex-col rounded-3xl bg-white p-8 ring-1 ring-forest-100 transition" data-plan="ライトプラン">
+        <div class="ph relative aspect-[16/10] overflow-hidden rounded-2xl">
+          <span class="absolute left-3 top-3 rounded-md bg-white/85 px-2 py-0.5 text-[10px] text-charcoal-600">PHOTO｜卓上モデル（16:10）</span>
+        </div>
+        <p class="mt-6 text-xs font-semibold tracking-wider text-forest-500">LIGHT</p>
+        <h3 class="mt-1 text-2xl font-bold text-forest-950">ライト</h3>
+        <p class="mt-1 text-sm text-charcoal-500">卓上・省スペース</p>
+        <p class="mt-6 flex items-baseline gap-1 text-forest-950"><span class="text-sm">月額</span><span class="text-4xl font-bold tracking-tight">9,800</span><span class="text-sm">円〜</span></p>
+        <p class="text-xs text-charcoal-400">（税別）</p>
+        <ul class="mt-6 flex-1 space-y-3 text-sm text-charcoal-700">
+          <li class="flex gap-2"><span class="text-forest-500">✓</span>受付カウンター・デスクに置ける卓上型</li>
+          <li class="flex gap-2"><span class="text-forest-500">✓</span>苗・液体肥料の定期お届け</li>
+          <li class="flex gap-2"><span class="text-forest-500">✓</span>栽培サポート（メール・電話）</li>
+        </ul>
+        <button class="select-plan mt-8 w-full rounded-full border border-forest-800 py-3.5 font-semibold text-forest-800 transition hover:bg-forest-800 hover:text-white" data-plan="ライトプラン">このプランで相談する</button>
+      </div>
+
+      <!-- Standard -->
+      <div class="plan-card reveal relative flex flex-col rounded-3xl bg-forest-900 p-8 text-white shadow-2xl shadow-forest-900/20 transition md:-my-4 md:py-12" data-plan="スタンダードプラン" style="transition-delay:.1s">
+        <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-leaf px-4 py-1 text-xs font-bold text-forest-950">一番人気</span>
+        <div class="ph-dark relative aspect-[16/10] overflow-hidden rounded-2xl ring-1 ring-white/10">
+          <span class="absolute left-3 top-3 rounded-md bg-black/40 px-2 py-0.5 text-[10px] text-white/80">PHOTO｜3段ラック型（16:10）</span>
+        </div>
+        <p class="mt-6 text-xs font-semibold tracking-wider text-leaf">STANDARD</p>
+        <h3 class="mt-1 text-2xl font-bold">スタンダード</h3>
+        <p class="mt-1 text-sm text-white/60">3段ラック型</p>
+        <p class="mt-6 flex items-baseline gap-1"><span class="text-sm">月額</span><span class="text-4xl font-bold tracking-tight">19,800</span><span class="text-sm">円〜</span></p>
+        <p class="text-xs text-white/40">（税別）</p>
+        <ul class="mt-6 flex-1 space-y-3 text-sm text-white/85">
+          <li class="flex gap-2"><span class="text-leaf">✓</span>店舗・オフィスの主役になる3段ラック</li>
+          <li class="flex gap-2"><span class="text-leaf">✓</span>LED照明・循環ポンプ付き</li>
+          <li class="flex gap-2"><span class="text-leaf">✓</span>苗・液体肥料の定期お届け</li>
+          <li class="flex gap-2"><span class="text-leaf">✓</span>地域貢献パートナー表記のご提供</li>
+        </ul>
+        <button class="select-plan mt-8 w-full rounded-full bg-leaf py-3.5 font-bold text-forest-950 transition hover:brightness-105" data-plan="スタンダードプラン">このプランで相談する</button>
+      </div>
+
+      <!-- Full -->
+      <div class="plan-card reveal flex flex-col rounded-3xl bg-white p-8 ring-1 ring-forest-100 transition" data-plan="フルメンテナンス・特注プラン" style="transition-delay:.2s">
+        <div class="ph relative aspect-[16/10] overflow-hidden rounded-2xl">
+          <span class="absolute left-3 top-3 rounded-md bg-white/85 px-2 py-0.5 text-[10px] text-charcoal-600">PHOTO｜造作・特注設置例（16:10）</span>
+        </div>
+        <p class="mt-6 text-xs font-semibold tracking-wider text-forest-500">FULL MAINTENANCE / CUSTOM</p>
+        <h3 class="mt-1 text-2xl font-bold text-forest-950">フルメンテナンス・特注</h3>
+        <p class="mt-1 text-sm text-charcoal-500">サイズオーダー・おまかせ管理</p>
+        <p class="mt-6 flex items-baseline gap-1 text-forest-950"><span class="text-sm">月額</span><span class="text-4xl font-bold tracking-tight">35,000</span><span class="text-sm">円〜</span></p>
+        <p class="text-xs text-charcoal-400">（税別）</p>
+        <ul class="mt-6 flex-1 space-y-3 text-sm text-charcoal-700">
+          <li class="flex gap-2"><span class="text-forest-500">✓</span>設置スペースに合わせたサイズオーダー</li>
+          <li class="flex gap-2"><span class="text-forest-500">✓</span>内装に合わせた仕上げ・造作</li>
+          <li class="flex gap-2"><span class="text-forest-500">✓</span>スタッフによる定期清掃・苗交換</li>
+          <li class="flex gap-2"><span class="text-forest-500">✓</span>地域貢献パートナー表記のご提供</li>
+        </ul>
+        <button class="select-plan mt-8 w-full rounded-full border border-forest-800 py-3.5 font-semibold text-forest-800 transition hover:bg-forest-800 hover:text-white" data-plan="フルメンテナンス・特注プラン">このプランで相談する</button>
+      </div>
+    </div>
+
+    <div class="reveal mx-auto mt-12 max-w-3xl rounded-2xl border border-dashed border-forest-200 bg-white px-6 py-5 text-center text-sm leading-7 text-charcoal-600">
+      <strong class="text-forest-800">買い切り（購入）をご希望の場合もご相談可能です。</strong><br class="hidden sm:block">
+      表示価格は目安です。サイズ・設置条件・エリアにより変動します。
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOW ============ -->
+<section id="flow" class="py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="reveal max-w-2xl">
+      <p class="text-xs font-semibold tracking-wider2 text-forest-500">FLOW</p>
+      <h2 class="mt-3 text-3xl font-bold text-forest-950 sm:text-4xl">導入までの流れ</h2>
+    </div>
+    <ol class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <li class="reveal relative rounded-3xl bg-forest-50 p-7">
+        <p class="text-sm font-bold text-forest-500">STEP 01</p>
+        <h3 class="mt-3 text-lg font-bold text-forest-950">お問い合わせ</h3>
+        <p class="mt-3 text-sm leading-7 text-charcoal-600">フォームから設置場所や用途をお知らせください。担当者よりご連絡します。</p>
+      </li>
+      <li class="reveal relative rounded-3xl bg-forest-50 p-7" style="transition-delay:.1s">
+        <p class="text-sm font-bold text-forest-500">STEP 02</p>
+        <h3 class="mt-3 text-lg font-bold text-forest-950">現地確認・サイズ提案</h3>
+        <p class="mt-3 text-sm leading-7 text-charcoal-600">寸法・電源・動線を確認し、最適なサイズと仕上げをご提案。<span class="font-semibold text-forest-700">愛知県内は無料</span>で伺います。</p>
+      </li>
+      <li class="reveal relative rounded-3xl bg-forest-50 p-7" style="transition-delay:.2s">
+        <p class="text-sm font-bold text-forest-500">STEP 03</p>
+        <h3 class="mt-3 text-lg font-bold text-forest-950">自社工房で製作・設置</h3>
+        <p class="mt-3 text-sm leading-7 text-charcoal-600">小牧市の自社工房で製作し、内装のプロが設置工事まで一貫して行います。</p>
+      </li>
+      <li class="reveal relative rounded-3xl bg-forest-900 p-7 text-white" style="transition-delay:.3s">
+        <p class="text-sm font-bold text-leaf">STEP 04</p>
+        <h3 class="mt-3 text-lg font-bold">栽培スタート</h3>
+        <p class="mt-3 text-sm leading-7 text-white/75">定植から<span class="font-semibold text-leaf">約3〜4週間</span>で最初の収穫。以降も苗・肥料の定期サポートが続きます。</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="bg-forest-50 py-24 lg:py-32">
+  <div class="mx-auto max-w-3xl px-5 lg:px-8">
+    <div class="reveal text-center">
+      <p class="text-xs font-semibold tracking-wider2 text-forest-500">FAQ</p>
+      <h2 class="mt-3 text-3xl font-bold text-forest-950 sm:text-4xl">よくあるご質問</h2>
+    </div>
+    <div class="mt-12 space-y-3" id="faqList">
+      <div class="faq-item reveal rounded-2xl bg-white ring-1 ring-forest-100">
+        <button class="faq-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-forest-950" aria-expanded="false">
+          <span><span class="mr-2 text-forest-500">Q.</span>水漏れが心配です。</span>
+          <span class="faq-icon text-2xl font-light text-forest-500 transition-transform">+</span>
+        </button>
+        <div class="faq-panel"><div class="overflow-hidden"><p class="px-6 pb-6 text-sm leading-8 text-charcoal-600">給排水設備の資材と施工基準をベースに設計しており、接続部の固定やオーバーフロー対策まで考慮した循環構造です。設置時には水平・漏水チェックを行い、万一の際もすぐに対応します。</p></div></div>
+      </div>
+      <div class="faq-item reveal rounded-2xl bg-white ring-1 ring-forest-100">
+        <button class="faq-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-forest-950" aria-expanded="false">
+          <span><span class="mr-2 text-forest-500">Q.</span>電気代はどのくらいかかりますか？</span>
+          <span class="faq-icon text-2xl font-light text-forest-500 transition-transform">+</span>
+        </button>
+        <div class="faq-panel"><div class="overflow-hidden"><p class="px-6 pb-6 text-sm leading-8 text-charcoal-600">LED照明と循環ポンプのみで稼働し、電源はコンセントひとつです。目安はスタンダード（3段ラック）で月[◯,◯◯◯]円程度です（点灯時間・電力単価により変動）。現地確認時に試算をお出しします。</p></div></div>
+      </div>
+      <div class="faq-item reveal rounded-2xl bg-white ring-1 ring-forest-100">
+        <button class="faq-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-forest-950" aria-expanded="false">
+          <span><span class="mr-2 text-forest-500">Q.</span>虫が発生しませんか？</span>
+          <span class="faq-icon text-2xl font-light text-forest-500 transition-transform">+</span>
+        </button>
+        <div class="faq-panel"><div class="overflow-hidden"><p class="px-6 pb-6 text-sm leading-8 text-charcoal-600">土を使わない水耕栽培のため、土に由来する虫は発生しにくい環境です。屋内設置で農薬も使いません。ゼロとは言い切れないため、気になる場合の対処方法もサポートします。</p></div></div>
+      </div>
+      <div class="faq-item reveal rounded-2xl bg-white ring-1 ring-forest-100">
+        <button class="faq-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-forest-950" aria-expanded="false">
+          <span><span class="mr-2 text-forest-500">Q.</span>日々のメンテナンスは大変ですか？</span>
+          <span class="faq-icon text-2xl font-light text-forest-500 transition-transform">+</span>
+        </button>
+        <div class="faq-panel"><div class="overflow-hidden"><p class="px-6 pb-6 text-sm leading-8 text-charcoal-600">日常的には、水位の確認と定期的な液体肥料の補充、収穫程度です。手間をかけたくない場合は、スタッフが定期清掃・苗交換に伺うフルメンテナンスプランをおすすめします。</p></div></div>
+      </div>
+      <div class="faq-item reveal rounded-2xl bg-white ring-1 ring-forest-100">
+        <button class="faq-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left font-semibold text-forest-950" aria-expanded="false">
+          <span><span class="mr-2 text-forest-500">Q.</span>契約期間の縛りはありますか？</span>
+          <span class="faq-icon text-2xl font-light text-forest-500 transition-transform">+</span>
+        </button>
+        <div class="faq-panel"><div class="overflow-hidden"><p class="px-6 pb-6 text-sm leading-8 text-charcoal-600">最低契約期間は[◯ヶ月]です。以降は月単位で継続・解約が可能です。特注製作の場合は別途ご相談となります。途中で買い切りへの切り替えもご相談いただけます。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="py-24 lg:py-32">
+  <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-12 lg:px-8">
+    <div class="reveal lg:col-span-5">
+      <p class="text-xs font-semibold tracking-wider2 text-forest-500">CONTACT</p>
+      <h2 class="mt-3 text-3xl font-bold leading-snug text-forest-950 sm:text-4xl">無料相談・<br>設置お見積り</h2>
+      <p class="mt-6 leading-8 text-charcoal-600">設置スペースの写真や寸法がなくても大丈夫です。まずはお気軽にご相談ください。</p>
+      <ul class="mt-8 space-y-4 text-sm text-charcoal-700">
+        <li class="flex items-center gap-3"><span class="flex h-8 w-8 items-center justify-center rounded-full bg-forest-50 text-forest-600">✓</span>愛知県内は現地確認・サイズ提案無料</li>
+        <li class="flex items-center gap-3"><span class="flex h-8 w-8 items-center justify-center rounded-full bg-forest-50 text-forest-600">✓</span>対応エリア：小牧市・名古屋市ほか東海エリア</li>
+        <li class="flex items-center gap-3"><span class="flex h-8 w-8 items-center justify-center rounded-full bg-forest-50 text-forest-600">✓</span>買い切り（購入）のご相談も可</li>
+      </ul>
+    </div>
+
+    <form id="contactForm" class="reveal rounded-3xl bg-white p-6 shadow-xl shadow-forest-900/5 ring-1 ring-forest-100 sm:p-10 lg:col-span-7" novalidate>
+      <div class="grid gap-6 sm:grid-cols-2">
+        <label class="block sm:col-span-2">
+          <span class="text-sm font-semibold text-charcoal-700">会社名・店舗名 <span class="text-red-500">*</span></span>
+          <input name="company" required type="text" autocomplete="organization" class="mt-2 w-full rounded-xl border border-charcoal-400/30 bg-forest-50/40 px-4 py-3.5 outline-none transition focus:border-forest-500 focus:bg-white focus:ring-4 focus:ring-forest-100" placeholder="例）株式会社◯◯ / カフェ◯◯">
+        </label>
+        <label class="block">
+          <span class="text-sm font-semibold text-charcoal-700">ご担当者名 <span class="text-red-500">*</span></span>
+          <input name="name" required type="text" autocomplete="name" class="mt-2 w-full rounded-xl border border-charcoal-400/30 bg-forest-50/40 px-4 py-3.5 outline-none transition focus:border-forest-500 focus:bg-white focus:ring-4 focus:ring-forest-100" placeholder="例）山田 太郎">
+        </label>
+        <label class="block">
+          <span class="text-sm font-semibold text-charcoal-700">電話番号</span>
+          <input name="tel" type="tel" autocomplete="tel" class="mt-2 w-full rounded-xl border border-charcoal-400/30 bg-forest-50/40 px-4 py-3.5 outline-none transition focus:border-forest-500 focus:bg-white focus:ring-4 focus:ring-forest-100" placeholder="例）0568-00-0000">
+        </label>
+        <label class="block sm:col-span-2">
+          <span class="text-sm font-semibold text-charcoal-700">メールアドレス <span class="text-red-500">*</span></span>
+          <input name="email" required type="email" autocomplete="email" class="mt-2 w-full rounded-xl border border-charcoal-400/30 bg-forest-50/40 px-4 py-3.5 outline-none transition focus:border-forest-500 focus:bg-white focus:ring-4 focus:ring-forest-100" placeholder="例）info@example.com">
+        </label>
+        <label class="block">
+          <span class="text-sm font-semibold text-charcoal-700">ご希望プラン</span>
+          <select id="planSelect" name="plan" class="mt-2 w-full rounded-xl border border-charcoal-400/30 bg-forest-50/40 px-4 py-3.5 outline-none transition focus:border-forest-500 focus:bg-white focus:ring-4 focus:ring-forest-100">
+            <option value="">未定・相談して決めたい</option>
+            <option value="ライトプラン">ライト（月額9,800円〜）</option>
+            <option value="スタンダードプラン">スタンダード（月額19,800円〜）</option>
+            <option value="フルメンテナンス・特注プラン">フルメンテナンス・特注（月額35,000円〜）</option>
+            <option value="買い切り（購入）">買い切り（購入）を相談したい</option>
+          </select>
+        </label>
+        <label class="block">
+          <span class="text-sm font-semibold text-charcoal-700">設置予定エリア <span class="text-red-500">*</span></span>
+          <input name="area" required type="text" class="mt-2 w-full rounded-xl border border-charcoal-400/30 bg-forest-50/40 px-4 py-3.5 outline-none transition focus:border-forest-500 focus:bg-white focus:ring-4 focus:ring-forest-100" placeholder="例）愛知県小牧市">
+        </label>
+        <label class="block sm:col-span-2">
+          <span class="text-sm font-semibold text-charcoal-700">ご相談内容・設置イメージ</span>
+          <textarea name="message" rows="5" class="mt-2 w-full rounded-xl border border-charcoal-400/30 bg-forest-50/40 px-4 py-3.5 outline-none transition focus:border-forest-500 focus:bg-white focus:ring-4 focus:ring-forest-100" placeholder="例）カフェのカウンター横（幅90cm程度）に置きたい / 社員食堂で使いたい など"></textarea>
+        </label>
+      </div>
+      <p id="formError" class="mt-5 hidden rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600" role="alert"></p>
+      <button type="submit" class="mt-8 w-full rounded-full bg-forest-800 py-4 text-base font-semibold text-white shadow-lg shadow-forest-900/10 transition hover:bg-forest-700">内容を確認して送信する</button>
+      <p class="mt-4 text-center text-xs text-charcoal-400">※このフォームはデモです。実際には送信されません。</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-forest-950 text-white">
+  <div class="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+    <div class="grid gap-10 md:grid-cols-2 md:items-center">
+      <div>
+        <p class="text-lg font-bold tracking-wide">SODATERU FARM <span class="font-medium text-leaf">for Business</span></p>
+        <p class="mt-3 max-w-md text-sm leading-7 text-white/60">都市型インドアファーム×こども食堂「そだてる食堂」の関連事業として、法人・店舗向けに水耕栽培インドアファームのレンタルを行っています。</p>
+      </div>
+      <a href="https://foodflight-aichi.github.io/sodateru/" target="_blank" rel="noopener" class="group flex items-center justify-between rounded-2xl bg-white/5 p-6 ring-1 ring-white/10 transition hover:bg-white/10">
+        <span>
+          <span class="block text-xs tracking-wider2 text-leaf">PROJECT SITE</span>
+          <span class="mt-1 block text-lg font-bold">こども食堂「そだてる食堂」本サイトへ</span>
+          <span class="mt-1 block text-sm text-white/60">活動内容・マンスリーサポーター募集はこちら</span>
+        </span>
+        <span class="text-2xl text-leaf transition group-hover:translate-x-1">→</span>
+      </a>
+    </div>
+    <div class="mt-12 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-white/40 sm:flex-row sm:justify-between">
+      <p>愛知県小牧市｜対応エリア：東海エリア</p>
+      <p>&copy; <span id="year"></span> そだてる食堂 / SODATERU FARM. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile sticky CTA -->
+<a href="#contact" id="stickyCta" class="fixed bottom-4 left-4 right-4 z-40 translate-y-24 rounded-full bg-forest-800 py-4 text-center font-semibold text-white shadow-2xl transition-transform duration-300 sm:hidden">無料相談・設置お見積り</a>
+
+<!-- Confirm / Thanks modal -->
+<div id="modal" class="fixed inset-0 z-[60] hidden items-center justify-center bg-forest-950/60 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-3xl bg-white p-7 shadow-2xl sm:p-9">
+    <div id="confirmView">
+      <h3 id="modalTitle" class="text-xl font-bold text-forest-950">入力内容のご確認</h3>
+      <dl id="confirmList" class="mt-6 divide-y divide-forest-100 text-sm"></dl>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row-reverse">
+        <button id="sendBtn" class="flex-1 rounded-full bg-forest-800 py-3.5 font-semibold text-white hover:bg-forest-700">この内容で送信</button>
+        <button id="backBtn" class="flex-1 rounded-full border border-charcoal-400/40 py-3.5 font-semibold text-charcoal-700 hover:bg-forest-50">修正する</button>
+      </div>
+    </div>
+    <div id="thanksView" class="hidden text-center">
+      <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-forest-50 text-3xl text-forest-600">✓</div>
+      <h3 class="mt-5 text-xl font-bold text-forest-950">送信ありがとうございました（デモ）</h3>
+      <p class="mt-3 text-sm leading-7 text-charcoal-600">担当者より2営業日以内にご連絡いたします。<br>※デモ表示のため、実際には送信されていません。</p>
+      <button id="closeBtn" class="mt-8 rounded-full bg-forest-800 px-10 py-3.5 font-semibold text-white hover:bg-forest-700">閉じる</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Header shadow on scroll + sticky CTA
+  const header = document.getElementById('siteHeader');
+  const sticky = document.getElementById('stickyCta');
+  const contact = document.getElementById('contact');
+  const onScroll = () => {
+    const y = window.scrollY;
+    header.classList.toggle('bg-white/90', y > 20);
+    header.classList.toggle('backdrop-blur', y > 20);
+    header.classList.toggle('shadow-sm', y > 20);
+    const contactTop = contact.getBoundingClientRect().top;
+    const show = y > 600 && contactTop > window.innerHeight;
+    sticky.classList.toggle('translate-y-24', !show);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('hidden') === false;
+    menuBtn.setAttribute('aria-expanded', open);
+    header.classList.add('bg-white/90');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Reason tabs
+  const tabs = document.querySelectorAll('.reason-tab');
+  const panels = document.querySelectorAll('.reason-panel');
+  const setTab = i => {
+    tabs.forEach((t, idx) => {
+      const active = idx === i;
+      t.setAttribute('aria-selected', active);
+      t.className = 'reason-tab rounded-full px-5 py-2.5 text-sm font-semibold transition ' +
+        (active ? 'bg-leaf text-forest-950' : 'bg-white/5 text-white/70 ring-1 ring-white/10 hover:bg-white/10');
+    });
+    panels.forEach((p, idx) => {
+      p.classList.toggle('hidden', idx !== i);
+      if (idx === i) { p.animate([{opacity:0, transform:'translateY(10px)'},{opacity:1, transform:'none'}], {duration:400, easing:'ease-out'}); }
+    });
+  };
+  tabs.forEach((t, i) => t.addEventListener('click', () => setTab(i)));
+  setTab(0);
+
+  // Mobile plan switcher (shows one card at a time on small screens)
+  const cards = document.querySelectorAll('.plan-card');
+  const switches = document.querySelectorAll('.plan-switch');
+  const mq = window.matchMedia('(min-width: 768px)');
+  let current = 1;
+  const renderPlans = () => {
+    cards.forEach((c, i) => c.classList.toggle('hidden', !mq.matches && i !== current));
+    switches.forEach((s, i) => {
+      s.className = 'plan-switch flex-1 rounded-full py-2.5 text-sm font-semibold transition ' +
+        (i === current ? 'bg-forest-800 text-white' : 'text-charcoal-600');
+    });
+  };
+  switches.forEach((s, i) => s.addEventListener('click', () => { current = i; renderPlans(); }));
+  mq.addEventListener('change', renderPlans);
+  renderPlans();
+
+  // Plan select → form auto-select
+  const planSelect = document.getElementById('planSelect');
+  const highlightCard = plan => cards.forEach(c => c.classList.toggle('selected', c.dataset.plan === plan));
+  document.querySelectorAll('.select-plan').forEach(btn => btn.addEventListener('click', () => {
+    const plan = btn.dataset.plan;
+    planSelect.value = plan;
+    highlightCard(plan);
+    contact.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      planSelect.classList.remove('field-flash'); void planSelect.offsetWidth;
+      planSelect.classList.add('field-flash');
+    }, 600);
+  }));
+  planSelect.addEventListener('change', () => highlightCard(planSelect.value));
+
+  // FAQ accordion (one open at a time)
+  document.querySelectorAll('.faq-btn').forEach(btn => btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const willOpen = !item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false'); });
+    if (willOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+  }));
+
+  // Form: validate → confirm modal → demo thanks
+  const form = document.getElementById('contactForm');
+  const errBox = document.getElementById('formError');
+  const modal = document.getElementById('modal');
+  const confirmView = document.getElementById('confirmView');
+  const thanksView = document.getElementById('thanksView');
+  const confirmList = document.getElementById('confirmList');
+  const labels = { company:'会社名・店舗名', name:'ご担当者名', tel:'電話番号', email:'メールアドレス', plan:'ご希望プラン', area:'設置予定エリア', message:'ご相談内容' };
+  const esc = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const openModal = () => { modal.classList.remove('hidden'); modal.classList.add('flex'); document.body.style.overflow = 'hidden'; };
+  const closeModal = () => { modal.classList.add('hidden'); modal.classList.remove('flex'); document.body.style.overflow = ''; };
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const missing = [...form.querySelectorAll('[required]')].filter(f => !f.value.trim());
+    const emailField = form.elements.email;
+    const badEmail = emailField.value && !emailField.checkValidity();
+    form.querySelectorAll('input,select,textarea').forEach(f => f.classList.remove('border-red-400'));
+    if (missing.length || badEmail) {
+      missing.forEach(f => f.classList.add('border-red-400'));
+      if (badEmail) emailField.classList.add('border-red-400');
+      errBox.textContent = missing.length ? '必須項目（*）をご入力ください。' : 'メールアドレスの形式をご確認ください。';
+      errBox.classList.remove('hidden');
+      (missing[0] || emailField).focus();
+      return;
+    }
+    errBox.classList.add('hidden');
+    const data = new FormData(form);
+    confirmList.innerHTML = Object.keys(labels).map(k => {
+      let v = (data.get(k) || '').toString().trim();
+      if (k === 'plan' && !v) v = '未定・相談して決めたい';
+      return `<div class="grid grid-cols-3 gap-3 py-3"><dt class="text-charcoal-500">${labels[k]}</dt><dd class="col-span-2 whitespace-pre-wrap break-words font-medium text-charcoal-800">${v ? esc(v) : '—'}</dd></div>`;
+    }).join('');
+    confirmView.classList.remove('hidden');
+    thanksView.classList.add('hidden');
+    openModal();
+  });
+  document.getElementById('backBtn').addEventListener('click', closeModal);
+  document.getElementById('sendBtn').addEventListener('click', () => {
+    confirmView.classList.add('hidden');
+    thanksView.classList.remove('hidden');
+    form.reset();
+    highlightCard('');
+  });
+  document.getElementById('closeBtn').addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+})();
+</script>
+</body>
+</html>
