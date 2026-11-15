@@ -13,8 +13,10 @@
       CONTACT_EMAIL     … 問い合わせ用メールアドレス
       SUPPORTER_GOAL    … 募集人数（例：100）
       SUPPORTER_COUNT   … 現在のサポーター人数（手動で更新）
-  ・写真の差し替え：class="ph" の枠の中に <img src="写真.jpg" alt="説明"> を入れると、
-    枠いっぱいに写真が表示されます（data-label の文字は自動で消えます）。
+  ・写真：いまは Pexels のフリー写真（商用利用可・クレジット不要）を「イメージ写真」として表示しています。
+    実際の写真に差し替えるときは、class="ph" の枠の中にある <img src="..."> の src を
+    リポジトリにアップロードした写真のファイル名（例：photo-rack.jpg）に書き換えてください。
+    画像が読み込めなかったときは、自動で元のイラスト枠に戻ります。
   ============================================================
 -->
 <title>そだてる食堂｜愛知発・インドアファーム型こども食堂</title>
@@ -97,6 +99,31 @@ h1,h2,h3{margin:0;line-height:1.4;font-weight:700;letter-spacing:.03em}
 @media (max-width:900px){.nav{display:none}}
 @media (max-width:480px){.site-head .btn-sm{padding:0 14px;font-size:.82rem}}
 
+/* ---------- header glass & mobile menu ---------- */
+.site-head{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .3s,border-color .3s,box-shadow .3s}
+.site-head.is-scrolled,.site-head.menu-open{background:color-mix(in srgb,var(--bg) 72%,transparent);backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(27,67,50,.45)}
+.head-right{display:flex;align-items:center;gap:10px}
+.menu-btn{display:none;position:relative;width:44px;height:44px;flex:none;padding:0;border-radius:12px;border:1px solid var(--line);background:var(--paper);cursor:pointer}
+.menu-btn span{position:absolute;left:12px;right:12px;height:2px;border-radius:2px;background:var(--green-900);transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .2s}
+.menu-btn span:nth-child(1){top:15px}
+.menu-btn span:nth-child(2){top:21px}
+.menu-btn span:nth-child(3){top:27px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.m-nav{position:fixed;left:0;right:0;top:68px;z-index:29;max-height:calc(100dvh - 68px);overflow:auto;background:color-mix(in srgb,var(--bg) 96%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);box-shadow:0 24px 40px -28px rgba(27,67,50,.45);padding:8px 20px 24px;display:flex;flex-direction:column;transform:translateY(-10px);opacity:0;visibility:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .25s,visibility 0s .3s}
+.m-nav.open{transform:none;opacity:1;visibility:visible;transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .25s}
+.m-nav a{padding:15px 4px;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;font-size:1rem}
+.m-nav a.btn{margin-top:18px;border-bottom:0;color:#fff;padding:0 26px}
+@media (max-width:900px){.menu-btn{display:block}}
+@media (min-width:901px){.m-nav{display:none}}
+@media (max-width:400px){.head-right .btn-sm{display:none}}
+
+/* ---------- scroll reveal (JSが有効なときだけ付与) ---------- */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
 /* ---------- hero ---------- */
 .hero{padding:56px 0 96px}
 .hero-grid{display:grid;gap:48px;grid-template-columns:1fr}
@@ -139,7 +166,63 @@ h1,h2,h3{margin:0;line-height:1.4;font-weight:700;letter-spacing:.03em}
 .ph::after{content:attr(data-label);position:absolute;left:14px;bottom:14px;right:14px;width:max-content;max-width:calc(100% - 28px);padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.86);backdrop-filter:blur(6px);font-size:.75rem;font-weight:500;color:var(--ink-soft);line-height:1.5}
 .ph svg.ph-icon{position:absolute;inset:0;margin:auto;width:44%;max-width:180px;opacity:.9}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ph:has(img)::after,.ph:has(img) .ph-icon{display:none}
+/* ---------- photos ---------- */
+.ph img{transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .7s ease;opacity:0}
+.ph img.loaded{opacity:1}
+.ph:hover img{transform:scale(1.03)}
+.ph.has-photo .ph-icon{display:none}
+.ph.has-photo::after{content:"イメージ写真";left:auto;right:12px;top:12px;bottom:auto;width:auto;padding:2px 10px;font-size:.66rem;background:rgba(20,30,25,.42);color:#fff;backdrop-filter:blur(4px)}
+.reason .r-photo{border-radius:0;box-shadow:none;aspect-ratio:16/9}
+
+/* ---------- 100 seats tooltip ---------- */
+.goal-card{position:relative}
+.seats i{cursor:pointer;transition:transform .15s ease,background-color .2s}
+.seats i:hover{transform:scale(1.35);background:rgba(255,255,255,.4)}
+.seats i.on:hover{background:#F2C25C}
+.seats i.you{box-shadow:0 0 0 2px var(--mustard);animation:seatPulse 2.2s ease-in-out infinite}
+.seats.go i{animation:seatIn .45s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--i) * 9ms)}
+.seats.go i.you{animation:seatIn .45s cubic-bezier(.2,.7,.2,1) backwards,seatPulse 2.2s ease-in-out 1.2s infinite;animation-delay:calc(var(--i) * 9ms),1.2s}
+@keyframes seatIn{from{opacity:0;transform:scale(.3)}}
+@keyframes seatPulse{0%,100%{box-shadow:0 0 0 2px var(--mustard)}50%{box-shadow:0 0 0 6px rgba(227,169,43,.25)}}
+.seat-tip{position:absolute;z-index:4;left:0;top:0;pointer-events:none;padding:7px 14px;border-radius:999px;background:#fff;color:var(--green-900);font-size:.8rem;font-weight:700;white-space:nowrap;box-shadow:0 10px 24px -10px rgba(0,0,0,.4);transform:translate(-50%,calc(-100% - 10px));opacity:0;transition:opacity .15s}
+.seat-tip.show{opacity:1}
+.seat-tip b{color:var(--terracotta);font-family:var(--en)}
+.seat-tip::after{content:"";position:absolute;left:50%;bottom:-5px;width:10px;height:10px;background:#fff;transform:translateX(-50%) rotate(45deg)}
+@media (prefers-reduced-motion:reduce){.seats i.you,.seats.go i,.seats.go i.you{animation:none}}
+
+/* ---------- impact simulator ---------- */
+.sim{display:grid;grid-template-columns:1fr;gap:0;margin-bottom:56px;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+@media (min-width:900px){.sim{grid-template-columns:.9fr 1.1fr}}
+.sim-ctrl{background:var(--bg);padding:36px;display:flex;flex-direction:column;gap:18px}
+.sim-ctrl h3{font-size:clamp(1.3rem,3vw,1.7rem);font-weight:900;color:var(--green-900)}
+.sim-ctrl > p{color:var(--ink-soft);font-size:.95rem}
+.sim-amounts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (min-width:480px){.sim-amounts{grid-template-columns:repeat(4,1fr)}}
+.sim-amounts button{min-height:52px;border-radius:14px;border:1.5px solid var(--line);background:var(--paper);font-family:var(--en);font-weight:800;font-size:1rem;color:var(--ink);cursor:pointer;transition:background-color .2s,color .2s,border-color .2s,transform .15s}
+.sim-amounts button:hover{border-color:var(--green-700)}
+.sim-amounts button:active{transform:scale(.97)}
+.sim-amounts button[aria-pressed="true"]{background:var(--green-900);border-color:var(--green-900);color:#fff}
+.sim-range{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;font-size:.88rem;color:var(--ink-soft)}
+.sim-range input{width:100%;accent-color:var(--terracotta);height:28px;cursor:pointer}
+.sim-range output{font-family:var(--en);font-weight:800;color:var(--ink);min-width:5.5em;text-align:right}
+.sim-result{background:var(--green-900);color:#fff;padding:36px;display:flex;flex-direction:column;gap:20px;position:relative;overflow:hidden}
+.sim-lead{font-size:1.05rem;color:#CFE3D6}
+.sim-lead b{font-family:var(--en);font-size:1.5em;color:#fff;margin:0 .1em}
+.sim-stats{display:grid;gap:12px;grid-template-columns:1fr}
+@media (min-width:560px){.sim-stats{grid-template-columns:repeat(3,1fr)}}
+.sim-stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-m);padding:18px;display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:6px}
+.sim-stat .n{font-family:var(--en);font-weight:800;font-size:clamp(2rem,5vw,2.6rem);line-height:1.1;color:var(--mustard)}
+.sim-stat .u{font-weight:700;font-size:.95rem}
+.sim-stat .l{grid-column:1 / -1;margin-top:6px;font-size:.8rem;color:#CFE3D6;line-height:1.6}
+.sim-sprouts{display:flex;flex-wrap:wrap;gap:4px;min-height:22px}
+.sim-sprouts svg{width:20px;height:20px;animation:sprout .5s cubic-bezier(.3,1.6,.5,1) backwards}
+@keyframes sprout{from{transform:scale(0) translateY(6px);opacity:0}}
+.sim-plan{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:14px 16px;border-radius:var(--r-s);background:rgba(255,255,255,.08);font-size:.9rem;color:#CFE3D6}
+.sim-plan b{display:inline-block;padding:3px 12px;border-radius:999px;background:var(--mustard);color:var(--green-900);font-size:.82rem}
+.sim-result .btn{align-self:flex-start}
+.sim-note{font-size:.76rem;color:#A9C7B4}
+@media (max-width:600px){.sim-ctrl,.sim-result{padding:26px 22px}}
+@media (prefers-reduced-motion:reduce){.sim-sprouts svg{animation:none}}
 
 /* ---------- tags ---------- */
 .hero-tags{display:flex;flex-wrap:wrap;gap:8px}
@@ -419,8 +502,20 @@ footer a{color:var(--ink-soft)}
       <a href="#media">取材・視察</a>
       <a href="sponsors.html">パートナー一覧</a>
     </nav>
-    <a class="btn btn-primary btn-sm js-monthly" href="#support">サポーターになる</a>
+    <div class="head-right">
+      <a class="btn btn-primary btn-sm js-monthly" href="#support">サポーターになる</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="m-nav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </div>
   </div>
+  <nav class="m-nav" id="m-nav" aria-label="メニュー">
+    <a href="#about">コンセプト</a>
+    <a href="#reasons">投資する理由</a>
+    <a href="#support">月額プラン</a>
+    <a href="#tiers">法人パートナー</a>
+    <a href="#media">取材・視察</a>
+    <a href="sponsors.html">パートナー一覧</a>
+    <a class="btn btn-primary js-monthly" href="#support">月額サポーターになる</a>
+  </nav>
 </header>
 
 <main id="top">
@@ -446,9 +541,11 @@ footer a{color:var(--ink-soft)}
     <div class="collage">
       <div class="ph ph-main" data-label="写真：栽培ラック">
         <svg class="ph-icon" viewBox="0 0 120 120" aria-hidden="true"><rect x="14" y="20" width="92" height="6" rx="3" fill="#fff" opacity=".9"/><rect x="14" y="58" width="92" height="6" rx="3" fill="#fff" opacity=".9"/><rect x="14" y="96" width="92" height="6" rx="3" fill="#fff" opacity=".9"/><g fill="#2D6A4F"><circle cx="30" cy="50" r="8"/><circle cx="52" cy="50" r="8"/><circle cx="74" cy="50" r="8"/><circle cx="96" cy="50" r="8"/><circle cx="30" cy="88" r="8"/><circle cx="52" cy="88" r="8"/><circle cx="74" cy="88" r="8"/><circle cx="96" cy="88" r="8"/></g><g fill="#52B788"><circle cx="27" cy="46" r="5"/><circle cx="49" cy="46" r="5"/><circle cx="71" cy="46" r="5"/><circle cx="93" cy="46" r="5"/><circle cx="27" cy="84" r="5"/><circle cx="49" cy="84" r="5"/><circle cx="71" cy="84" r="5"/><circle cx="93" cy="84" r="5"/></g></svg>
+        <img src="https://images.pexels.com/photos/10269716/pexels-photo-10269716.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="LEDライトの下で育つ水耕栽培のレタス" decoding="async" fetchpriority="high">
       </div>
       <div class="ph warm ph-sub" data-label="写真：食卓の風景">
         <svg class="ph-icon" viewBox="0 0 120 120" aria-hidden="true"><ellipse cx="60" cy="74" rx="40" ry="12" fill="#fff" opacity=".9"/><ellipse cx="60" cy="70" rx="22" ry="7" fill="#C8643B" opacity=".7"/><circle cx="52" cy="66" r="6" fill="#52B788"/><circle cx="64" cy="64" r="6" fill="#2D6A4F"/></svg>
+        <img src="https://images.pexels.com/photos/7658807/pexels-photo-7658807.jpeg?auto=compress&cs=tinysrgb&w=800" alt="収穫したばかりの葉物野菜" decoding="async" fetchpriority="high">
       </div>
       <div class="count-card" aria-label="サポーターの人数">
         <span class="lbl">いまの初期メンバー</span>
@@ -471,7 +568,8 @@ footer a{color:var(--ink-soft)}
       <div class="tile t-hero">
         <div class="ph" data-label="写真：倉庫の全景（栽培エリアと食堂スペース）">
           <svg class="ph-icon" viewBox="0 0 120 120" aria-hidden="true"><path d="M10 50 L10 40 L35 26 L35 40 L60 26 L60 40 L85 26 L85 40 L110 26 L110 50Z" fill="#fff" opacity=".9"/><rect x="10" y="50" width="100" height="50" fill="#fff" opacity=".55"/><rect x="18" y="58" width="48" height="4" rx="2" fill="#2D6A4F"/><rect x="18" y="72" width="48" height="4" rx="2" fill="#2D6A4F"/><rect x="18" y="86" width="48" height="4" rx="2" fill="#2D6A4F"/><rect x="76" y="78" width="26" height="4" rx="2" fill="#C8643B"/></svg>
-        </div>
+          <img src="https://images.pexels.com/photos/348689/pexels-photo-348689.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="インドアファームで育つ水耕栽培のレタス" decoding="async" loading="lazy">
+      </div>
         <div class="cap">
           <h3>都市の倉庫が、インドアファームとこども食堂に</h3>
           <p style="margin-top:8px">LEDと養液で育てる水耕栽培は、土を使わず清潔で、季節を問わず収穫できます。栽培ラックのすぐ隣に、みんなで食べる大きなテーブルを置きます。</p>
@@ -513,7 +611,8 @@ footer a{color:var(--ink-soft)}
       <li class="reason r1">
         <div class="ph" data-label="写真：レタスを収穫するこどもの手元">
           <svg class="ph-icon" viewBox="0 0 120 120" aria-hidden="true"><path d="M60 92V58" stroke="#2D6A4F" stroke-width="5" stroke-linecap="round"/><path d="M60 64c0-18 12-28 30-28 0 18-12 28-30 28z" fill="#52B788"/><path d="M60 74c0-15-10-24-26-24 0 15 10 24 26 24z" fill="#2D6A4F"/><ellipse cx="60" cy="96" rx="30" ry="7" fill="#fff" opacity=".85"/></svg>
-        </div>
+          <img src="https://images.pexels.com/photos/7728911/pexels-photo-7728911.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="レタスの苗を植える手元" decoding="async" loading="lazy">
+      </div>
         <div class="reason-body">
           <span class="reason-no num">01</span>
           <h3>子どもたちに「育てる体験」を贈る</h3>
@@ -522,6 +621,7 @@ footer a{color:var(--ink-soft)}
         </div>
       </li>
       <li class="reason r2">
+        <div class="ph r-photo" data-label="写真：LEDに照らされた栽培棚"><img src="https://images.pexels.com/photos/3912479/pexels-photo-3912479.jpeg?auto=compress&cs=tinysrgb&w=900" alt="LEDに照らされたインドアファームの栽培棚" decoding="async" loading="lazy"></div>
         <div class="reason-body">
           <span class="reason-no num">02</span>
           <h3>「ただ配る」から「自ら生み出す」へ。次世代の地域循環モデル</h3>
@@ -532,6 +632,7 @@ footer a{color:var(--ink-soft)}
         </div>
       </li>
       <li class="reason r3">
+        <div class="ph r-photo" data-label="写真：栽培の様子を見学する人"><img src="https://images.pexels.com/photos/3912520/pexels-photo-3912520.jpeg?auto=compress&cs=tinysrgb&w=900" alt="LEDの下でレタスの生育を観察する様子" decoding="async" loading="lazy"></div>
         <div class="reason-body">
           <span class="reason-no num">03</span>
           <h3>メディア・地域企業が注目する「絵になる・語れる」実験場</h3>
@@ -548,7 +649,8 @@ footer a{color:var(--ink-soft)}
   <div class="wrap story">
     <div class="ph warm story-photo" data-label="写真：倉庫で作業する発起人">
       <svg class="ph-icon" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="44" r="16" fill="#fff" opacity=".9"/><path d="M28 100c0-20 14-32 32-32s32 12 32 32z" fill="#fff" opacity=".9"/><rect x="70" y="74" width="26" height="6" rx="3" fill="#C8643B" transform="rotate(-30 83 77)"/></svg>
-    </div>
+      <img src="https://images.pexels.com/photos/7285920/pexels-photo-7285920.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="電動ドリルで木材を加工する職人の手元" decoding="async" loading="lazy">
+      </div>
     <div class="story-body">
       <h2 id="story-title"><span class="ib">図面の上じゃなく、</span><span class="ib">現場から。</span></h2>
       <blockquote>
@@ -606,6 +708,32 @@ footer a{color:var(--ink-soft)}
     <div class="sec-head center">
       <h2 id="plans-title"><span class="ib">このプロジェクトの、</span><span class="ib">共同オーナーになりませんか？</span></h2>
       <p>毎月のサポートは、こどもたちの食卓と倉庫の畑への継続的な投資。リターンはモノではなく、食数チケット・名前・体験です。育っていく様子を、いちばん近い場所で見届けてください。<br>いつでも金額の変更・休止ができます。</p>
+    </div>
+
+    <div class="sim" id="simulator">
+      <div class="sim-ctrl">
+        <h3>あなたの支援で、何が変わる？</h3>
+        <p>金額を選ぶか、スライダーを動かしてみてください。1年後にこの場所で起きていることが、数字で見えます。</p>
+        <div class="sim-amounts" role="group" aria-label="月額を選ぶ">
+          <button type="button" data-v="1000" aria-pressed="false">¥1,000</button>
+          <button type="button" data-v="3000" aria-pressed="true">¥3,000</button>
+          <button type="button" data-v="10000" aria-pressed="false">¥10,000</button>
+          <button type="button" data-v="30000" aria-pressed="false">¥30,000</button>
+        </div>
+        <label class="sim-range"><span>月額</span><input type="range" id="sim-range" min="1000" max="30000" step="1000" value="3000" aria-label="月額のサポート金額"><output id="sim-out" for="sim-range">¥3,000</output></label>
+      </div>
+      <div class="sim-result" aria-live="polite">
+        <p class="sim-lead">あなたが月<b id="sim-amt">3,000</b>円サポートすると、1年間で…</p>
+        <div class="sim-stats">
+          <div class="sim-stat"><span class="n" id="sim-meals">36</span><span class="u">食分</span><span class="l">こどもたちに届く、温かいごはん</span></div>
+          <div class="sim-stat"><span class="n" id="sim-lettuce">72</span><span class="u">株</span><span class="l">倉庫で育つ、新鮮なレタス</span></div>
+          <div class="sim-stat"><span class="n" id="sim-share">1.5</span><span class="u">%</span><span class="l">毎月の運営費のうち、あなたが支える割合</span></div>
+        </div>
+        <div class="sim-sprouts" id="sim-sprouts" aria-hidden="true"></div>
+        <p class="sim-plan">あなたのプラン <b id="sim-plan">そだてるサポーター</b><span id="sim-perk">名前の掲示と、月1回の収穫体験・試食会</span></p>
+        <a class="btn btn-primary js-monthly" href="#support">このプランで参加する</a>
+        <p class="sim-note">※1食＝約1,000円、レタス1株＝約500円、毎月の運営費20万円として試算した目安です。 <span class="tmp">仮</span></p>
+      </div>
     </div>
 
     <div class="plans">
@@ -743,7 +871,7 @@ footer a{color:var(--ink-soft)}
     </div>
     <div class="ways">
       <div class="way">
-        <div class="ph sun" data-label="写真：寄贈された調理器具や苗"></div>
+        <div class="ph sun" data-label="写真：寄贈された調理器具や苗"><img src="https://images.pexels.com/photos/4390619/pexels-photo-4390619.jpeg?auto=compress&cs=tinysrgb&w=800" alt="ポットで育つ野菜の苗" decoding="async" loading="lazy"></div>
         <div class="way-body">
           <h3>物品・苗のご提供</h3>
           <p>新品・中古は問いません。次のようなものを募集しています。</p>
@@ -752,7 +880,7 @@ footer a{color:var(--ink-soft)}
         </div>
       </div>
       <div class="way">
-        <div class="ph" data-label="写真：収穫作業をするボランティア"></div>
+        <div class="ph" data-label="写真：収穫作業をするボランティア"><img src="https://images.pexels.com/photos/7728874/pexels-photo-7728874.jpeg?auto=compress&cs=tinysrgb&w=800" alt="レタスの苗を植える作業" decoding="async" loading="lazy"></div>
         <div class="way-body">
           <h3>ボランティア</h3>
           <p>経験は不要、月1回からでも参加できます。</p>
@@ -842,6 +970,74 @@ footer a{color:var(--ink-soft)}
 </div>
 
 <script>
+/* ===== 共通：ヘッダーのすりガラス・スマホメニュー・スクロールアニメーション ===== */
+(function(){
+  const head = document.getElementById("head");
+  const onScroll = () => head.classList.toggle("is-scrolled", scrollY > 8);
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  const btn = document.getElementById("menu-btn");
+  const nav = document.getElementById("m-nav");
+  if (btn && nav){
+    const set = open => {
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+      nav.classList.toggle("open", open);
+      head.classList.toggle("menu-open", open);
+    };
+    btn.addEventListener("click", () => set(btn.getAttribute("aria-expanded") !== "true"));
+    nav.addEventListener("click", e => { if (e.target.closest("a")) set(false); });
+    addEventListener("keydown", e => { if (e.key === "Escape") set(false); });
+    addEventListener("resize", () => { if (innerWidth > 900) set(false); });
+  }
+
+  /* 見出し・カード・写真を、スクロールに合わせて下からふわっと表示 */
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const SELECTORS = [
+    ".hero-tags",".hero h1",".hero-lead",".hero-actions",".hero-meta",".collage > *",
+    ".sec-head",".tile",".reason",".story-photo",".story-body",".goal-card",".budget",
+    ".sim",".plan",".role",".tier",".corp-why > div",".media",".angles li",".way",
+    ".org-text",".facts",".faq details",".final-card",
+    ".sp-hero h1",".sp-lead",".stat",".cat-head",".pcard",".logo-tile",".name-row li",
+    ".wall-wrap",".plate",".wall li",".oyasai",".ik-card",".empty"
+  ].join(",");
+  let io = null;
+  if (!reduce && "IntersectionObserver" in window){
+    io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: .12, rootMargin: "0px 0px -6% 0px" });
+  }
+  window.sodateruReveal = (root = document) => {
+    if (!io) return;
+    root.querySelectorAll(SELECTORS).forEach(el => {
+      if (el.classList.contains("rv")) return;
+      const sibs = [...el.parentElement.children].filter(c => c.matches(SELECTORS));
+      el.style.setProperty("--d", (Math.min(sibs.indexOf(el), 6) * 0.08) + "s");
+      el.classList.add("rv");
+      io.observe(el);
+    });
+  };
+  window.sodateruReveal();
+
+  /* 数字のカウントアップ */
+  window.sodateruCount = (el, to, opts = {}) => {
+    const from = opts.from ?? (parseFloat(String(el.dataset.v ?? "0")) || 0);
+    const dec = opts.decimals ?? 0, dur = reduce ? 0 : (opts.duration ?? 1100);
+    const fmt = v => v.toLocaleString("ja-JP", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+    el.dataset.v = to;
+    if (!dur){ el.textContent = fmt(to); return; }
+    const t0 = performance.now();
+    const step = t => {
+      const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(from + (to - from) * e);
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+})();
+</script>
+<script>
 /* ===== 設定欄：ここだけ書き換えればOK ===== */
 const MONTHLY_URL      = "";  // 月額寄付の申込ページ。空欄なら「月額プラン」欄へスクロール
 const CONTACT_FORM_URL = "";  // 例: "https://forms.gle/xxxxx"
@@ -863,10 +1059,6 @@ const SUPPORTER_COUNT  = 0;   // 現在のサポーター人数（手動で更�
     for (let i = 0; i < n; i++) h += `<i class="${i < Math.round(count / goal * n) ? "on" : ""}"></i>`;
     el.innerHTML = h;
   };
-  document.querySelectorAll(".js-seats").forEach(el => {
-    fill(el, goal);
-    el.setAttribute("aria-label", `${goal}席のうち${SUPPORTER_COUNT}席が埋まっています`);
-  });
   document.querySelectorAll(".js-mini").forEach(el => fill(el, 30));
 
   /* links */
@@ -881,8 +1073,6 @@ const SUPPORTER_COUNT  = 0;   // 現在のサポーター人数（手動で更�
   });
   document.querySelectorAll(".js-mail").forEach(a => a.href = mail);
 
-  /* header border */
-  const head = document.getElementById("head");
   /* floating CTA: ヒーローを過ぎたら表示、月額プラン欄と最後のCTAが見えている間は隠す */
   const float = document.getElementById("float");
   const floatBtn = float.querySelector("a");
@@ -898,7 +1088,6 @@ const SUPPORTER_COUNT  = 0;   // 現在のサポーター人数（手動で更�
   };
   new IntersectionObserver(([e]) => {
     pastHero = !e.isIntersecting && e.boundingClientRect.top < 0;
-    head.classList.toggle("is-scrolled", e.boundingClientRect.top < -10);
     update();
   }, { threshold: 0 }).observe(hero);
   const zo = new IntersectionObserver(entries => {
@@ -906,7 +1095,87 @@ const SUPPORTER_COUNT  = 0;   // 現在のサポーター人数（手動で更�
     update();
   }, { threshold: 0.15 });
   hideZones.forEach(z => z && zo.observe(z));
-  window.addEventListener("scroll", () => head.classList.toggle("is-scrolled", scrollY > 10), { passive: true });
+
+  /* ---- 写真：読み込めたらふわっと表示、読み込めなければ元の枠に戻す ---- */
+  document.querySelectorAll(".ph img").forEach(img => {
+    const ph = img.closest(".ph");
+    const ok = () => { img.classList.add("loaded"); ph.classList.add("has-photo"); };
+    const ng = () => { img.remove(); ph.classList.remove("has-photo"); };
+    if (img.complete && img.naturalWidth) ok();
+    else if (img.complete) ng();
+    else { img.addEventListener("load", ok, { once: true }); img.addEventListener("error", ng, { once: true }); }
+  });
+
+  /* ---- はじまりの100人：100席グリッドとツールチップ ---- */
+  document.querySelectorAll(".js-seats").forEach(grid => {
+    let h = "";
+    for (let i = 0; i < goal; i++){
+      const cls = i < count ? "on" : (i === count ? "you" : "");
+      h += `<i class="${cls}" style="--i:${i}" data-n="${i + 1}"></i>`;
+    }
+    grid.innerHTML = h;
+    grid.setAttribute("aria-label", `${goal}席のうち${count}席が埋まっています。${count < goal ? `次はNo.${String(count + 1).padStart(2, "0")}の席です。` : ""}`);
+    const card = grid.closest(".goal-card");
+    const tip = document.createElement("span");
+    tip.className = "seat-tip"; tip.setAttribute("aria-hidden", "true");
+    card.appendChild(tip);
+    const show = el => {
+      const n = +el.dataset.n, no = String(n).padStart(2, "0");
+      tip.innerHTML = n <= count ? `No.<b>${no}</b>：参加済みのサポーター`
+        : n === count + 1 ? `No.<b>${no}</b>：募集中（あなたの席）` : `No.<b>${no}</b>：募集中`;
+      const r = el.getBoundingClientRect(), c = card.getBoundingClientRect();
+      let x = r.left - c.left + r.width / 2;
+      x = Math.max(110, Math.min(c.width - 110, x));
+      tip.style.left = x + "px"; tip.style.top = (r.top - c.top) + "px";
+      tip.classList.add("show");
+    };
+    grid.addEventListener("pointerover", e => { if (e.target.tagName === "I") show(e.target); });
+    grid.addEventListener("pointerleave", () => tip.classList.remove("show"));
+    grid.addEventListener("click", e => { if (e.target.tagName === "I") show(e.target); });
+    if ("IntersectionObserver" in window){
+      const o = new IntersectionObserver(([en]) => { if (en.isIntersecting){ grid.classList.add("go"); o.disconnect(); } }, { threshold: .3 });
+      o.observe(grid);
+    } else grid.classList.add("go");
+  });
+
+  /* ---- 支援シミュレーター ---- */
+  (function(){
+    const range = document.getElementById("sim-range");
+    if (!range) return;
+    const btns = [...document.querySelectorAll(".sim-amounts button")];
+    const out = document.getElementById("sim-out");
+    const amt = document.getElementById("sim-amt");
+    const meals = document.getElementById("sim-meals");
+    const lettuce = document.getElementById("sim-lettuce");
+    const share = document.getElementById("sim-share");
+    const sprouts = document.getElementById("sim-sprouts");
+    const plan = document.getElementById("sim-plan");
+    const perk = document.getElementById("sim-perk");
+    const MEAL = 1000, LETTUCE = 500, MONTHLY_COST = 200000;  /* 試算の前提（仮） */
+    const SPROUT = '<svg viewBox="0 0 20 20"><path d="M10 18v-7" stroke="#B7E4C7" stroke-width="1.6" stroke-linecap="round"/><path d="M10 11.5c0-3.5 2.2-5.5 6-5.5 0 3.5-2.2 5.5-6 5.5z" fill="#52B788"/><path d="M10 13c0-3-1.9-4.6-5-4.6 0 3 1.9 4.6 5 4.6z" fill="#E3A92B"/></svg>';
+    let shown = 0;
+    const update = (v, instant) => {
+      v = Math.round(v / 1000) * 1000;
+      range.value = v;
+      btns.forEach(b => b.setAttribute("aria-pressed", +b.dataset.v === v ? "true" : "false"));
+      out.textContent = "¥" + v.toLocaleString("ja-JP");
+      const o = instant ? { duration: 0 } : { duration: 700 };
+      sodateruCount(amt, v, o);
+      sodateruCount(meals, Math.round(v * 12 / MEAL), o);
+      sodateruCount(lettuce, Math.round(v * 12 / LETTUCE), o);
+      sodateruCount(share, v / MONTHLY_COST * 100, { ...o, decimals: 1 });
+      const n = Math.max(1, Math.min(36, Math.round(v * 12 / LETTUCE / 20)));
+      if (n > shown){ for (let i = shown; i < n; i++){ const s = document.createElement("span"); s.innerHTML = SPROUT; s.firstChild.style.animationDelay = ((i - shown) * 25) + "ms"; sprouts.appendChild(s.firstChild); } }
+      else while (sprouts.children.length > n) sprouts.lastChild.remove();
+      shown = n;
+      if (v >= 10000){ plan.textContent = "マイ・レーン オーナー"; perk.textContent = "栽培ラック1段のネームプレートと、支援者限定ナイト交流会"; }
+      else if (v >= 3000){ plan.textContent = "そだてるサポーター"; perk.textContent = "名前の掲示と、月1回の収穫体験・試食会"; }
+      else { plan.textContent = "おやさいサポーター"; perk.textContent = "毎月1食分の食数チケットと、月次レポート"; }
+    };
+    btns.forEach(b => b.addEventListener("click", () => update(+b.dataset.v)));
+    range.addEventListener("input", () => update(+range.value));
+    update(+range.value, true);
+  })();
 })();
 </script>
 </body>
