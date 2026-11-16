@@ -293,8 +293,62 @@ h1,h2,h3{margin:0;line-height:1.4;font-weight:700;letter-spacing:.03em}
 .angles{list-style:none;margin:0;padding:0;display:grid;gap:12px;grid-template-columns:1fr}
 @media (min-width:560px){.angles{grid-template-columns:1fr 1fr}}
 .angles li{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-m);padding:20px}
+.angles li.wide{grid-column:1 / -1;background:rgba(227,169,43,.14);border-color:rgba(227,169,43,.4)}
+.angles li.wide b{color:var(--mustard)}
+.chips li.chip-farm{background:var(--mustard-100);color:#7A5610;font-weight:700}
 .angles b{display:block;font-size:1rem;margin-bottom:6px}
 .angles span{display:block;font-size:.88rem;color:#CFE3D6;line-height:1.8}
+
+/* ---------- farm & agri-welfare ---------- */
+.farm-sec{background:linear-gradient(180deg,#EDF4EF 0%,var(--bg) 100%);border-top:1px solid var(--line)}
+.farm-sub{margin-top:14px!important;font-size:clamp(1.1rem,2.6vw,1.4rem);font-weight:700;color:var(--terracotta)!important;line-height:1.6}
+.farm-grid{display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
+.farm-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.farm-card .ph{border-radius:0;box-shadow:none}
+.farm-card .fc-photo{aspect-ratio:16/9}
+.farm-body{padding:30px;display:flex;flex-direction:column;gap:14px;flex:1}
+.farm-body h3{font-size:clamp(1.2rem,2.6vw,1.45rem);font-weight:900;color:var(--green-900);line-height:1.5}
+.farm-body p{color:var(--ink-soft);font-size:.97rem;line-height:2}
+.farm-pill{align-self:flex-start;display:inline-flex;align-items:center;min-height:30px;padding:2px 14px;border-radius:999px;background:var(--green-100);color:var(--green-900);font-size:.8rem;font-weight:700}
+.f1{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1.1fr}
+.f1 .ph{min-height:360px}
+.f1 .farm-body{padding:40px;justify-content:center}
+.f1 h3{font-size:clamp(1.35rem,3vw,1.85rem)}
+.f1 .farm-pill{background:var(--mustard-100);color:#7A5610}
+.f3{background:var(--green-900);border-color:var(--green-900)}
+.f3 h3{color:#fff}.f3 p{color:#CFE3D6}
+.f3 .farm-pill{background:rgba(255,255,255,.12);color:#fff}
+.hero-board{position:relative;display:grid;gap:2px;padding:18px 20px 18px 22px;border-radius:var(--r-m);background:var(--green-900);color:#fff;box-shadow:0 14px 30px -18px rgba(27,67,50,.7);transform:rotate(-1deg);max-width:420px}
+.hero-board::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;background:var(--mustard)}
+.hb-label{font-size:.78rem;font-weight:700;color:var(--mustard);display:flex;align-items:center;gap:8px}
+.hb-ex{font-size:.66rem;font-weight:700;padding:0 8px;border-radius:999px;background:rgba(255,255,255,.14);color:#fff}
+.hero-board b{font-size:1.25rem;line-height:1.5}
+.hb-item{font-size:.86rem;color:#CFE3D6}
+.farm-note{font-size:.85rem!important;line-height:1.8!important}
+.farm-flow{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px}
+.farm-flow span{padding:8px 16px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--green-900);font-size:.88rem;font-weight:700;box-shadow:var(--shadow)}
+.farm-flow i{width:24px;height:2px;background:var(--terracotta);position:relative}
+.farm-flow i::after{content:"";position:absolute;right:-1px;top:-3px;border:4px solid transparent;border-left:6px solid var(--terracotta);border-right:0}
+.farm-cta{margin-top:32px;padding:28px 32px;border-radius:var(--r-l);background:var(--paper);border:1px dashed #BFD5C6;display:grid;gap:20px;grid-template-columns:1fr;align-items:center}
+@media (min-width:1000px){.farm-cta{grid-template-columns:1fr auto}}
+.farm-cta p{color:var(--ink-soft);font-size:.94rem}
+.farm-cta p b{display:block;color:var(--green-900);font-size:1.05rem;margin-bottom:4px}
+.farm-actions{display:flex;flex-wrap:wrap;gap:12px}
+.farm-actions .btn{white-space:normal;text-align:center;line-height:1.4}
+@media (max-width:860px){
+  .farm-grid{grid-template-columns:1fr}
+  .f1{grid-template-columns:1fr}
+  .f1 .ph{min-height:220px}
+  .f1 .farm-body,.farm-body{padding:26px}
+  .farm-flow{justify-content:flex-start}
+  .farm-cta{padding:24px 22px}
+}
+@media (max-width:600px){
+  .farm-flow{flex-direction:column;align-items:flex-start;gap:6px}
+  .farm-flow i{width:2px;height:16px;margin-left:26px}
+  .farm-flow i::after{right:auto;top:auto;left:-3px;bottom:-2px;border:4px solid transparent;border-top:6px solid var(--terracotta);border-bottom:0}
+}
+@media (max-width:1100px){.nav{gap:18px;font-size:.85rem}}
 
 /* ---------- section scaffold ---------- */
 .sec{padding:112px 0}
@@ -497,6 +551,7 @@ footer a{color:var(--ink-soft)}
     <nav class="nav" aria-label="ページ内">
       <a href="#about">コンセプト</a>
       <a href="#reasons">投資する理由</a>
+      <a href="#farm">農家さん・農福連携</a>
       <a href="#support">月額プラン</a>
       <a href="#tiers">法人パートナー</a>
       <a href="#media">取材・視察</a>
@@ -510,6 +565,7 @@ footer a{color:var(--ink-soft)}
   <nav class="m-nav" id="m-nav" aria-label="メニュー">
     <a href="#about">コンセプト</a>
     <a href="#reasons">投資する理由</a>
+    <a href="#farm">農家さん・農福連携</a>
     <a href="#support">月額プラン</a>
     <a href="#tiers">法人パートナー</a>
     <a href="#media">取材・視察</a>
@@ -545,7 +601,7 @@ footer a{color:var(--ink-soft)}
       </div>
       <div class="ph warm ph-sub" data-label="写真：食卓の風景">
         <svg class="ph-icon" viewBox="0 0 120 120" aria-hidden="true"><ellipse cx="60" cy="74" rx="40" ry="12" fill="#fff" opacity=".9"/><ellipse cx="60" cy="70" rx="22" ry="7" fill="#C8643B" opacity=".7"/><circle cx="52" cy="66" r="6" fill="#52B788"/><circle cx="64" cy="64" r="6" fill="#2D6A4F"/></svg>
-        <img src="https://images.pexels.com/photos/7658807/pexels-photo-7658807.jpeg?auto=compress&cs=tinysrgb&w=800" alt="収穫したばかりの葉物野菜" decoding="async" fetchpriority="high">
+        <img src="https://images.pexels.com/photos/4199761/pexels-photo-4199761.jpeg?auto=compress&cs=tinysrgb&w=800" alt="水耕栽培で育つレタスのクローズアップ" decoding="async" fetchpriority="high">
       </div>
       <div class="count-card" aria-label="サポーターの人数">
         <span class="lbl">いまの初期メンバー</span>
@@ -641,6 +697,70 @@ footer a{color:var(--ink-soft)}
         </div>
       </li>
     </ol>
+  </div>
+</section>
+
+<!-- ================= FARM & AGRI-WELFARE ================= -->
+<section class="sec farm-sec" id="farm" aria-labelledby="farm-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="farm-title"><span class="ib">倉庫の畑と、</span><span class="ib">地域の畑をつなぐ。</span></h2>
+      <p class="farm-sub"><span class="ib">農家さんの誇りが、</span><span class="ib">こどもの笑顔になる場所。</span></p>
+      <p>倉庫の水耕栽培は、はじまりにすぎません。地域の農家さん、福祉事業所のみなさんとつながり、「農業 × こども × 福祉」の輪を広げていきます。</p>
+    </div>
+
+    <div class="farm-grid">
+      <article class="farm-card f1">
+        <div class="ph" data-label="写真：農家さんから届いた旬の野菜">
+          <img src="https://images.pexels.com/photos/7658807/pexels-photo-7658807.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="収穫したばかりの葉物野菜" decoding="async" loading="lazy">
+        </div>
+        <div class="farm-body">
+          <span class="farm-pill">農家さん × こども食堂</span>
+          <h3>農家さんの「もったいない」が、<br>こどもの「おいしい！」に。</h3>
+          <p>形が少し不揃いな規格外野菜や、豊作で余ってしまった旬の野菜を、食堂の食卓へ。廃棄するはずだった野菜が、こどもたちの「人生で一番おいしい野菜体験」に生まれ変わります。</p>
+          <div class="hero-board" aria-label="メニュー表での紹介の例">
+            <span class="hb-label">今日のヒーロー農家さん <span class="hb-ex">表示例</span></span>
+            <b>〇〇農園さん</b>
+            <span class="hb-item">にんじん・小松菜をいただきました。ごちそうさまです！</span>
+          </div>
+          <p class="farm-note">提供いただいた農家さんのお名前・農園名は、その日のメニュー表とサイトで「今日のヒーロー農家さん」として紹介します。</p>
+        </div>
+      </article>
+
+      <article class="farm-card f2">
+        <div class="ph fc-photo" data-label="写真：畑での収穫体験">
+          <img src="https://images.pexels.com/photos/7728070/pexels-photo-7728070.jpeg?auto=compress&cs=tinysrgb&w=900" alt="畑に苗を植える手元" decoding="async" loading="lazy">
+        </div>
+        <div class="farm-body">
+          <span class="farm-pill">農業 × こども</span>
+          <h3>本物の土と畑を知る、食育体験</h3>
+          <p>倉庫での水耕栽培で野菜の仕組みを知ったこどもたちが、次は地域の農家さんの畑へ収穫体験に。生産者の顔を見て「ありがとう」を直接伝えることで、食べ物を大切にする心と地域への愛着を育てます。</p>
+        </div>
+      </article>
+
+      <article class="farm-card f3">
+        <div class="ph fc-photo" data-label="写真：みんなで畑作業をする様子">
+          <img src="https://images.pexels.com/photos/5529587/pexels-photo-5529587.jpeg?auto=compress&cs=tinysrgb&w=900" alt="葉物野菜の畑で作業する人たち" decoding="async" loading="lazy">
+        </div>
+        <div class="farm-body">
+          <span class="farm-pill">農業 × 福祉（農福連携）</span>
+          <h3>誰もが役割を持つ、みんなの居場所</h3>
+          <p>種まき・栽培管理・収穫や袋詰めなどの作業を通じて、障がいのある方の就労や社会参加の機会を、地域の農家さんと共につくります。誰もが役割を持ち、地域の食を支える主役になれる循環型コミュニティです。</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="farm-flow" aria-label="農の循環">
+      <span>地域の畑</span><i aria-hidden="true"></i><span>倉庫の食堂</span><i aria-hidden="true"></i><span>こどもの「おいしい！」</span><i aria-hidden="true"></i><span>福祉の仲間と、また畑へ</span>
+    </div>
+
+    <div class="farm-cta">
+      <p><b>農家さん・福祉事業所のみなさまへ</b>少量でも、不定期でも大歓迎です。収穫のタイミングに合わせて、私たちが受け取りにうかがうこともできます。 <span class="tmp">仮</span></p>
+      <div class="farm-actions">
+        <a class="btn btn-dark js-form" href="#">野菜の提供・農福連携パートナーについて相談する</a>
+        <a class="btn btn-ghost" href="sponsors.html#farmers">ヒーロー農家さん一覧</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -853,6 +973,7 @@ footer a{color:var(--ink-soft)}
         <p class="media-note">プレスキット（写真・ロゴ・事業概要）は準備中です。 <span class="tmp">仮</span></p>
       </div>
       <ul class="angles">
+        <li class="wide"><b>倉庫の水耕栽培 × 地域の農家・農福連携</b><span>廃棄野菜の削減と、障がいのある方の就労、こどもの食育を掛け合わせた地域循環モデル。</span></li>
         <li><b>倉庫が畑になる、ビフォーアフター</b><span>何もない倉庫に栽培ラックが並び、緑が育つまでの改装ドキュメント。</span></li>
         <li><b>こどもが収穫して、食べる瞬間</b><span>自分で育てたレタスを摘んで、その日の夕食に。表情が撮れる現場です。</span></li>
         <li><b>現場職人が立ち上げた食堂</b><span>内装・設備の現場で働く発起人が、自らの手で倉庫を改装するストーリー。</span></li>
@@ -873,9 +994,9 @@ footer a{color:var(--ink-soft)}
       <div class="way">
         <div class="ph sun" data-label="写真：寄贈された調理器具や苗"><img src="https://images.pexels.com/photos/4390619/pexels-photo-4390619.jpeg?auto=compress&cs=tinysrgb&w=800" alt="ポットで育つ野菜の苗" decoding="async" loading="lazy"></div>
         <div class="way-body">
-          <h3>物品・苗のご提供</h3>
-          <p>新品・中古は問いません。次のようなものを募集しています。</p>
-          <ul class="chips"><li>野菜の種・苗</li><li>液体肥料</li><li>業務用冷蔵庫</li><li>調理器具・食器</li><li>長机・椅子</li><li>米・調味料・乾物</li></ul>
+          <h3>野菜・物品・苗のご提供</h3>
+          <p>新品・中古は問いません。農家さんの規格外野菜や、採れすぎた旬の野菜も大歓迎です。</p>
+          <ul class="chips"><li class="chip-farm">規格外野菜・旬の収穫野菜（農家さんから）</li><li>野菜の種・苗</li><li>液体肥料</li><li>業務用冷蔵庫</li><li>調理器具・食器</li><li>長机・椅子</li><li>米・調味料・乾物</li></ul>
           <a class="btn btn-ghost btn-sm js-form" href="#">提供を申し出る</a>
         </div>
       </div>
@@ -925,6 +1046,7 @@ footer a{color:var(--ink-soft)}
       <details><summary>寄付金控除の対象になりますか？</summary><p><span class="tmp">仮</span> 団体の法人格や認定状況によって異なります。詳しくはお問い合わせください。</p></details>
       <details><summary>食堂は誰でも利用できますか？</summary><p>地域のこどもと保護者が対象です。利用に条件や審査はありません。料金や予約方法は、開設が近づいたらお知らせします。</p></details>
       <details><summary>体験会や交流会はどこで開かれますか？</summary><p>食堂のある倉庫で開催します。日程はサポーター向けの活動レポートでお知らせします。</p></details>
+      <details><summary>農家です。少量や不定期の野菜提供でも参加できますか？</summary><p>もちろんです。規格外の野菜や、採れすぎた旬の野菜を、届けられるときに届けていただければ十分です。いただいた野菜は「今日のヒーロー農家さん」として、メニュー表とサイトで農園名と一緒にご紹介します。</p></details>
       <details><summary>取材や視察は、開設前でも受け付けていますか？</summary><p>はい。倉庫の改装や栽培ラックの立ち上げなど、開設前の過程こそ見どころです。取材・視察の欄から、お気軽にご連絡ください。</p></details>
     </div>
   </div>
@@ -955,6 +1077,7 @@ footer a{color:var(--ink-soft)}
     <nav aria-label="フッター">
       <a href="#support">月額プラン</a>
       <a href="#tiers">法人パートナー</a>
+      <a href="#farm">農家さん・農福連携</a>
       <a href="#media">取材・視察</a>
       <a href="sponsors.html">パートナー一覧</a>
       <a href="#faq">よくある質問</a>
@@ -996,7 +1119,7 @@ footer a{color:var(--ink-soft)}
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const SELECTORS = [
     ".hero-tags",".hero h1",".hero-lead",".hero-actions",".hero-meta",".collage > *",
-    ".sec-head",".tile",".reason",".story-photo",".story-body",".goal-card",".budget",
+    ".sec-head",".tile",".reason",".farm-card",".farm-flow",".farm-cta",".fcard",".story-photo",".story-body",".goal-card",".budget",
     ".sim",".plan",".role",".tier",".corp-why > div",".media",".angles li",".way",
     ".org-text",".facts",".faq details",".final-card",
     ".sp-hero h1",".sp-lead",".stat",".cat-head",".pcard",".logo-tile",".name-row li",

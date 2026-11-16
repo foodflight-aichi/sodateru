@@ -1,6 +1,5 @@
 {
   "updated": "2026-11-12",
-
   "partners": [
     {
       "name": "サンプル企業A",
@@ -20,21 +19,86 @@
       "message": "",
       "sample": true
     },
-    { "name": "サンプル企業C", "tier": "futaba", "url": "", "logo": "", "sample": true },
-    { "name": "サンプル商店D", "tier": "tane", "url": "", "sample": true }
+    {
+      "name": "サンプル企業C",
+      "tier": "futaba",
+      "url": "",
+      "logo": "",
+      "sample": true
+    },
+    {
+      "name": "サンプル商店D",
+      "tier": "tane",
+      "url": "",
+      "sample": true
+    }
   ],
-
+  "farmers": [
+    {
+      "name": "サンプル農園H",
+      "kind": "farm",
+      "item": "採れたてトマト・じゃがいも",
+      "area": "愛知県〇〇市",
+      "url": "",
+      "message": "形はふぞろいでも、味は自慢です。こどもたちの「おいしい！」が何よりうれしいです。",
+      "sample": true
+    },
+    {
+      "name": "サンプルファームI",
+      "kind": "farm",
+      "item": "規格外のにんじん・小松菜",
+      "area": "愛知県〇〇町",
+      "url": "",
+      "sample": true
+    },
+    {
+      "name": "サンプル福祉事業所J",
+      "kind": "welfare",
+      "item": "苗の植え付け・収穫・袋詰め",
+      "area": "愛知県〇〇市",
+      "url": "",
+      "message": "畑の作業が、メンバーの自信と仕事になっています。",
+      "sample": true
+    }
+  ],
   "monthly": [
-    { "name": "サンプル たろう", "plan": "lane", "lane": "たろうのバジル畑", "sample": true },
-    { "name": "さんぷる はなこ", "plan": "sodateru", "sample": true },
-    { "name": "サンプルさん", "plan": "sodateru", "sample": true }
+    {
+      "name": "サンプル たろう",
+      "plan": "lane",
+      "lane": "たろうのバジル畑",
+      "sample": true
+    },
+    {
+      "name": "さんぷる はなこ",
+      "plan": "sodateru",
+      "sample": true
+    },
+    {
+      "name": "サンプルさん",
+      "plan": "sodateru",
+      "sample": true
+    }
   ],
   "oyasai_count": 0,
   "monthly_note": "お名前の掲載を希望されなかったサポーターのみなさまにも、毎月支えていただいています。",
-
   "inkind": [
-    { "name": "サンプル農園E", "item": "レタス・バジルの苗 200株", "type": "seed", "sample": true },
-    { "name": "サンプル企業F", "item": "業務用冷蔵庫 1台", "type": "equipment", "sample": true },
-    { "name": "サンプル米店G", "item": "お米 30kg", "type": "food", "sample": true }
+    {
+      "name": "サンプル農園E",
+      "item": "レタス・バジルの苗 200株",
+      "type": "seed",
+      "sample": true
+    },
+    {
+      "name": "サンプル企業F",
+      "item": "業務用冷蔵庫 1台",
+      "type": "equipment",
+      "sample": true
+    },
+    {
+      "name": "サンプル米店G",
+      "item": "お米 30kg",
+      "type": "food",
+      "sample": true
+    }
   ]
 }

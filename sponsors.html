@@ -8,6 +8,7 @@
   編集ガイド
   ・このページに載せる支援者は sponsors.json だけで管理します。このHTMLは基本的に触らなくてOKです。
       partners     … 法人・団体パートナー（tier: shukaku / honba / futaba / tane、rack: 協賛ラック・エリア名）
+      farmers      … 野菜・農福連携パートナー（kind: farm = 農家さん / welfare = 福祉事業所、item: 提供内容、area: 地域）
       monthly      … マンスリーサポーター（plan: lane = マイ・レーン オーナー / sodateru = そだてるサポーター）
       oyasai_count … おやさいサポーター（月1,000円・名前掲示なし）の人数
       inkind       … 物品・設備・食材（type: seed / equipment / food / other）
@@ -135,7 +136,7 @@ h1,h2,h3{margin:0;line-height:1.4;font-weight:700;letter-spacing:.03em}
 .sp-hero h1{font-size:clamp(1.5rem,6.4vw,2.5rem);font-weight:900;line-height:1.32;color:var(--green-900);letter-spacing:.04em}
 .sp-lead{margin-top:24px;color:var(--ink-soft);max-width:32em;line-height:2}
 .sp-updated{margin-top:14px;font-size:.85rem;color:var(--ink-soft)}
-.sp-stats{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
+.sp-stats{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
 .stat{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);padding:20px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow);min-width:0}
 .stat-num{font-weight:800;font-size:clamp(1.8rem,5vw,2.6rem);line-height:1;color:var(--green-900)}
 .stat-lbl{font-size:.8rem;color:var(--ink-soft);line-height:1.5}
@@ -246,6 +247,29 @@ a.logo-tile:hover{border-color:var(--green-700)}
 .cat[hidden]{display:none}
 .cat.first-visible{border-top:0}
 
+.stat-leaf{background:var(--green-100);border-color:#CFE3D6}
+
+/* farmers & agri-welfare partners */
+.fgrid{display:grid;gap:16px;grid-template-columns:1fr}
+@media (min-width:700px){.fgrid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1080px){.fgrid{grid-template-columns:repeat(3,1fr)}}
+.fcard{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);box-shadow:var(--shadow);padding:26px;display:flex;flex-direction:column;gap:12px;color:inherit;text-decoration:none;min-width:0;overflow:hidden}
+a.fcard:hover{border-color:var(--green-700)}
+.fcard::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--green-500),var(--mustard))}
+.fcard.welfare::before{background:linear-gradient(90deg,var(--terracotta),var(--mustard))}
+.fc-top{display:flex;align-items:center;gap:14px}
+.fc-ico{width:52px;height:52px;flex:none;border-radius:16px;display:grid;place-items:center;background:var(--green-100)}
+.fcard.welfare .fc-ico{background:#F8E3D8}
+.fc-ico svg{width:28px;height:28px}
+.fc-name{font-size:1.2rem;font-weight:900;color:var(--green-900);line-height:1.45}
+.fc-name small{font-size:.72em;font-weight:700;margin-left:2px}
+.fc-badge{align-self:flex-start;font-size:.74rem;font-weight:700;padding:3px 12px;border-radius:999px;background:var(--mustard-100);color:#7A5610}
+.fcard.welfare .fc-badge{background:#F8E3D8;color:#8A3E1F}
+.fc-item{font-size:.98rem;line-height:1.8}
+.fc-item b{color:var(--terracotta)}
+.fc-area{font-size:.82rem;color:var(--ink-soft)}
+.fcard blockquote{margin:4px 0 0;padding:14px 16px;border-radius:var(--r-s);background:var(--bg);color:var(--ink-soft);font-size:.92rem;line-height:1.8}
+
 /* ---------- final cta ---------- */
 .final{padding:0 0 112px}
 .final-card{position:relative;overflow:hidden;background:var(--green-900);color:#fff;border-radius:32px;padding:72px 32px;text-align:center}
@@ -289,6 +313,7 @@ footer a{color:var(--ink-soft)}
     <nav class="nav" aria-label="サイト内">
       <a href="./#about">コンセプト</a>
       <a href="./#reasons">投資する理由</a>
+      <a href="./#farm">農家さん・農福連携</a>
       <a href="./#support">月額プラン</a>
       <a href="./#tiers">法人パートナー</a>
       <a href="./#media">取材・視察</a>
@@ -302,6 +327,7 @@ footer a{color:var(--ink-soft)}
   <nav class="m-nav" id="m-nav" aria-label="メニュー">
     <a href="./#about">コンセプト</a>
     <a href="./#reasons">投資する理由</a>
+    <a href="./#farm">農家さん・農福連携</a>
     <a href="./#support">月額プラン</a>
     <a href="./#tiers">法人パートナー</a>
     <a href="./#media">取材・視察</a>
@@ -315,12 +341,13 @@ footer a{color:var(--ink-soft)}
     <div class="wrap sp-hero-grid">
       <div>
         <h1><span class="ib">そだてる食堂を共につくる、</span><br><span class="ib">未来への投資家・</span><span class="ib">パートナーのみなさま</span></h1>
-        <p class="sp-lead">倉庫に畑を、こどもに食卓を。まだ誰も見たことのない地域の拠点に、最初に名乗りを上げてくださった方々です。ここに刻まれた名前のひとつひとつが、この場所の礎になっています。</p>
+        <p class="sp-lead">倉庫に畑を、こどもに食卓を。まだ誰も見たことのない地域の拠点に、最初に名乗りを上げてくださった企業、農家さん、福祉事業所、そして個人のみなさまです。ここに刻まれた名前のひとつひとつが、この場所の礎になっています。</p>
         <p class="sp-updated" id="updated"></p>
       </div>
       <div class="sp-stats" aria-label="支援者の人数">
         <div class="stat stat-dark"><span class="stat-num num" id="stat-monthly">–</span><span class="stat-lbl">マンスリーサポーター（共同オーナー）</span></div>
         <div class="stat"><span class="stat-num num" id="stat-partners">–</span><span class="stat-lbl">法人・団体パートナー</span></div>
+        <div class="stat stat-leaf"><span class="stat-num num" id="stat-farmers">–</span><span class="stat-lbl">農家・福祉事業所パートナー</span></div>
         <div class="stat stat-sun"><span class="stat-num num" id="stat-inkind">–</span><span class="stat-lbl">物品・設備・食材のご提供</span></div>
       </div>
     </div>
@@ -331,6 +358,7 @@ footer a{color:var(--ink-soft)}
     <div class="wrap sp-filter" role="group" aria-label="カテゴリーで絞り込む">
       <button type="button" class="chip" data-filter="all" aria-pressed="true">すべて</button>
       <button type="button" class="chip" data-filter="partners" aria-pressed="false">法人・団体パートナー</button>
+      <button type="button" class="chip" data-filter="farmers" aria-pressed="false">野菜・農福連携</button>
       <button type="button" class="chip" data-filter="wall" aria-pressed="false">マンスリーサポーター</button>
       <button type="button" class="chip" data-filter="inkind" aria-pressed="false">物品・設備提供</button>
     </div>
@@ -346,10 +374,11 @@ footer a{color:var(--ink-soft)}
         <svg class="leaf l1" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 95C50 45 70 10 98 5c0 50-20 85-48 90z" fill="#52B788"/></svg>
         <svg class="leaf l2" viewBox="0 0 100 100" aria-hidden="true"><path d="M50 95C50 45 70 10 98 5c0 50-20 85-48 90z" fill="#E3A92B"/></svg>
         <h2 id="join-title"><span class="ib">あなたの名前も、</span><br><span class="ib">ここに刻みませんか？</span></h2>
-        <p>個人の方は月1,000円のおやさいサポーターから、このプロジェクトの共同オーナーに。月3,000円からは、このページと会場のボードにお名前が刻まれます。企業・団体の方は、ラックやエリアに社名を掲げる年間パートナーとして加わってください。</p>
+        <p>個人の方は月1,000円のおやさいサポーターから、このプロジェクトの共同オーナーに。月3,000円からは、このページと会場のボードにお名前が刻まれます。企業・団体の方は、ラックやエリアに社名を掲げる年間パートナーとして。農家さん・福祉事業所のみなさまは、野菜・農福連携パートナーとして加わってください。</p>
         <div class="row">
           <a class="btn btn-primary js-monthly" href="./#support">月1,000円からサポーターになる</a>
           <a class="btn btn-ghost js-form" href="./#tiers">法人スポンサーについて相談する</a>
+          <a class="btn btn-ghost" href="./#farm">野菜の提供・農福連携について</a>
         </div>
       </div>
     </div>
@@ -362,6 +391,7 @@ footer a{color:var(--ink-soft)}
     <nav aria-label="フッター">
       <a href="./#support">月額プラン</a>
       <a href="./#tiers">法人パートナー</a>
+      <a href="./#farm">農家さん・農福連携</a>
       <a href="./#media">取材・視察</a>
       <a href="sponsors.html">パートナー一覧</a>
       <a href="./#faq">よくある質問</a>
@@ -403,7 +433,7 @@ footer a{color:var(--ink-soft)}
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const SELECTORS = [
     ".hero-tags",".hero h1",".hero-lead",".hero-actions",".hero-meta",".collage > *",
-    ".sec-head",".tile",".reason",".story-photo",".story-body",".goal-card",".budget",
+    ".sec-head",".tile",".reason",".farm-card",".farm-flow",".farm-cta",".fcard",".story-photo",".story-body",".goal-card",".budget",
     ".sim",".plan",".role",".tier",".corp-why > div",".media",".angles li",".way",
     ".org-text",".facts",".faq details",".final-card",
     ".sp-hero h1",".sp-lead",".stat",".cat-head",".pcard",".logo-tile",".name-row li",
@@ -556,6 +586,23 @@ const CONTACT_EMAIL    = "info@example.com"; // 【仮】
     }).join("")}</div>`;
   }
 
+  const FARM_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="#1B4332" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-9"/><path d="M12 12c0-4.5 2.8-7 7-7 0 4.5-2.8 7-7 7z"/><path d="M12 15c0-3.8-2.3-6-6-6 0 3.8 2.3 6 6 6z"/><path d="M4 21h16"/></svg>';
+  const WELFARE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="#8A3E1F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3"/><circle cx="16" cy="7" r="3"/><path d="M2.5 20c0-3.6 2.5-6 5.5-6s5.5 2.4 5.5 6"/><path d="M10.5 20c0-3.6 2.5-6 5.5-6s5.5 2.4 5.5 6"/></svg>';
+  function farmersHTML(list){
+    if (!list.length) return `<p class="empty">最初の「ヒーロー農家さん」を募集しています。規格外の野菜や、採れすぎた旬の野菜を、こどもたちの食卓へ。<a href="./#farm">野菜の提供・農福連携について</a></p>`;
+    return `<div class="fgrid">${list.map(f => {
+      const w = f.kind === "welfare";
+      const u = safeUrl(f.url);
+      const inner = `<div class="fc-top"><span class="fc-ico">${w ? WELFARE_ICON : FARM_ICON}</span><span class="fc-name">${esc(f.name)}<small>さま</small></span></div>
+        <span class="fc-badge">${w ? "農福連携パートナー" : "ヒーロー農家さん"}</span>
+        ${f.item ? `<p class="fc-item"><b>${esc(f.item)}</b>${w ? "でご協力いただいています" : "をご提供いただきました"}</p>` : ""}
+        ${f.area ? `<span class="fc-area">${esc(f.area)}</span>` : ""}
+        ${f.message ? `<blockquote>${esc(f.message)}</blockquote>` : ""}`;
+      return u ? `<a class="fcard${w ? " welfare" : ""}" href="${esc(u)}" target="_blank" rel="noopener">${inner}</a>`
+               : `<div class="fcard${w ? " welfare" : ""}">${inner}</div>`;
+    }).join("")}</div>`;
+  }
+
   const section = (id, title, lead, link, body) => `
     <section class="cat" id="${id}" aria-labelledby="${id}-title"><div class="wrap">
       <div class="cat-head"><div><h2 id="${id}-title">${title}</h2><p>${lead}</p></div>${link}</div>
@@ -569,11 +616,14 @@ const CONTACT_EMAIL    = "info@example.com"; // 【仮】
     if (!monthly.length && Array.isArray(d.supporters)) monthly = d.supporters.map(n => ({ name:n, plan:"sodateru" }));
     const oyasai = Math.max(0, parseInt(d.oyasai_count, 10) || 0);
     const inkind = Array.isArray(d.inkind) ? d.inkind : [];
+    const farmers = Array.isArray(d.farmers) ? d.farmers : [];
     const note = d.monthly_note || d.supporters_note || "";
 
     document.getElementById("content").innerHTML =
       section("partners", "法人・団体パートナー", "年間スポンサーとして栽培ラックやエリアに名を刻み、この場所を共につくっている企業・団体のみなさまです。",
         `<a class="cta-link" href="./#tiers">法人パートナープランを見る</a>`, partnersHTML(partners)) +
+      section("farmers", "野菜・農福連携パートナー", "地域の農家・福祉事業所のみなさま。畑の恵みと、手しごとの力を、こどもたちの食卓へ届けてくださっています。",
+        `<a class="cta-link" href="./#farm">パートナーについて相談する</a>`, farmersHTML(farmers)) +
       section("wall", "サポーターズウォール", "毎月のサポートで食堂の土台を支える、共同オーナーのみなさまです。",
         `<a class="cta-link js-monthly" href="./#support">月額サポーターになる</a>`, wallHTML(monthly, oyasai, note)) +
       section("inkind", "物品・設備・食材サポーター", "種や苗、厨房機器、食材。この場所のかたちそのものを届けてくださったみなさまです。",
@@ -582,12 +632,13 @@ const CONTACT_EMAIL    = "info@example.com"; // 【仮】
     document.querySelectorAll("#content .js-monthly").forEach(a => {
       if (MONTHLY_URL){ a.href = MONTHLY_URL; a.target = "_blank"; a.rel = "noopener"; }
     });
-    const counts = { monthly: monthly.length + oyasai, partners: partners.length, inkind: inkind.length };
+    const counts = { monthly: monthly.length + oyasai, partners: partners.length, inkind: inkind.length, farmers: farmers.length };
+    sodateruCount(document.getElementById("stat-farmers"), counts.farmers, { from: 0, duration: 1400 });
     sodateruCount(document.getElementById("stat-monthly"), counts.monthly, { from: 0, duration: 1400 });
     sodateruCount(document.getElementById("stat-partners"), counts.partners, { from: 0, duration: 1400 });
     sodateruCount(document.getElementById("stat-inkind"), counts.inkind, { from: 0, duration: 1400 });
-    const chipCount = { partners: counts.partners, wall: counts.monthly, inkind: counts.inkind };
-    chipCount.all = chipCount.partners + chipCount.wall + chipCount.inkind;
+    const chipCount = { partners: counts.partners, farmers: counts.farmers, wall: counts.monthly, inkind: counts.inkind };
+    chipCount.all = chipCount.partners + chipCount.farmers + chipCount.wall + chipCount.inkind;
     document.querySelectorAll(".chip").forEach(c => {
       const span = document.createElement("span"); span.className = "cnt"; span.textContent = chipCount[c.dataset.filter] ?? 0;
       c.appendChild(span);
@@ -595,7 +646,7 @@ const CONTACT_EMAIL    = "info@example.com"; // 【仮】
     sodateruReveal(document.getElementById("content"));
     setupFilter();
     if (d.updated) document.getElementById("updated").textContent = `${d.updated} 更新`;
-    const hasSample = [...partners, ...monthly, ...inkind].some(x => x && x.sample);
+    const hasSample = [...partners, ...farmers, ...monthly, ...inkind].some(x => x && x.sample);
     document.getElementById("sample-notice").hidden = !hasSample;
   }
 
@@ -633,7 +684,7 @@ const CONTACT_EMAIL    = "info@example.com"; // 【仮】
     };
     chips.forEach(c => c.addEventListener("click", () => apply(c.dataset.filter)));
     const hash = location.hash.replace("#", "");
-    if (["partners","wall","inkind"].includes(hash)) apply(hash); else markFirst();
+    if (["partners","farmers","wall","inkind"].includes(hash)) apply(hash); else markFirst();
   }
 
   fetch("sponsors.json", { cache: "no-cache" })
