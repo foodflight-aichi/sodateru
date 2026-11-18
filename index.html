@@ -3,579 +3,62 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<!--
-  ============================================================
-  編集ガイド（公開前に差し替える場所）
-  ・【仮】と書かれた文言・数字は仮置きです。ページ内検索で「仮」を探してください。
-  ・リンク先や人数は、ファイル末尾の <script> にある「設定欄」だけ書き換えれば全体に反映されます。
-      MONTHLY_URL       … 月額寄付の申込ページ（CAMPFIRE・Congrant など）
-      CONTACT_FORM_URL  … 協賛・物品提供・ボランティアの申込フォーム（Googleフォーム等）
-      CONTACT_EMAIL     … 問い合わせ用メールアドレス
-      SUPPORTER_GOAL    … 募集人数（例：100）
-      SUPPORTER_COUNT   … 現在のサポーター人数（手動で更新）
-  ・写真：いまは Pexels のフリー写真（商用利用可・クレジット不要）を「イメージ写真」として表示しています。
-    実際の写真に差し替えるときは、class="ph" の枠の中にある <img src="..."> の src を
-    リポジトリにアップロードした写真のファイル名（例：photo-rack.jpg）に書き換えてください。
-    画像が読み込めなかったときは、自動で元のイラスト枠に戻ります。
-  ============================================================
--->
 <title>そだてる食堂｜愛知発・インドアファーム型こども食堂</title>
 <meta name="description" content="倉庫×水耕栽培×こども食堂。愛知の倉庫に、光と水で野菜が育つインドアファームと、こどもたちの食卓をつくります。月1,000円から、はじまりの100人のサポーターを募集中。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="そだてる食堂｜未来の農場の、はじまりの100人へ">
-<meta property="og:description" content="愛知発・インドアファーム型こども食堂。月1,000円から、このプロジェクトの共同オーナーに。">
+<meta property="og:site_name" content="そだてる食堂">
+<meta property="og:title" content="そだてる食堂｜愛知発・インドアファーム型こども食堂">
+<meta property="og:description" content="倉庫×水耕栽培×こども食堂。愛知の倉庫に、光と水で野菜が育つインドアファームと、こどもたちの食卓をつくります。月1,000円から、はじまりの100人のサポーターを募集中。">
 <meta property="og:url" content="https://foodflight-aichi.github.io/sodateru/">
+<meta property="og:image" content="https://foodflight-aichi.github.io/sodateru/ogp.png">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://foodflight-aichi.github.io/sodateru/ogp.png">
 <meta name="theme-color" content="#FAF9F6">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Project",
-  "name": "そだてる食堂",
-  "description": "倉庫内の水耕栽培プラントで育てた野菜を使う子ども食堂プロジェクト",
-  "parentOrganization": { "@type": "NGO", "name": "フードフライト愛知", "areaServed": "愛知県" }
-}
+{"@context":"https://schema.org","@type":"Project","name":"そだてる食堂","description":"倉庫内の水耕栽培プラントで育てた野菜を使うこども食堂プロジェクト","url":"https://foodflight-aichi.github.io/sodateru/","parentOrganization":{"@type":"NGO","name":"フードフライト愛知","areaServed":"愛知県","address":{"@type":"PostalAddress","addressLocality":"小牧市","addressRegion":"愛知県","addressCountry":"JP"}}}
 </script>
-<style>
-:root{
-  --bg:#FAF9F6;
-  --paper:#FFFFFF;
-  --sand:#F1EEE6;
-  --green-900:#1B4332;
-  --green-700:#2D6A4F;
-  --green-500:#52B788;
-  --green-100:#E4EFE7;
-  --terracotta:#C8643B;
-  --terracotta-d:#AE5230;
-  --mustard:#E3A92B;
-  --mustard-100:#FBF0D6;
-  --ink:#1D2621;
-  --ink-soft:#5B655F;
-  --line:#E6E2D8;
-  --shadow:0 1px 2px rgba(27,67,50,.04),0 12px 32px -12px rgba(27,67,50,.14);
-  --r-s:12px;--r-m:18px;--r-l:24px;
-  --en:"Plus Jakarta Sans",sans-serif;
-  --ja:"Noto Sans JP",sans-serif;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--en),var(--ja);font-size:16px;line-height:1.9;letter-spacing:.02em;-webkit-font-smoothing:antialiased;font-feature-settings:"palt" 1}
-img{display:block;max-width:100%}
-svg{display:block}
-a{color:var(--green-700)}
-p{margin:0}
-h1,h2,h3{margin:0;line-height:1.4;font-weight:700;letter-spacing:.03em}
-:focus-visible{outline:3px solid var(--mustard);outline-offset:3px;border-radius:6px}
-.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
-.ib{display:inline-block}
-.num{font-family:var(--en);font-feature-settings:"tnum" 1;letter-spacing:-.01em}
-.tmp{display:inline-block;font-size:.72em;font-weight:700;line-height:1.5;padding:0 .5em;border-radius:999px;background:var(--mustard-100);color:#8A6210;vertical-align:.15em;letter-spacing:0}
-
-/* ---------- buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:52px;padding:0 26px;border-radius:999px;font-family:var(--en),var(--ja);font-weight:700;font-size:1rem;text-decoration:none;border:1.5px solid transparent;transition:background-color .2s,color .2s,border-color .2s,transform .2s;white-space:nowrap}
-.btn-primary{background:var(--terracotta);color:#fff}
-.btn-primary:hover{background:var(--terracotta-d)}
-.btn-dark{background:var(--green-900);color:#fff}
-.btn-dark:hover{background:var(--green-700)}
-.btn-ghost{border-color:var(--line);background:var(--paper);color:var(--ink)}
-.btn-ghost:hover{border-color:var(--green-700);color:var(--green-700)}
-.btn-sm{min-height:42px;padding:0 18px;font-size:.9rem}
-.btn-block{width:100%}
-
-/* ---------- header ---------- */
-.site-head{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
-.site-head.is-scrolled{border-bottom-color:var(--line)}
-.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--green-900);font-weight:900;font-size:1.08rem;letter-spacing:.06em}
-.brand-mark{width:34px;height:34px;border-radius:10px;background:var(--green-900);display:grid;place-items:center}
-.brand-mark svg{width:20px;height:20px}
-.nav{display:flex;gap:28px;font-size:.9rem;font-weight:500}
-.nav a{color:var(--ink-soft);text-decoration:none}
-.nav a:hover{color:var(--green-900)}
-@media (max-width:900px){.nav{display:none}}
-@media (max-width:480px){.site-head .btn-sm{padding:0 14px;font-size:.82rem}}
-
-/* ---------- header glass & mobile menu ---------- */
-.site-head{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .3s,border-color .3s,box-shadow .3s}
-.site-head.is-scrolled,.site-head.menu-open{background:color-mix(in srgb,var(--bg) 72%,transparent);backdrop-filter:saturate(1.6) blur(16px);-webkit-backdrop-filter:saturate(1.6) blur(16px);border-bottom-color:var(--line);box-shadow:0 10px 30px -22px rgba(27,67,50,.45)}
-.head-right{display:flex;align-items:center;gap:10px}
-.menu-btn{display:none;position:relative;width:44px;height:44px;flex:none;padding:0;border-radius:12px;border:1px solid var(--line);background:var(--paper);cursor:pointer}
-.menu-btn span{position:absolute;left:12px;right:12px;height:2px;border-radius:2px;background:var(--green-900);transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .2s}
-.menu-btn span:nth-child(1){top:15px}
-.menu-btn span:nth-child(2){top:21px}
-.menu-btn span:nth-child(3){top:27px}
-.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
-.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-.m-nav{position:fixed;left:0;right:0;top:68px;z-index:29;max-height:calc(100dvh - 68px);overflow:auto;background:color-mix(in srgb,var(--bg) 96%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);box-shadow:0 24px 40px -28px rgba(27,67,50,.45);padding:8px 20px 24px;display:flex;flex-direction:column;transform:translateY(-10px);opacity:0;visibility:hidden;transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .25s,visibility 0s .3s}
-.m-nav.open{transform:none;opacity:1;visibility:visible;transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .25s}
-.m-nav a{padding:15px 4px;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;font-size:1rem}
-.m-nav a.btn{margin-top:18px;border-bottom:0;color:#fff;padding:0 26px}
-@media (max-width:900px){.menu-btn{display:block}}
-@media (min-width:901px){.m-nav{display:none}}
-@media (max-width:400px){.head-right .btn-sm{display:none}}
-
-/* ---------- scroll reveal (JSが有効なときだけ付与) ---------- */
-.rv{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
-.rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
-
-/* ---------- hero ---------- */
-.hero{padding:56px 0 96px}
-.hero-grid{display:grid;gap:48px;grid-template-columns:1fr}
-.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:999px;background:var(--paper);border:1px solid var(--line);font-size:.85rem;font-weight:500;color:var(--ink-soft)}
-.hero-badge b{display:inline-grid;place-items:center;height:26px;padding:0 10px;border-radius:999px;background:var(--green-100);color:var(--green-900);font-weight:700;font-size:.78rem}
-.hero h1{margin-top:28px;font-size:clamp(2.2rem,6.6vw,4.1rem);font-weight:900;line-height:1.28;letter-spacing:.04em;color:var(--green-900)}
-.hero h1 .line{display:block;white-space:nowrap}
-.hero-lead{margin-top:28px;font-size:1.05rem;color:var(--ink-soft);max-width:30em;line-height:2}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
-.hero-meta{margin-top:20px;font-size:.85rem;color:var(--ink-soft)}
-
-.collage{display:grid;gap:14px;grid-template-columns:1.25fr 1fr;grid-template-rows:auto auto}
-.collage .ph-main{grid-row:1 / span 2;aspect-ratio:4/5}
-.collage .ph-sub{aspect-ratio:1/1}
-.count-card{background:var(--green-900);color:#fff;border-radius:var(--r-l);padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;box-shadow:var(--shadow)}
-.count-card .lbl{font-size:.82rem;color:#CFE3D6}
-.count-card .big{font-family:var(--en);font-weight:800;font-size:2.6rem;line-height:1}
-.count-card .big small{font-size:.42em;font-weight:600;color:#CFE3D6;margin-left:.2em}
-.mini-dots{display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
-.mini-dots i{aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.16)}
-.mini-dots i.on{background:var(--mustard)}
-
-@media (min-width:960px){
-  .hero{padding:80px 0 120px}
-  .hero-grid{grid-template-columns:1.05fr 1fr;align-items:center;gap:64px}
-}
-@media (max-width:600px){.collage .ph-main{grid-row:auto;grid-column:1 / -1;aspect-ratio:16/11}.count-card{padding:16px}.count-card .big{font-size:2rem}.ph::after{font-size:.7rem;padding:4px 10px;left:10px;bottom:10px}}
-
-/* photo placeholder */
-.ph{position:relative;overflow:hidden;border-radius:var(--r-l);background:
-  radial-gradient(circle at 1px 1px,rgba(27,67,50,.16) 1px,transparent 1.5px) 0 0/18px 18px,
-  linear-gradient(160deg,#DCEBE0 0%,#C4DDCB 55%,#A9CDB4 100%);
-  box-shadow:var(--shadow)}
-.ph.warm{background:
-  radial-gradient(circle at 1px 1px,rgba(120,60,30,.14) 1px,transparent 1.5px) 0 0/18px 18px,
-  linear-gradient(160deg,#F6E7D9 0%,#EFD3BC 60%,#E7BFA0 100%)}
-.ph.sun{background:
-  radial-gradient(circle at 1px 1px,rgba(120,90,20,.14) 1px,transparent 1.5px) 0 0/18px 18px,
-  linear-gradient(160deg,#FBF1D8 0%,#F5E0A8 100%)}
-.ph::after{content:attr(data-label);position:absolute;left:14px;bottom:14px;right:14px;width:max-content;max-width:calc(100% - 28px);padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.86);backdrop-filter:blur(6px);font-size:.75rem;font-weight:500;color:var(--ink-soft);line-height:1.5}
-.ph svg.ph-icon{position:absolute;inset:0;margin:auto;width:44%;max-width:180px;opacity:.9}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-/* ---------- photos ---------- */
-.ph img{transition:transform .9s cubic-bezier(.2,.7,.2,1),opacity .7s ease;opacity:0}
-.ph img.loaded{opacity:1}
-.ph:hover img{transform:scale(1.03)}
-.ph.has-photo .ph-icon{display:none}
-.ph.has-photo::after{content:"イメージ写真";left:auto;right:12px;top:12px;bottom:auto;width:auto;padding:2px 10px;font-size:.66rem;background:rgba(20,30,25,.42);color:#fff;backdrop-filter:blur(4px)}
-.reason .r-photo{border-radius:0;box-shadow:none;aspect-ratio:16/9}
-
-/* ---------- 100 seats tooltip ---------- */
-.goal-card{position:relative}
-.seats i{cursor:pointer;transition:transform .15s ease,background-color .2s}
-.seats i:hover{transform:scale(1.35);background:rgba(255,255,255,.4)}
-.seats i.on:hover{background:#F2C25C}
-.seats i.you{box-shadow:0 0 0 2px var(--mustard);animation:seatPulse 2.2s ease-in-out infinite}
-.seats.go i{animation:seatIn .45s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--i) * 9ms)}
-.seats.go i.you{animation:seatIn .45s cubic-bezier(.2,.7,.2,1) backwards,seatPulse 2.2s ease-in-out 1.2s infinite;animation-delay:calc(var(--i) * 9ms),1.2s}
-@keyframes seatIn{from{opacity:0;transform:scale(.3)}}
-@keyframes seatPulse{0%,100%{box-shadow:0 0 0 2px var(--mustard)}50%{box-shadow:0 0 0 6px rgba(227,169,43,.25)}}
-.seat-tip{position:absolute;z-index:4;left:0;top:0;pointer-events:none;padding:7px 14px;border-radius:999px;background:#fff;color:var(--green-900);font-size:.8rem;font-weight:700;white-space:nowrap;box-shadow:0 10px 24px -10px rgba(0,0,0,.4);transform:translate(-50%,calc(-100% - 10px));opacity:0;transition:opacity .15s}
-.seat-tip.show{opacity:1}
-.seat-tip b{color:var(--terracotta);font-family:var(--en)}
-.seat-tip::after{content:"";position:absolute;left:50%;bottom:-5px;width:10px;height:10px;background:#fff;transform:translateX(-50%) rotate(45deg)}
-@media (prefers-reduced-motion:reduce){.seats i.you,.seats.go i,.seats.go i.you{animation:none}}
-
-/* ---------- impact simulator ---------- */
-.sim{display:grid;grid-template-columns:1fr;gap:0;margin-bottom:56px;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
-@media (min-width:900px){.sim{grid-template-columns:.9fr 1.1fr}}
-.sim-ctrl{background:var(--bg);padding:36px;display:flex;flex-direction:column;gap:18px}
-.sim-ctrl h3{font-size:clamp(1.3rem,3vw,1.7rem);font-weight:900;color:var(--green-900)}
-.sim-ctrl > p{color:var(--ink-soft);font-size:.95rem}
-.sim-amounts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-@media (min-width:480px){.sim-amounts{grid-template-columns:repeat(4,1fr)}}
-.sim-amounts button{min-height:52px;border-radius:14px;border:1.5px solid var(--line);background:var(--paper);font-family:var(--en);font-weight:800;font-size:1rem;color:var(--ink);cursor:pointer;transition:background-color .2s,color .2s,border-color .2s,transform .15s}
-.sim-amounts button:hover{border-color:var(--green-700)}
-.sim-amounts button:active{transform:scale(.97)}
-.sim-amounts button[aria-pressed="true"]{background:var(--green-900);border-color:var(--green-900);color:#fff}
-.sim-range{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;font-size:.88rem;color:var(--ink-soft)}
-.sim-range input{width:100%;accent-color:var(--terracotta);height:28px;cursor:pointer}
-.sim-range output{font-family:var(--en);font-weight:800;color:var(--ink);min-width:5.5em;text-align:right}
-.sim-result{background:var(--green-900);color:#fff;padding:36px;display:flex;flex-direction:column;gap:20px;position:relative;overflow:hidden}
-.sim-lead{font-size:1.05rem;color:#CFE3D6}
-.sim-lead b{font-family:var(--en);font-size:1.5em;color:#fff;margin:0 .1em}
-.sim-stats{display:grid;gap:12px;grid-template-columns:1fr}
-@media (min-width:560px){.sim-stats{grid-template-columns:repeat(3,1fr)}}
-.sim-stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-m);padding:18px;display:grid;grid-template-columns:auto 1fr;align-items:baseline;column-gap:6px}
-.sim-stat .n{font-family:var(--en);font-weight:800;font-size:clamp(2rem,5vw,2.6rem);line-height:1.1;color:var(--mustard)}
-.sim-stat .u{font-weight:700;font-size:.95rem}
-.sim-stat .l{grid-column:1 / -1;margin-top:6px;font-size:.8rem;color:#CFE3D6;line-height:1.6}
-.sim-sprouts{display:flex;flex-wrap:wrap;gap:4px;min-height:22px}
-.sim-sprouts svg{width:20px;height:20px;animation:sprout .5s cubic-bezier(.3,1.6,.5,1) backwards}
-@keyframes sprout{from{transform:scale(0) translateY(6px);opacity:0}}
-.sim-plan{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:14px 16px;border-radius:var(--r-s);background:rgba(255,255,255,.08);font-size:.9rem;color:#CFE3D6}
-.sim-plan b{display:inline-block;padding:3px 12px;border-radius:999px;background:var(--mustard);color:var(--green-900);font-size:.82rem}
-.sim-result .btn{align-self:flex-start}
-.sim-note{font-size:.76rem;color:#A9C7B4}
-@media (max-width:600px){.sim-ctrl,.sim-result{padding:26px 22px}}
-@media (prefers-reduced-motion:reduce){.sim-sprouts svg{animation:none}}
-
-/* ---------- tags ---------- */
-.hero-tags{display:flex;flex-wrap:wrap;gap:8px}
-.tag{display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:4px 14px;border-radius:999px;font-size:.82rem;font-weight:700;letter-spacing:.02em;line-height:1.4}
-.tag-green{background:var(--green-900);color:#fff}
-.tag-sun{background:var(--mustard-100);color:#7A5610;border:1px solid #F1DFAF}
-.tag-line{background:var(--paper);border:1px solid var(--line);color:var(--ink-soft);font-weight:500;padding-left:5px}
-.tag-line b{display:inline-grid;place-items:center;height:24px;padding:0 10px;border-radius:999px;background:var(--terracotta);color:#fff;font-size:.75rem}
-
-/* ---------- reasons ---------- */
-.reasons{list-style:none;margin:0;padding:0;display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
-.reason{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;min-width:0}
-.reason-body{padding:32px;display:flex;flex-direction:column;gap:14px;flex:1}
-.reason-no{font-weight:800;font-size:.95rem;color:var(--terracotta);letter-spacing:.04em}
-.reason h3{font-size:clamp(1.2rem,2.6vw,1.45rem);font-weight:900;color:var(--green-900);line-height:1.5}
-.reason p{color:var(--ink-soft);font-size:.98rem;line-height:2}
-.r1{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1.1fr}
-.r1 .ph{border-radius:0;box-shadow:none;min-height:320px}
-.r1 .reason-body{padding:44px;justify-content:center}
-.r1 h3{font-size:clamp(1.4rem,3vw,1.9rem)}
-.reason-tags{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-wrap:wrap;gap:8px}
-.reason-tags li{font-size:.82rem;font-weight:500;padding:4px 12px;border-radius:999px;background:var(--green-100);color:var(--green-900)}
-.r2{background:var(--green-900);border-color:var(--green-900)}
-.r2 h3{color:#fff}.r2 p{color:#CFE3D6}.r2 .reason-no{color:var(--mustard)}
-.loop{margin-top:auto;padding-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.loop span{padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.1);color:#fff;font-size:.85rem;font-weight:700}
-.loop i{width:22px;height:2px;background:var(--mustard);position:relative}
-.loop i::after{content:"";position:absolute;right:-1px;top:-3px;border:4px solid transparent;border-left:6px solid var(--mustard);border-right:0}
-.r3{background:var(--mustard-100);border-color:#F1DFAF}
-.r3 .reason-no{color:var(--green-700)}
-.equation{margin-top:auto!important;padding-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.equation span{padding:6px 14px;border-radius:var(--r-s);background:var(--paper);color:var(--green-900);font-weight:700;font-size:.9rem}
-.equation b{color:var(--terracotta);font-family:var(--en);font-size:1.1rem}
-@media (max-width:860px){
-  .reasons{grid-template-columns:1fr}
-  .r1{grid-template-columns:1fr}
-  .r1 .ph{min-height:220px}
-  .r1 .reason-body,.reason-body{padding:26px}
-}
-
-/* ---------- founder story ---------- */
-.story{display:grid;gap:40px;grid-template-columns:1fr;align-items:center}
-@media (min-width:900px){.story{grid-template-columns:.85fr 1.15fr;gap:72px}}
-.story-photo{aspect-ratio:4/5;max-height:560px}
-@media (max-width:899px){.story-photo{aspect-ratio:16/11}}
-.story-body h2{font-size:clamp(1.7rem,4.2vw,2.6rem);font-weight:900;color:var(--green-900);line-height:1.45}
-.story-body blockquote{margin:28px 0 0;padding:0 0 0 22px;border-left:3px solid var(--terracotta);display:grid;gap:16px}
-.story-body blockquote p{font-size:1.06rem;line-height:2.1;color:var(--ink)}
-.sign{margin-top:32px;display:flex;align-items:center;gap:14px}
-.sign-mark{width:46px;height:46px;border-radius:50%;background:var(--green-900);display:grid;place-items:center;flex:none}
-.sign-mark svg{width:22px;height:22px}
-.sign b{display:block;font-size:1rem}
-.sign > div > span{display:block;font-size:.85rem;color:var(--ink-soft)}
-
-/* ---------- media ---------- */
-.media-sec{padding-top:0}
-.media{background:var(--green-900);color:#fff;border-radius:32px;padding:56px;display:grid;gap:40px;grid-template-columns:1fr;position:relative;overflow:hidden}
-@media (min-width:960px){.media{grid-template-columns:1fr 1fr;align-items:center}}
-@media (max-width:640px){.media{padding:32px 24px;border-radius:24px}}
-.media::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.07) 1px,transparent 1.5px) 0 0/22px 22px;pointer-events:none}
-.media > *{position:relative}
-.media h2{margin-top:18px;font-size:clamp(1.5rem,3.6vw,2.2rem);font-weight:900;line-height:1.5}
-.media-head > p{margin-top:16px;color:#CFE3D6}
-.media-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.media .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
-.media .btn-ghost:hover{border-color:#fff;color:#fff}
-.media-note{margin-top:14px;font-size:.82rem;color:#A9C7B4}
-.angles{list-style:none;margin:0;padding:0;display:grid;gap:12px;grid-template-columns:1fr}
-@media (min-width:560px){.angles{grid-template-columns:1fr 1fr}}
-.angles li{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-m);padding:20px}
-.angles li.wide{grid-column:1 / -1;background:rgba(227,169,43,.14);border-color:rgba(227,169,43,.4)}
-.angles li.wide b{color:var(--mustard)}
-.chips li.chip-farm{background:var(--mustard-100);color:#7A5610;font-weight:700}
-.angles b{display:block;font-size:1rem;margin-bottom:6px}
-.angles span{display:block;font-size:.88rem;color:#CFE3D6;line-height:1.8}
-
-/* ---------- farm & agri-welfare ---------- */
-.farm-sec{background:linear-gradient(180deg,#EDF4EF 0%,var(--bg) 100%);border-top:1px solid var(--line)}
-.farm-sub{margin-top:14px!important;font-size:clamp(1.1rem,2.6vw,1.4rem);font-weight:700;color:var(--terracotta)!important;line-height:1.6}
-.farm-grid{display:grid;gap:16px;grid-template-columns:repeat(2,1fr)}
-.farm-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;min-width:0}
-.farm-card .ph{border-radius:0;box-shadow:none}
-.farm-card .fc-photo{aspect-ratio:16/9}
-.farm-body{padding:30px;display:flex;flex-direction:column;gap:14px;flex:1}
-.farm-body h3{font-size:clamp(1.2rem,2.6vw,1.45rem);font-weight:900;color:var(--green-900);line-height:1.5}
-.farm-body p{color:var(--ink-soft);font-size:.97rem;line-height:2}
-.farm-pill{align-self:flex-start;display:inline-flex;align-items:center;min-height:30px;padding:2px 14px;border-radius:999px;background:var(--green-100);color:var(--green-900);font-size:.8rem;font-weight:700}
-.f1{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1.1fr}
-.f1 .ph{min-height:360px}
-.f1 .farm-body{padding:40px;justify-content:center}
-.f1 h3{font-size:clamp(1.35rem,3vw,1.85rem)}
-.f1 .farm-pill{background:var(--mustard-100);color:#7A5610}
-.f3{background:var(--green-900);border-color:var(--green-900)}
-.f3 h3{color:#fff}.f3 p{color:#CFE3D6}
-.f3 .farm-pill{background:rgba(255,255,255,.12);color:#fff}
-.hero-board{position:relative;display:grid;gap:2px;padding:18px 20px 18px 22px;border-radius:var(--r-m);background:var(--green-900);color:#fff;box-shadow:0 14px 30px -18px rgba(27,67,50,.7);transform:rotate(-1deg);max-width:420px}
-.hero-board::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;background:var(--mustard)}
-.hb-label{font-size:.78rem;font-weight:700;color:var(--mustard);display:flex;align-items:center;gap:8px}
-.hb-ex{font-size:.66rem;font-weight:700;padding:0 8px;border-radius:999px;background:rgba(255,255,255,.14);color:#fff}
-.hero-board b{font-size:1.25rem;line-height:1.5}
-.hb-item{font-size:.86rem;color:#CFE3D6}
-.farm-note{font-size:.85rem!important;line-height:1.8!important}
-.farm-flow{margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 12px}
-.farm-flow span{padding:8px 16px;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--green-900);font-size:.88rem;font-weight:700;box-shadow:var(--shadow)}
-.farm-flow i{width:24px;height:2px;background:var(--terracotta);position:relative}
-.farm-flow i::after{content:"";position:absolute;right:-1px;top:-3px;border:4px solid transparent;border-left:6px solid var(--terracotta);border-right:0}
-.farm-cta{margin-top:32px;padding:28px 32px;border-radius:var(--r-l);background:var(--paper);border:1px dashed #BFD5C6;display:grid;gap:20px;grid-template-columns:1fr;align-items:center}
-@media (min-width:1000px){.farm-cta{grid-template-columns:1fr auto}}
-.farm-cta p{color:var(--ink-soft);font-size:.94rem}
-.farm-cta p b{display:block;color:var(--green-900);font-size:1.05rem;margin-bottom:4px}
-.farm-actions{display:flex;flex-wrap:wrap;gap:12px}
-.farm-actions .btn{white-space:normal;text-align:center;line-height:1.4}
-@media (max-width:860px){
-  .farm-grid{grid-template-columns:1fr}
-  .f1{grid-template-columns:1fr}
-  .f1 .ph{min-height:220px}
-  .f1 .farm-body,.farm-body{padding:26px}
-  .farm-flow{justify-content:flex-start}
-  .farm-cta{padding:24px 22px}
-}
-@media (max-width:600px){
-  .farm-flow{flex-direction:column;align-items:flex-start;gap:6px}
-  .farm-flow i{width:2px;height:16px;margin-left:26px}
-  .farm-flow i::after{right:auto;top:auto;left:-3px;bottom:-2px;border:4px solid transparent;border-top:6px solid var(--terracotta);border-bottom:0}
-}
-@media (max-width:1100px){.nav{gap:18px;font-size:.85rem}}
-
-/* ---------- section scaffold ---------- */
-.sec{padding:112px 0}
-.sec-alt{background:var(--paper);border-block:1px solid var(--line)}
-.sec-head{max-width:640px;margin-bottom:56px}
-.sec-head.center{margin-inline:auto;text-align:center}
-.sec-head h2{font-size:clamp(1.7rem,4.2vw,2.6rem);font-weight:900;color:var(--green-900);line-height:1.45}
-.sec-head p{margin-top:20px;color:var(--ink-soft);font-size:1.02rem}
-@media (max-width:640px){.sec{padding:80px 0}.sec-head{margin-bottom:40px}}
-
-/* ---------- concept bento ---------- */
-.bento{display:grid;gap:16px;grid-template-columns:repeat(6,1fr)}
-.tile{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);padding:30px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;min-width:0}
-.tile h3{font-size:1.18rem;color:var(--green-900)}
-.tile p{color:var(--ink-soft);font-size:.95rem}
-.tile .step{font-family:var(--en);font-weight:700;font-size:.82rem;color:var(--green-700);display:flex;align-items:center;gap:8px}
-.tile .step::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green-500)}
-.tile.t-hero{grid-column:span 4;grid-row:span 2;padding:0;overflow:hidden}
-.t-hero .ph{border-radius:0;box-shadow:none;flex:1;min-height:280px}
-.t-hero .cap{padding:26px 30px 30px}
-.t-step{grid-column:span 2}
-.t-dark{background:var(--green-900);border-color:var(--green-900);color:#fff}
-.t-dark h3{color:#fff}
-.t-dark p{color:#CFE3D6}
-.t-sun{background:var(--mustard-100);border-color:#F1DFAF}
-.t-wide{grid-column:span 3}
-.t-why{grid-column:span 2}
-.t-why .ico{width:44px;height:44px;border-radius:12px;background:var(--green-100);display:grid;place-items:center}
-.t-why .ico svg{width:24px;height:24px}
-@media (max-width:960px){
-  .bento{grid-template-columns:repeat(2,1fr)}
-  .tile.t-hero{grid-column:span 2;grid-row:auto}
-  .t-step,.t-wide{grid-column:span 1}
-  .t-why{grid-column:span 2}
-}
-@media (max-width:600px){
-  .bento{grid-template-columns:1fr}
-  .tile.t-hero,.t-step,.t-wide,.t-why{grid-column:auto}
-  .tile{padding:24px}
-}
-
-/* ---------- 100 supporters ---------- */
-.goal{display:grid;gap:24px;grid-template-columns:1fr}
-@media (min-width:960px){.goal{grid-template-columns:1.15fr 1fr}}
-.goal-card{background:var(--green-900);color:#fff;border-radius:var(--r-l);padding:36px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:28px}
-.goal-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px}
-.goal-top .lbl{font-size:.9rem;color:#CFE3D6}
-.goal-count{font-family:var(--en);font-weight:800;font-size:clamp(3rem,10vw,4.8rem);line-height:1}
-.goal-count small{font-size:.32em;font-weight:600;color:#CFE3D6;margin-left:.15em}
-.goal-rest{font-size:.95rem;color:#CFE3D6}
-.goal-rest b{color:var(--mustard);font-family:var(--en);font-size:1.25em}
-.seats{display:grid;grid-template-columns:repeat(20,1fr);gap:6px}
-.seats i{aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.08)}
-.seats i.on{background:var(--mustard);border-color:var(--mustard)}
-@media (max-width:600px){.seats{grid-template-columns:repeat(10,1fr)}.goal-card{padding:26px}}
-.goal-note{font-size:.85rem;color:#CFE3D6}
-
-.budget{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);padding:32px;box-shadow:var(--shadow)}
-.budget h3{font-size:1.1rem;color:var(--green-900)}
-.budget .total{margin-top:6px;font-size:.92rem;color:var(--ink-soft)}
-.budget .total b{font-family:var(--en);font-size:1.6rem;color:var(--ink);font-weight:800;margin-right:.1em}
-.budget ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:16px}
-.budget li{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:baseline;font-size:.95rem}
-.budget li .amt{font-family:var(--en);font-weight:700}
-.budget li .bar{grid-column:1 / -1;height:8px;border-radius:999px;background:var(--sand);overflow:hidden}
-.budget li .bar span{display:block;height:100%;border-radius:999px;background:var(--green-700)}
-.budget li:nth-child(2) .bar span{background:var(--mustard)}
-.budget li:nth-child(3) .bar span{background:var(--terracotta)}
-.budget li:nth-child(n+4) .bar span{background:#9BB5A5}
-.budget .foot{margin-top:20px;font-size:.85rem;color:var(--ink-soft)}
-
-/* ---------- monthly plans ---------- */
-.plans{display:grid;gap:18px;grid-template-columns:1fr}
-@media (min-width:900px){.plans{grid-template-columns:repeat(3,1fr);align-items:stretch}}
-.plan{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);padding:34px 30px 30px;box-shadow:var(--shadow);display:flex;flex-direction:column}
-.plan-name{font-size:1.08rem;font-weight:700;color:var(--green-900)}
-.plan-price{margin-top:14px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
-.plan-price .yen{font-family:var(--en);font-weight:800;font-size:2.6rem;line-height:1;color:var(--ink)}
-.plan-price .per{font-size:.9rem;color:var(--ink-soft);font-weight:500}
-.plan-lead{margin-top:14px;font-size:.95rem;color:var(--ink-soft);min-height:3.6em}
-.plan ul{list-style:none;padding:22px 0 0;margin:22px 0 28px;border-top:1px dashed var(--line);display:grid;gap:12px;font-size:.94rem}
-.plan li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
-.plan li svg{width:22px;height:22px;margin-top:3px}
-.plan .btn{margin-top:auto}
-.plan-art{position:absolute;top:26px;right:26px;width:52px;height:52px}
-.plan.featured{background:var(--green-900);border-color:var(--green-900);color:#fff}
-.plan.featured .plan-name{color:#fff}
-.plan.featured .plan-price .yen{color:#fff}
-.plan.featured .plan-price .per,.plan.featured .plan-lead{color:#CFE3D6}
-.plan.featured ul{border-top-color:rgba(255,255,255,.2)}
-.plan-flag{position:absolute;top:-13px;left:30px;background:var(--mustard);color:var(--green-900);font-size:.78rem;font-weight:700;padding:3px 12px;border-radius:999px}
-.plans-note{margin-top:28px;text-align:center;font-size:.9rem;color:var(--ink-soft)}
-
-/* ---------- roles split ---------- */
-.roles{display:grid;gap:16px;grid-template-columns:1fr;margin-bottom:56px}
-@media (min-width:760px){.roles{grid-template-columns:1fr 1fr}}
-.role{border-radius:var(--r-l);padding:28px 30px;display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:center}
-.role svg{grid-row:span 2;width:48px;height:48px}
-.role h3{font-size:1.05rem}
-.role p{font-size:.92rem;color:var(--ink-soft)}
-.role.me{background:var(--green-100)}
-.role.co{background:var(--mustard-100)}
-.role a{font-weight:700}
-
-/* ---------- corporate tiers ---------- */
-.corp{display:grid;gap:16px;grid-template-columns:1fr}
-@media (min-width:640px){.corp{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1080px){.corp{grid-template-columns:repeat(4,1fr)}}
-.tier{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-m);padding:26px;display:flex;flex-direction:column;gap:4px}
-.tier-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-.tier-head svg{width:40px;height:40px;flex:none}
-.tier h3{font-size:1.05rem;color:var(--green-900)}
-.tier .price{font-family:var(--en);font-weight:800;font-size:1.5rem}
-.tier .price small{font-family:var(--ja);font-size:.55em;font-weight:500;color:var(--ink-soft);margin-left:.2em}
-.tier ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:.9rem;color:var(--ink-soft)}
-.tier li{padding-left:16px;position:relative}
-.tier li::before{content:"";position:absolute;left:0;top:.75em;width:6px;height:6px;border-radius:50%;background:var(--green-500)}
-.tier.top{border:1.5px solid var(--green-700);background:linear-gradient(180deg,var(--green-100),var(--paper) 55%)}
-.corp-why{margin-top:24px;display:grid;gap:12px;grid-template-columns:1fr}
-@media (min-width:760px){.corp-why{grid-template-columns:repeat(3,1fr)}}
-.corp-why div{padding:20px 22px;border-radius:var(--r-m);border:1px solid var(--line);background:var(--bg);font-size:.92rem;color:var(--ink-soft)}
-.corp-why b{display:block;color:var(--ink);font-size:.98rem;margin-bottom:4px}
-.corp-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-
-/* ---------- other ways ---------- */
-.ways{display:grid;gap:16px;grid-template-columns:1fr}
-@media (min-width:860px){.ways{grid-template-columns:1fr 1fr}}
-.way{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);overflow:hidden;display:grid;grid-template-columns:1fr;box-shadow:var(--shadow)}
-@media (min-width:560px){.way{grid-template-columns:200px 1fr}}
-.way .ph{border-radius:0;box-shadow:none;min-height:180px}
-.way-body{padding:28px;display:flex;flex-direction:column;gap:10px}
-.way-body h3{font-size:1.15rem;color:var(--green-900)}
-.way-body p{font-size:.94rem;color:var(--ink-soft)}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 12px;padding:0;list-style:none}
-.chips li{font-size:.82rem;padding:4px 12px;border-radius:999px;background:var(--sand);color:var(--ink)}
-.way-body .btn{align-self:flex-start;margin-top:auto}
-
-/* ---------- org ---------- */
-.org{display:grid;gap:24px;grid-template-columns:1fr}
-@media (min-width:900px){.org{grid-template-columns:1.2fr 1fr;align-items:start}}
-.org-text h2{font-size:clamp(1.5rem,3.6vw,2.1rem);font-weight:900;color:var(--green-900)}
-.org-text p{margin-top:20px;color:var(--ink-soft)}
-.org-text .link{display:inline-block;margin-top:20px;font-weight:700}
-.facts{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-l);padding:10px 28px;box-shadow:var(--shadow)}
-.facts dl{margin:0}
-.facts div{display:grid;grid-template-columns:7.5em 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.94rem}
-.facts div:last-child{border-bottom:0}
-.facts dt{color:var(--ink-soft)}
-.facts dd{margin:0;font-weight:500}
-
-/* ---------- faq ---------- */
-.faq{max-width:820px;margin-inline:auto;display:grid;gap:12px}
-.faq details{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-m);padding:0 24px}
-.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font-weight:700}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"";flex:none;width:28px;height:28px;border-radius:50%;background:var(--green-100) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231B4332' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 6v12M6 12h12'/%3E%3C/svg%3E") center/14px no-repeat;transition:transform .25s}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq details p{padding:0 0 22px;color:var(--ink-soft);font-size:.95rem}
-
-/* ---------- final cta ---------- */
-.final{padding:0 0 112px}
-.final-card{position:relative;overflow:hidden;background:var(--green-900);color:#fff;border-radius:32px;padding:72px 32px;text-align:center}
-.final-card h2{font-size:clamp(1.7rem,4.6vw,2.8rem);font-weight:900;line-height:1.45}
-.final-card p{margin:20px auto 0;max-width:32em;color:#CFE3D6}
-.final-card .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:36px}
-.final-card .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.35)}
-.final-card .btn-ghost:hover{border-color:#fff;color:#fff}
-.final-card .leaf{position:absolute;opacity:.12;width:220px;height:220px}
-.final-card .leaf.l1{left:-50px;top:-40px;transform:rotate(-20deg)}
-.final-card .leaf.l2{right:-40px;bottom:-60px;transform:rotate(150deg)}
-
-footer{padding:40px 0 56px;border-top:1px solid var(--line);font-size:.85rem;color:var(--ink-soft)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:center}
-footer nav{display:flex;flex-wrap:wrap;gap:8px 20px}
-footer a{color:var(--ink-soft)}
-
-/* ---------- floating bar ---------- */
-.float{position:fixed;z-index:40;left:50%;bottom:calc(16px + env(safe-area-inset-bottom));transform:translate(-50%,140%);width:min(560px,calc(100% - 24px));display:flex;align-items:center;gap:14px;padding:10px 10px 10px 22px;border-radius:999px;background:rgba(27,67,50,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;box-shadow:0 16px 40px -12px rgba(27,67,50,.5);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.float.show{transform:translate(-50%,0)}
-.float p{flex:1;min-width:0;font-size:.88rem;line-height:1.45}
-.float p b{font-family:var(--en);color:var(--mustard)}
-.float .btn{min-height:46px;padding:0 20px;font-size:.92rem}
-@media (max-width:600px){body{padding-bottom:88px}}
-@media (max-width:420px){.float{padding-left:16px;gap:10px}.float p{font-size:.78rem}.float .btn{padding:0 14px;font-size:.85rem}}
-
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *{transition:none!important}
-}
-</style>
 </head>
 <body>
-
 <header class="site-head" id="head">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="そだてる食堂 トップへ">
+    <a class="brand" href="index.html" aria-label="そだてる食堂 トップへ">
       <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V11" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M12 12c0-4.5 3-7 7.5-7 0 4.5-3 7-7.5 7z" fill="#52B788"/><path d="M12 14.5c0-3.8-2.4-6-6.5-6 0 3.8 2.4 6 6.5 6z" fill="#E3A92B"/></svg></span>
       そだてる食堂
     </a>
-    <nav class="nav" aria-label="ページ内">
-      <a href="#about">コンセプト</a>
-      <a href="#reasons">投資する理由</a>
-      <a href="#farm">農家さん・農福連携</a>
-      <a href="#support">月額プラン</a>
-      <a href="#tiers">法人パートナー</a>
-      <a href="#media">取材・視察</a>
-      <a href="sponsors.html">パートナー一覧</a>
+    <nav class="nav" aria-label="メインメニュー">
+      <a href="index.html#about">コンセプト</a>
+      <a href="support.html">支援する</a>
+      <a href="partners.html">企業パートナー</a>
+      <a href="about.html">団体について</a>
+      <a href="reports.html">活動レポート</a>
+      <a href="news.html">お知らせ</a>
+      <a href="faq.html">よくある質問</a>
     </nav>
     <div class="head-right">
-      <a class="btn btn-primary btn-sm js-monthly" href="#support">サポーターになる</a>
+      <a class="btn btn-primary btn-sm" href="support.html">月1,000円から支援する</a>
       <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="m-nav" aria-label="メニューを開く"><span></span><span></span><span></span></button>
     </div>
   </div>
   <nav class="m-nav" id="m-nav" aria-label="メニュー">
-    <a href="#about">コンセプト</a>
-    <a href="#reasons">投資する理由</a>
-    <a href="#farm">農家さん・農福連携</a>
-    <a href="#support">月額プラン</a>
-    <a href="#tiers">法人パートナー</a>
-    <a href="#media">取材・視察</a>
-    <a href="sponsors.html">パートナー一覧</a>
-    <a class="btn btn-primary js-monthly" href="#support">月額サポーターになる</a>
+    <a href="index.html#about">コンセプト</a>
+    <a href="support.html">支援する</a>
+    <a href="partners.html">企業パートナー</a>
+    <a href="about.html">団体について</a>
+    <a href="reports.html">活動レポート</a>
+    <a href="news.html">お知らせ</a>
+    <a href="faq.html">よくある質問</a>
+    <a href="join.html">参加する</a>
+    <a href="contact.html">お問い合わせ</a>
+    <a class="btn btn-primary" href="support.html">月1,000円から支援する</a>
   </nav>
 </header>
-
 <main id="top">
-
 <!-- ================= HERO ================= -->
 <section class="hero" aria-labelledby="hero-title">
   <div class="wrap hero-grid">
@@ -588,8 +71,8 @@ footer a{color:var(--ink-soft)}
       <h1 id="hero-title"><span class="line">倉庫で野菜を育てて、</span><span class="line">こどもと食べる。</span></h1>
       <p class="hero-lead">愛知の倉庫に、光と水で野菜が育つインドアファームと、こどもたちの食卓を。種をまくところから「いただきます」まで、ひとつの屋根の下でつくる新しい地域の拠点です。月1,000円から、このプロジェクトの初期メンバーになってください。</p>
       <div class="hero-actions">
-        <a class="btn btn-primary js-monthly" href="#support">月額サポーターになる</a>
-        <a class="btn btn-ghost" href="#tiers">法人スポンサー・投資家向け案内</a>
+        <a class="btn btn-primary" href="support.html">月額サポーターになる</a>
+        <a class="btn btn-ghost" href="partners.html">企業・団体パートナーのご案内</a>
       </div>
       <p class="hero-meta">開設予定 <span class="tmp">仮</span> 2027年秋　｜　運営：フードフライト愛知</p>
     </div>
@@ -659,7 +142,7 @@ footer a{color:var(--ink-soft)}
 <section class="sec" id="reasons" aria-labelledby="reasons-title">
   <div class="wrap">
     <div class="sec-head">
-      <h2 id="reasons-title"><span class="ib">このプロジェクトに</span><span class="ib">投資したくなる、</span><span class="ib">3つの理由。</span></h2>
+      <h2 id="reasons-title"><span class="ib">このプロジェクトを</span><span class="ib">応援したくなる、</span><span class="ib">3つの理由。</span></h2>
       <p>ただの食堂でも、ただの農場でもない。こどもの体験、地域の循環、まちの話題。3つの価値が、ひとつの倉庫で同時に育ちます。</p>
     </div>
 
@@ -681,7 +164,7 @@ footer a{color:var(--ink-soft)}
         <div class="reason-body">
           <span class="reason-no num">02</span>
           <h3>「ただ配る」から「自ら生み出す」へ。次世代の地域循環モデル</h3>
-          <p>一過性の施しで終わらせない。フードバンクに最も足りない「新鮮な生野菜」を、倉庫内の自給自足プラントで一年中つくり出す。持続可能な仕組みそのものへの投資です。</p>
+          <p>一過性の施しで終わらせない。フードバンクに最も足りない「新鮮な生野菜」を、倉庫内の自給自足プラントで一年中つくり出す。その持続可能な仕組みを、一緒につくります。</p>
           <div class="loop" aria-hidden="true">
             <span>育てる</span><i></i><span>食べる</span><i></i><span>また育てる</span>
           </div>
@@ -757,8 +240,8 @@ footer a{color:var(--ink-soft)}
     <div class="farm-cta">
       <p><b>農家さん・福祉事業所のみなさまへ</b>少量でも、不定期でも大歓迎です。収穫のタイミングに合わせて、私たちが受け取りにうかがうこともできます。 <span class="tmp">仮</span></p>
       <div class="farm-actions">
-        <a class="btn btn-dark js-form" href="#">野菜の提供・農福連携パートナーについて相談する</a>
-        <a class="btn btn-ghost" href="sponsors.html#farmers">ヒーロー農家さん一覧</a>
+        <a class="btn btn-dark" href="join.html#farmers">野菜の提供・農福連携について</a>
+        <a class="btn btn-ghost" href="contact.html#farm">相談する</a>
       </div>
     </div>
   </div>
@@ -816,146 +299,73 @@ footer a{color:var(--ink-soft)}
           <li><span>種・苗・養液</span><span class="amt">20,000円</span><span class="bar"><span style="width:10%"></span></span></li>
           <li><span>保険・消耗品</span><span class="amt">10,000円</span><span class="bar"><span style="width:5%"></span></span></li>
         </ul>
-        <p class="foot">収支は毎月の活動レポートと、年1回の報告書で公開します。</p>
+        <p class="foot">収支は毎月の活動レポートと、年1回の報告書で公開します。お金の使い道の詳しい説明は<a href="support.html">「支援する」ページ</a>へ。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= MONTHLY PLANS ================= -->
-<section class="sec sec-alt" id="support" aria-labelledby="plans-title">
+<!-- ================= SUPPORT ENTRY ================= -->
+<section class="sec sec-alt" id="support-entry" aria-labelledby="entry-title">
   <div class="wrap">
     <div class="sec-head center">
-      <h2 id="plans-title"><span class="ib">このプロジェクトの、</span><span class="ib">共同オーナーになりませんか？</span></h2>
-      <p>毎月のサポートは、こどもたちの食卓と倉庫の畑への継続的な投資。リターンはモノではなく、食数チケット・名前・体験です。育っていく様子を、いちばん近い場所で見届けてください。<br>いつでも金額の変更・休止ができます。</p>
-    </div>
-
-    <div class="sim" id="simulator">
-      <div class="sim-ctrl">
-        <h3>あなたの支援で、何が変わる？</h3>
-        <p>金額を選ぶか、スライダーを動かしてみてください。1年後にこの場所で起きていることが、数字で見えます。</p>
-        <div class="sim-amounts" role="group" aria-label="月額を選ぶ">
-          <button type="button" data-v="1000" aria-pressed="false">¥1,000</button>
-          <button type="button" data-v="3000" aria-pressed="true">¥3,000</button>
-          <button type="button" data-v="10000" aria-pressed="false">¥10,000</button>
-          <button type="button" data-v="30000" aria-pressed="false">¥30,000</button>
-        </div>
-        <label class="sim-range"><span>月額</span><input type="range" id="sim-range" min="1000" max="30000" step="1000" value="3000" aria-label="月額のサポート金額"><output id="sim-out" for="sim-range">¥3,000</output></label>
-      </div>
-      <div class="sim-result" aria-live="polite">
-        <p class="sim-lead">あなたが月<b id="sim-amt">3,000</b>円サポートすると、1年間で…</p>
-        <div class="sim-stats">
-          <div class="sim-stat"><span class="n" id="sim-meals">36</span><span class="u">食分</span><span class="l">こどもたちに届く、温かいごはん</span></div>
-          <div class="sim-stat"><span class="n" id="sim-lettuce">72</span><span class="u">株</span><span class="l">倉庫で育つ、新鮮なレタス</span></div>
-          <div class="sim-stat"><span class="n" id="sim-share">1.5</span><span class="u">%</span><span class="l">毎月の運営費のうち、あなたが支える割合</span></div>
-        </div>
-        <div class="sim-sprouts" id="sim-sprouts" aria-hidden="true"></div>
-        <p class="sim-plan">あなたのプラン <b id="sim-plan">そだてるサポーター</b><span id="sim-perk">名前の掲示と、月1回の収穫体験・試食会</span></p>
-        <a class="btn btn-primary js-monthly" href="#support">このプランで参加する</a>
-        <p class="sim-note">※1食＝約1,000円、レタス1株＝約500円、毎月の運営費20万円として試算した目安です。 <span class="tmp">仮</span></p>
-      </div>
+      <h2 id="entry-title"><span class="ib">このプロジェクトの、</span><span class="ib">共同オーナーになりませんか？</span></h2>
+      <p>毎月のサポートが、こどもたちの食卓と倉庫の畑を育てます。リターンはモノではなく、食数チケット・名前・体験です。いつでも金額の変更・休止・解約ができます。</p>
     </div>
 
     <div class="plans">
       <article class="plan">
-        <svg class="plan-art" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="26" fill="#E4EFE7"/><ellipse cx="26" cy="31" rx="13" ry="5" fill="#fff" stroke="#1B4332" stroke-width="1.6"/><circle cx="22" cy="28" r="4" fill="#52B788"/><circle cx="29" cy="27" r="4" fill="#2D6A4F"/></svg>
         <h3 class="plan-name">おやさいサポーター</h3>
         <p class="plan-price"><span class="yen">¥1,000</span><span class="per">／月〜</span></p>
         <p class="plan-lead">毎月1食分の「あしなが枠」食数チケットを、こどもに贈る。最初の一歩にちょうどいいプランです。</p>
-        <ul>
-          <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#E4EFE7"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>こども食堂「毎月1食分」の食数チケットを支援</li>
-          <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#E4EFE7"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>写真つきの月次活動レポートを配信</li>
-        </ul>
-        <a class="btn btn-ghost btn-block js-monthly" href="#support">おやさいサポーターになる</a>
+        <a class="btn btn-ghost btn-block" href="support.html">プランの詳細を見る</a>
       </article>
-
       <article class="plan featured">
         <span class="plan-flag">おすすめ</span>
-        <svg class="plan-art" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="26" fill="rgba(255,255,255,.12)"/><rect x="13" y="15" width="26" height="20" rx="3" fill="#FAF9F6"/><rect x="17" y="20" width="12" height="2.4" rx="1.2" fill="#2D6A4F"/><rect x="17" y="25" width="18" height="2.4" rx="1.2" fill="#E3A92B"/><path d="M26 35v7" stroke="#FAF9F6" stroke-width="2"/></svg>
         <h3 class="plan-name">そだてるサポーター</h3>
         <p class="plan-price"><span class="yen">¥3,000</span><span class="per">／月〜</span></p>
-        <p class="plan-lead">サイトと会場のボードに名前が並び、毎月の収穫の現場に立ち会える。いちばん「関わってる」を実感できるプランです。</p>
-        <ul>
-          <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#E3A92B"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>サイト＆会場のサポーターボードにお名前を掲示（ニックネーム・ペンネーム可）</li>
-          <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#E3A92B"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>月1回の収穫体験・試食会にご招待</li>
-          <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#E3A92B"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>おやさいサポーターの特典すべて</li>
-        </ul>
-        <a class="btn btn-primary btn-block js-monthly" href="#support">そだてるサポーターになる</a>
+        <p class="plan-lead">サイトと会場のボードに名前が並び（ニックネーム可）、毎月の収穫の現場に立ち会える。いちばん「関わってる」を実感できるプランです。</p>
+        <a class="btn btn-primary btn-block" href="support.html">プランの詳細を見る</a>
       </article>
-
       <article class="plan">
-        <svg class="plan-art" viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="26" fill="#FBF0D6"/><rect x="10" y="30" width="32" height="4" rx="2" fill="#1B4332"/><circle cx="17" cy="26" r="4.5" fill="#52B788"/><circle cx="26" cy="26" r="4.5" fill="#52B788"/><circle cx="35" cy="26" r="4.5" fill="#52B788"/><rect x="19" y="36" width="14" height="6" rx="1.5" fill="#C8643B"/></svg>
         <h3 class="plan-name">マイ・レーン オーナー</h3>
         <p class="plan-price"><span class="yen">¥10,000</span><span class="per">／月〜</span></p>
         <p class="plan-lead">栽培ラックの1段が、あなたの名前を冠した「マイ・レーン」に。プロジェクトの顔となるオーナー枠です。</p>
-        <ul>
-          <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#FBF0D6"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>栽培ラック1段のオーナー権（ネームプレートを掲示・ニックネーム・ペンネーム可）</li>
-          <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#FBF0D6"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>支援者限定のナイト交流会にご招待</li>
-          <li><svg viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#FBF0D6"/><path d="M6.5 11.2l3 3 6-6.2" fill="none" stroke="#1B4332" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>そだてるサポーターの特典すべて</li>
-        </ul>
-        <a class="btn btn-dark btn-block js-monthly" href="#support">マイ・レーンを持つ</a>
+        <a class="btn btn-dark btn-block" href="support.html">プランの詳細を見る</a>
       </article>
     </div>
-    <p class="plans-note">※ボードやサイトへのお名前掲載は、<b>本名・屋号のほか、ニックネーム・ペンネーム・イニシャル・匿名（掲載なし）でもOK</b>です。お気軽にご参加ください。</p>
-    <p class="plans-note" style="margin-top:8px">プランの金額は最低額です。上乗せや、単発でのご寄付も受け付けています。 <span class="tmp">仮</span></p>
-  </div>
-</section>
 
-<!-- ================= CORPORATE ================= -->
-<section class="sec" id="tiers" aria-labelledby="corp-title">
-  <div class="wrap">
-    <div class="roles">
+    <div class="roles" style="margin-top:24px;margin-bottom:0">
       <div class="role me">
         <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#fff"/><circle cx="24" cy="19" r="6" fill="#2D6A4F"/><path d="M13 36c0-6 5-10 11-10s11 4 11 10z" fill="#52B788"/></svg>
         <h3><span class="ib">個人の方は</span>　<span class="ib">月額サポーター</span></h3>
-        <p>月1,000円からの継続サポートで、共同オーナーに。リターンは食数チケット・名前の掲示・体験への参加です。<a href="#support">プランを見る</a></p>
+        <p>月1,000円からの継続サポートで、共同オーナーに。単発でのご寄付も受け付けています。<a href="support.html">支援の方法を見る</a></p>
       </div>
       <div class="role co">
         <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#fff"/><rect x="14" y="14" width="20" height="22" rx="2" fill="#1B4332"/><g fill="#E3A92B"><rect x="18" y="18" width="4" height="4"/><rect x="26" y="18" width="4" height="4"/><rect x="18" y="25" width="4" height="4"/><rect x="26" y="25" width="4" height="4"/></g></svg>
         <h3><span class="ib">企業・団体は</span>　<span class="ib">年間パートナー</span></h3>
-        <p>年3万円からの年間スポンサー。ラックやエリアに社名を刻み、地域の未来に投資する企業として発信できます。</p>
+        <p>年3万円からの年間スポンサー。銀行振込・領収書発行にも対応します。<a href="partners.html">企業・団体パートナーのご案内</a></p>
       </div>
     </div>
+  </div>
+</section>
 
+<!-- ================= REPORTS PREVIEW ================= -->
+<section class="sec" id="reports-preview" aria-labelledby="reports-title">
+  <div class="wrap">
     <div class="sec-head">
-      <h2 id="corp-title"><span class="ib">地域の未来に、</span><span class="ib">社名を刻む。</span></h2>
-      <p>法人・団体パートナー（年間スポンサー）。倉庫×水耕栽培×こども食堂という「語れる」取り組みに、ラックやエリアの名前として御社が加わります。CSR・ESG報告にも、採用や広報にも使える発信材料になります。</p>
+      <h2 id="reports-title">活動レポート</h2>
+      <p>支援してくださった方への報告は、毎月の活動レポートで公開します。開催の様子、収穫量、届けた食数、お金の使い道まで。開設後、この形式で毎月お届けします。</p>
     </div>
-
-    <div class="corp">
-      <div class="tier">
-        <div class="tier-head"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#F1EEE6"/><ellipse cx="20" cy="24" rx="7" ry="4.5" fill="#8C9692"/><ellipse cx="20" cy="22.5" rx="3" ry="2" fill="#52B788"/></svg><h3>たね</h3></div>
-        <p class="price">¥30,000<small>／年</small></p>
-        <ul><li>パートナー一覧ページに社名掲載</li><li>年次インパクトレポートの送付</li></ul>
-      </div>
-      <div class="tier">
-        <div class="tier-head"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#E4EFE7"/><path d="M20 30V20" stroke="#2D6A4F" stroke-width="2.4" stroke-linecap="round"/><ellipse cx="15" cy="19" rx="5.5" ry="3.5" fill="#52B788"/><ellipse cx="25" cy="19" rx="5.5" ry="3.5" fill="#52B788"/></svg><h3>ふたば</h3></div>
-        <p class="price">¥100,000<small>／年</small></p>
-        <ul><li>パートナー一覧ページにロゴ掲載</li><li>会場のスポンサーウォールに社名掲示</li><li>活動写真を自社の広報・SNSで利用可</li></ul>
-      </div>
-      <div class="tier">
-        <div class="tier-head"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#E4EFE7"/><path d="M20 32V16" stroke="#1B4332" stroke-width="2.4" stroke-linecap="round"/><path d="M20 21c0-6 4-9 10-9 0 6-4 9-10 9z" fill="#2D6A4F"/><path d="M20 25c0-5-3-8-8.5-8 0 5 3 8 8.5 8z" fill="#52B788"/></svg><h3>ほんば</h3></div>
-        <p class="price">¥300,000<small>／年</small></p>
-        <ul><li>栽培ラック1台に社名プレート（例：〇〇ラック）</li><li>サイト・会場でロゴ掲示</li><li>社員向け収穫体験・チームビルディング（年1回）</li></ul>
-      </div>
-      <div class="tier top">
-        <div class="tier-head"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#1B4332"/><ellipse cx="20" cy="24" rx="12" ry="8" fill="#2D6A4F"/><circle cx="15" cy="20" r="6" fill="#52B788"/><circle cx="25" cy="19.5" r="5.5" fill="#52B788"/><circle cx="20" cy="17" r="4.5" fill="#B7E4C7"/></svg><h3>しゅうかく</h3></div>
-        <p class="price">¥500,000〜<small>／年</small></p>
-        <ul><li>栽培エリアのネーミングライツ</li><li>共同プレスリリース・メディア取材への同席</li><li>ほんばの特典すべて</li></ul>
-      </div>
+    <div class="post-list">
+      <a class="post-card" href="reports/2027-sample.html">
+        <time datetime="2027-01">記入例</time>
+        <h3>月次活動レポート <span class="tmp">サンプル</span></h3>
+        <span class="go">形式を見る</span>
+        <p>開設後に公開する月次レポートの雛形です。数字はすべて記入例です。</p>
+      </a>
     </div>
-
-    <div class="corp-why">
-      <div><b>「見える」地域貢献</b>社名入りのラックやエリアが、食堂に集まる家族、視察に来る企業、取材のカメラに映ります。</div>
-      <div><b>社員が誇れる体験</b>収穫や調理のボランティアを、研修やチームビルディング、採用広報のストーリーに。</div>
-      <div><b>語れるESGの実例</b>食品ロス、こどもの食と体験、都市農業。報告書に載せたくなる取り組みです。</div>
-    </div>
-    <p style="margin-top:16px;font-size:.88rem;color:var(--ink-soft)"><span class="tmp">仮</span> 金額と特典は仮のものです。設備・物品での協賛もご相談ください。</p>
-
-    <div class="corp-actions">
-      <a class="btn btn-dark js-form" href="#">法人パートナーについて相談する</a>
-      <a class="btn btn-ghost" href="sponsors.html">パートナー一覧を見る</a>
-    </div>
+    <p style="margin-top:20px"><a href="reports.html" style="font-weight:700">活動レポートの一覧へ</a></p>
   </div>
 </section>
 
@@ -968,8 +378,8 @@ footer a{color:var(--ink-soft)}
         <h2 id="media-title"><span class="ib">取材・視察・タイアップを</span><span class="ib">ご希望のメディア・企業様へ</span></h2>
         <p>倉庫が畑になり、畑が食卓になる。開設前の改装から、こどもたちの収穫の瞬間まで、撮れる・語れるシーンがたくさんあります。取材・視察・共同企画のご相談を歓迎します。</p>
         <div class="media-actions">
-          <a class="btn btn-primary js-form" href="#">取材・視察を申し込む</a>
-          <a class="btn btn-ghost js-mail" href="#">メールで問い合わせる</a>
+          <a class="btn btn-primary" href="contact.html#media">取材・視察を申し込む</a>
+          <a class="btn btn-ghost" href="#" data-mail="取材・視察について">メールで問い合わせる</a>
         </div>
         <p class="media-note">プレスキット（写真・ロゴ・事業概要）は準備中です。 <span class="tmp">仮</span></p>
       </div>
@@ -984,73 +394,16 @@ footer a{color:var(--ink-soft)}
   </div>
 </section>
 
-<!-- ================= OTHER WAYS ================= -->
-<section class="sec sec-alt" id="others" aria-labelledby="others-title">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 id="others-title"><span class="ib">モノや時間で、</span><span class="ib">プロジェクトに加わる</span></h2>
-      <p>種や設備、そしてあなたの得意なこと。お金以外のかたちでも、この場所を一緒につくれます。</p>
-    </div>
-    <div class="ways">
-      <div class="way">
-        <div class="ph sun" data-label="写真：寄贈された調理器具や苗"><img src="https://images.pexels.com/photos/4390619/pexels-photo-4390619.jpeg?auto=compress&cs=tinysrgb&w=800" alt="ポットで育つ野菜の苗" decoding="async" loading="lazy"></div>
-        <div class="way-body">
-          <h3>野菜・物品・苗のご提供</h3>
-          <p>新品・中古は問いません。農家さんの規格外野菜や、採れすぎた旬の野菜も大歓迎です。</p>
-          <ul class="chips"><li class="chip-farm">規格外野菜・旬の収穫野菜（農家さんから）</li><li>野菜の種・苗</li><li>液体肥料</li><li>業務用冷蔵庫</li><li>調理器具・食器</li><li>長机・椅子</li><li>米・調味料・乾物</li></ul>
-          <a class="btn btn-ghost btn-sm js-form" href="#">提供を申し出る</a>
-        </div>
-      </div>
-      <div class="way">
-        <div class="ph" data-label="写真：収穫作業をするボランティア"><img src="https://images.pexels.com/photos/7728874/pexels-photo-7728874.jpeg?auto=compress&cs=tinysrgb&w=800" alt="レタスの苗を植える作業" decoding="async" loading="lazy"></div>
-        <div class="way-body">
-          <h3>ボランティア</h3>
-          <p>経験は不要、月1回からでも参加できます。</p>
-          <ul class="chips"><li>種まき・収穫</li><li>ラックの管理</li><li>調理・配膳</li><li>受付・見守り</li><li>広報・デザイン</li><li>倉庫のDIY</li></ul>
-          <a class="btn btn-ghost btn-sm js-form" href="#">ボランティアに申し込む</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= ORG ================= -->
-<section class="sec" id="org" aria-labelledby="org-title">
-  <div class="wrap org">
-    <div class="org-text">
-      <h2 id="org-title">運営は、フードフライト愛知</h2>
-      <p>愛知県でフードバンク活動と、家庭向け水耕栽培キットの貸し出しを行っている非営利の団体です。県内のこども食堂やフードバンクの場所をまとめた「地域たすけあいマップ」も運営しています。食べ物を届けてきた経験と、野菜を育ててきた経験を、ひとつの場所に集めるのがこのプロジェクトです。</p>
-      <a class="link" href="https://foodflight-aichi.github.io/map/">地域たすけあいマップを見る</a>
-    </div>
-    <div class="facts">
-      <dl>
-        <div><dt>プロジェクト名</dt><dd>そだてる食堂 <span class="tmp">仮</span></dd></div>
-        <div><dt>運営</dt><dd>フードフライト愛知</dd></div>
-        <div><dt>場所</dt><dd>愛知県内の倉庫 <span class="tmp">仮</span></dd></div>
-        <div><dt>開設予定</dt><dd>2027年秋 <span class="tmp">仮</span></dd></div>
-        <div><dt>開催頻度</dt><dd>週1回から開始 <span class="tmp">仮</span></dd></div>
-        <div><dt>対象</dt><dd>地域のこどもと保護者</dd></div>
-      </dl>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FAQ ================= -->
+<!-- ================= FAQ PREVIEW ================= -->
 <section class="sec sec-alt" id="faq" aria-labelledby="faq-title">
   <div class="wrap">
     <div class="sec-head center"><h2 id="faq-title">よくある質問</h2></div>
     <div class="faq">
-      <details><summary>「投資」とありますが、配当や金銭的なリターンはありますか？</summary><p>ありません。このサイトでいう「投資」は、地域の未来とこどもたちの体験に向けた投資という意味です。いただいたお金は寄付として食堂の運営にあて、リターンは食数チケット・お名前の掲示・体験へのご招待です。</p></details>
       <details><summary>本名を出さずにサポーターになることはできますか？</summary><p>はい、大歓迎です。サイトや会場ボード・栽培ラックへの表記は、本名だけでなくニックネーム・ペンネーム・イニシャル・「匿名希望（掲載なし）」など、ご希望に合わせて自由にお選びいただけます。</p></details>
-      <details><summary>月額サポーターは、いつでもやめられますか？</summary><p>はい。金額の変更・休止・解約はいつでもできます。手続きは申込ページのマイページ、またはお問い合わせから行えます。</p></details>
-      <details><summary>収穫した野菜は届きますか？</summary><p>野菜の発送は行っていません。鮮度と送料の負担を考え、その分をこどもたちの食事にあてています。代わりに、収穫体験や試食会、名前の掲示といった「食堂に関わる体験」をお礼としてご用意しています。</p></details>
-      <details><summary>支援金は何に使われますか？</summary><p>倉庫の家賃、LEDやポンプの電気代、食材、種や養液など、毎月の運営費にあてます。使いみちは毎月の活動レポートと年1回の報告書で公開します。</p></details>
-      <details><summary>寄付金控除の対象になりますか？</summary><p><span class="tmp">仮</span> 団体の法人格や認定状況によって異なります。詳しくはお問い合わせください。</p></details>
-      <details><summary>食堂は誰でも利用できますか？</summary><p>地域のこどもと保護者が対象です。利用に条件や審査はありません。料金や予約方法は、開設が近づいたらお知らせします。</p></details>
-      <details><summary>体験会や交流会はどこで開かれますか？</summary><p>食堂のある倉庫で開催します。日程はサポーター向けの活動レポートでお知らせします。</p></details>
-      <details><summary>農家です。少量や不定期の野菜提供でも参加できますか？</summary><p>もちろんです。規格外の野菜や、採れすぎた旬の野菜を、届けられるときに届けていただければ十分です。いただいた野菜は「今日のヒーロー農家さん」として、メニュー表とサイトで農園名と一緒にご紹介します。</p></details>
-      <details><summary>取材や視察は、開設前でも受け付けていますか？</summary><p>はい。倉庫の改装や栽培ラックの立ち上げなど、開設前の過程こそ見どころです。取材・視察の欄から、お気軽にご連絡ください。</p></details>
+      <details><summary>月額サポーターは、いつでもやめられますか？</summary><p>はい。金額の変更・休止・解約はいつでもできます。手続きは、申込先のコングラントのマイページ、またはお問い合わせから行えます。</p></details>
+      <details><summary>寄付金控除の対象になりますか？</summary><p>なりません。運営のフードフライト愛知は任意団体で、認定NPO法人等ではないため、そだてる食堂へのご寄付は寄付金控除（所得税・住民税）の対象外です。あらかじめご了承のうえ、ご支援いただけますと幸いです。</p></details>
     </div>
+    <p style="margin-top:28px;text-align:center"><a class="btn btn-ghost" href="faq.html">よくある質問をすべて見る</a></p>
   </div>
 </section>
 
@@ -1063,245 +416,38 @@ footer a{color:var(--ink-soft)}
       <h2 id="join-title"><span class="ib">未来の農場の、</span><br><span class="ib">はじまりの100人へ。</span></h2>
       <p>月1,000円から、このプロジェクトの共同オーナーに。数年後「あの食堂、最初から関わってるんだ」と言える側へ。法人パートナー・取材のご相談もお待ちしています。</p>
       <div class="row">
-        <a class="btn btn-primary js-monthly" href="#support">月額サポーターになる</a>
-        <a class="btn btn-ghost" href="#tiers">法人スポンサー・投資家向け案内</a>
-        <a class="btn btn-ghost js-form" href="#">お問い合わせ</a>
+        <a class="btn btn-primary" href="support.html">月額サポーターになる</a>
+        <a class="btn btn-ghost" href="partners.html">企業・団体パートナーのご案内</a>
+        <a class="btn btn-ghost" href="contact.html">お問い合わせ</a>
       </div>
     </div>
   </div>
 </section>
-
 </main>
 
 <footer>
   <div class="wrap">
-    <span>© フードフライト愛知</span>
+    <div class="f-org">© フードフライト愛知<br><span>そだてる食堂プロジェクト｜愛知県小牧市</span></div>
     <nav aria-label="フッター">
-      <a href="#support">月額プラン</a>
-      <a href="#tiers">法人パートナー</a>
-      <a href="#farm">農家さん・農福連携</a>
-      <a href="#media">取材・視察</a>
-      <a href="sponsors.html">パートナー一覧</a>
-      <a href="#faq">よくある質問</a>
+      <a href="support.html">支援する</a>
+      <a href="partners.html">企業・団体パートナー</a>
+      <a href="sponsors.html">サポーター・パートナー一覧</a>
+      <a href="about.html">団体について</a>
+      <a href="reports.html">活動レポート</a>
+      <a href="news.html">お知らせ・クラファン</a>
+      <a href="join.html">参加する</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a href="privacy.html">プライバシーポリシー</a>
       <a href="https://foodflight-aichi.github.io/map/">地域たすけあいマップ</a>
     </nav>
   </div>
 </footer>
-
 <!-- 追従CTA -->
 <div class="float" id="float" aria-hidden="true">
   <p>月<b>¥1,000</b>から、未来の農場の共同オーナーに</p>
-  <a class="btn btn-primary js-monthly" href="#support" tabindex="-1">月額サポーターになる</a>
+  <a class="btn btn-primary" href="support.html" tabindex="-1">支援する</a>
 </div>
-
-<script>
-/* ===== 共通：ヘッダーのすりガラス・スマホメニュー・スクロールアニメーション ===== */
-(function(){
-  const head = document.getElementById("head");
-  const onScroll = () => head.classList.toggle("is-scrolled", scrollY > 8);
-  addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  const btn = document.getElementById("menu-btn");
-  const nav = document.getElementById("m-nav");
-  if (btn && nav){
-    const set = open => {
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
-      btn.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
-      nav.classList.toggle("open", open);
-      head.classList.toggle("menu-open", open);
-    };
-    btn.addEventListener("click", () => set(btn.getAttribute("aria-expanded") !== "true"));
-    nav.addEventListener("click", e => { if (e.target.closest("a")) set(false); });
-    addEventListener("keydown", e => { if (e.key === "Escape") set(false); });
-    addEventListener("resize", () => { if (innerWidth > 900) set(false); });
-  }
-
-  /* 見出し・カード・写真を、スクロールに合わせて下からふわっと表示 */
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const SELECTORS = [
-    ".hero-tags",".hero h1",".hero-lead",".hero-actions",".hero-meta",".collage > *",
-    ".sec-head",".tile",".reason",".farm-card",".farm-flow",".farm-cta",".fcard",".story-photo",".story-body",".goal-card",".budget",
-    ".sim",".plan",".role",".tier",".corp-why > div",".media",".angles li",".way",
-    ".org-text",".facts",".faq details",".final-card",
-    ".sp-hero h1",".sp-lead",".stat",".cat-head",".pcard",".logo-tile",".name-row li",
-    ".wall-wrap",".plate",".wall li",".oyasai",".ik-card",".empty"
-  ].join(",");
-  let io = null;
-  if (!reduce && "IntersectionObserver" in window){
-    io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { threshold: .12, rootMargin: "0px 0px -6% 0px" });
-  }
-  window.sodateruReveal = (root = document) => {
-    if (!io) return;
-    root.querySelectorAll(SELECTORS).forEach(el => {
-      if (el.classList.contains("rv")) return;
-      const sibs = [...el.parentElement.children].filter(c => c.matches(SELECTORS));
-      el.style.setProperty("--d", (Math.min(sibs.indexOf(el), 6) * 0.08) + "s");
-      el.classList.add("rv");
-      io.observe(el);
-    });
-  };
-  window.sodateruReveal();
-
-  /* 数字のカウントアップ */
-  window.sodateruCount = (el, to, opts = {}) => {
-    const from = opts.from ?? (parseFloat(String(el.dataset.v ?? "0")) || 0);
-    const dec = opts.decimals ?? 0, dur = reduce ? 0 : (opts.duration ?? 1100);
-    const fmt = v => v.toLocaleString("ja-JP", { minimumFractionDigits: dec, maximumFractionDigits: dec });
-    el.dataset.v = to;
-    if (!dur){ el.textContent = fmt(to); return; }
-    const t0 = performance.now();
-    const step = t => {
-      const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
-      el.textContent = fmt(from + (to - from) * e);
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-})();
-</script>
-<script>
-/* ===== 設定欄：ここだけ書き換えればOK ===== */
-const MONTHLY_URL      = "";  // 月額寄付の申込ページ。空欄なら「月額プラン」欄へスクロール
-const CONTACT_FORM_URL = "";  // 例: "https://forms.gle/xxxxx"
-const CONTACT_EMAIL    = "info@example.com"; // 【仮】
-const SUPPORTER_GOAL   = 100; // 募集人数
-const SUPPORTER_COUNT  = 0;   // 現在のサポーター人数（手動で更新）
-/* ======================================== */
-
-(function(){
-  const goal = Math.max(1, SUPPORTER_GOAL);
-  const count = Math.max(0, Math.min(SUPPORTER_COUNT, goal));
-
-  document.querySelectorAll(".js-goal-text").forEach(el => el.textContent = goal);
-  document.querySelectorAll(".js-count").forEach(el => el.textContent = SUPPORTER_COUNT);
-  document.querySelectorAll(".js-rest").forEach(el => el.textContent = Math.max(0, goal - SUPPORTER_COUNT));
-
-  const fill = (el, n) => {
-    let h = "";
-    for (let i = 0; i < n; i++) h += `<i class="${i < Math.round(count / goal * n) ? "on" : ""}"></i>`;
-    el.innerHTML = h;
-  };
-  document.querySelectorAll(".js-mini").forEach(el => fill(el, 30));
-
-  /* links */
-  const mail = CONTACT_EMAIL ? "mailto:" + CONTACT_EMAIL : "#";
-  document.querySelectorAll(".js-monthly").forEach(a => {
-    if (MONTHLY_URL){ a.href = MONTHLY_URL; a.target = "_blank"; a.rel = "noopener"; }
-    else a.href = "#support";
-  });
-  document.querySelectorAll(".js-form").forEach(a => {
-    a.href = CONTACT_FORM_URL || mail;
-    if (CONTACT_FORM_URL){ a.target = "_blank"; a.rel = "noopener"; }
-  });
-  document.querySelectorAll(".js-mail").forEach(a => a.href = mail);
-
-  /* floating CTA: ヒーローを過ぎたら表示、月額プラン欄と最後のCTAが見えている間は隠す */
-  const float = document.getElementById("float");
-  const floatBtn = float.querySelector("a");
-  const hero = document.querySelector(".hero");
-  const hideZones = [document.getElementById("support"), document.getElementById("join")];
-  let pastHero = false;
-  const visibleZones = new Set();
-  const update = () => {
-    const show = pastHero && visibleZones.size === 0;
-    float.classList.toggle("show", show);
-    float.setAttribute("aria-hidden", show ? "false" : "true");
-    floatBtn.tabIndex = show ? 0 : -1;
-  };
-  new IntersectionObserver(([e]) => {
-    pastHero = !e.isIntersecting && e.boundingClientRect.top < 0;
-    update();
-  }, { threshold: 0 }).observe(hero);
-  const zo = new IntersectionObserver(entries => {
-    entries.forEach(e => e.isIntersecting ? visibleZones.add(e.target) : visibleZones.delete(e.target));
-    update();
-  }, { threshold: 0.15 });
-  hideZones.forEach(z => z && zo.observe(z));
-
-  /* ---- 写真：読み込めたらふわっと表示、読み込めなければ元の枠に戻す ---- */
-  document.querySelectorAll(".ph img").forEach(img => {
-    const ph = img.closest(".ph");
-    const ok = () => { img.classList.add("loaded"); ph.classList.add("has-photo"); };
-    const ng = () => { img.remove(); ph.classList.remove("has-photo"); };
-    if (img.complete && img.naturalWidth) ok();
-    else if (img.complete) ng();
-    else { img.addEventListener("load", ok, { once: true }); img.addEventListener("error", ng, { once: true }); }
-  });
-
-  /* ---- はじまりの100人：100席グリッドとツールチップ ---- */
-  document.querySelectorAll(".js-seats").forEach(grid => {
-    let h = "";
-    for (let i = 0; i < goal; i++){
-      const cls = i < count ? "on" : (i === count ? "you" : "");
-      h += `<i class="${cls}" style="--i:${i}" data-n="${i + 1}"></i>`;
-    }
-    grid.innerHTML = h;
-    grid.setAttribute("aria-label", `${goal}席のうち${count}席が埋まっています。${count < goal ? `次はNo.${String(count + 1).padStart(2, "0")}の席です。` : ""}`);
-    const card = grid.closest(".goal-card");
-    const tip = document.createElement("span");
-    tip.className = "seat-tip"; tip.setAttribute("aria-hidden", "true");
-    card.appendChild(tip);
-    const show = el => {
-      const n = +el.dataset.n, no = String(n).padStart(2, "0");
-      tip.innerHTML = n <= count ? `No.<b>${no}</b>：参加済みのサポーター`
-        : n === count + 1 ? `No.<b>${no}</b>：募集中（あなたの席）` : `No.<b>${no}</b>：募集中`;
-      const r = el.getBoundingClientRect(), c = card.getBoundingClientRect();
-      let x = r.left - c.left + r.width / 2;
-      x = Math.max(110, Math.min(c.width - 110, x));
-      tip.style.left = x + "px"; tip.style.top = (r.top - c.top) + "px";
-      tip.classList.add("show");
-    };
-    grid.addEventListener("pointerover", e => { if (e.target.tagName === "I") show(e.target); });
-    grid.addEventListener("pointerleave", () => tip.classList.remove("show"));
-    grid.addEventListener("click", e => { if (e.target.tagName === "I") show(e.target); });
-    if ("IntersectionObserver" in window){
-      const o = new IntersectionObserver(([en]) => { if (en.isIntersecting){ grid.classList.add("go"); o.disconnect(); } }, { threshold: .3 });
-      o.observe(grid);
-    } else grid.classList.add("go");
-  });
-
-  /* ---- 支援シミュレーター ---- */
-  (function(){
-    const range = document.getElementById("sim-range");
-    if (!range) return;
-    const btns = [...document.querySelectorAll(".sim-amounts button")];
-    const out = document.getElementById("sim-out");
-    const amt = document.getElementById("sim-amt");
-    const meals = document.getElementById("sim-meals");
-    const lettuce = document.getElementById("sim-lettuce");
-    const share = document.getElementById("sim-share");
-    const sprouts = document.getElementById("sim-sprouts");
-    const plan = document.getElementById("sim-plan");
-    const perk = document.getElementById("sim-perk");
-    const MEAL = 1000, LETTUCE = 500, MONTHLY_COST = 200000;  /* 試算の前提（仮） */
-    const SPROUT = '<svg viewBox="0 0 20 20"><path d="M10 18v-7" stroke="#B7E4C7" stroke-width="1.6" stroke-linecap="round"/><path d="M10 11.5c0-3.5 2.2-5.5 6-5.5 0 3.5-2.2 5.5-6 5.5z" fill="#52B788"/><path d="M10 13c0-3-1.9-4.6-5-4.6 0 3 1.9 4.6 5 4.6z" fill="#E3A92B"/></svg>';
-    let shown = 0;
-    const update = (v, instant) => {
-      v = Math.round(v / 1000) * 1000;
-      range.value = v;
-      btns.forEach(b => b.setAttribute("aria-pressed", +b.dataset.v === v ? "true" : "false"));
-      out.textContent = "¥" + v.toLocaleString("ja-JP");
-      const o = instant ? { duration: 0 } : { duration: 700 };
-      sodateruCount(amt, v, o);
-      sodateruCount(meals, Math.round(v * 12 / MEAL), o);
-      sodateruCount(lettuce, Math.round(v * 12 / LETTUCE), o);
-      sodateruCount(share, v / MONTHLY_COST * 100, { ...o, decimals: 1 });
-      const n = Math.max(1, Math.min(36, Math.round(v * 12 / LETTUCE / 20)));
-      if (n > shown){ for (let i = shown; i < n; i++){ const s = document.createElement("span"); s.innerHTML = SPROUT; s.firstChild.style.animationDelay = ((i - shown) * 25) + "ms"; sprouts.appendChild(s.firstChild); } }
-      else while (sprouts.children.length > n) sprouts.lastChild.remove();
-      shown = n;
-      if (v >= 10000){ plan.textContent = "マイ・レーン オーナー"; perk.textContent = "栽培ラック1段のネームプレートと、支援者限定ナイト交流会"; }
-      else if (v >= 3000){ plan.textContent = "そだてるサポーター"; perk.textContent = "名前の掲示と、月1回の収穫体験・試食会"; }
-      else { plan.textContent = "おやさいサポーター"; perk.textContent = "毎月1食分の食数チケットと、月次レポート"; }
-    };
-    btns.forEach(b => b.addEventListener("click", () => update(+b.dataset.v)));
-    range.addEventListener("input", () => update(+range.value));
-    update(+range.value, true);
-  })();
-})();
-</script>
+<script src="common.js"></script>
 </body>
 </html>
